@@ -12,7 +12,7 @@
   `verify_activation.py` 16 项检查 + 5 条路由样本全绿。
 - **恢复更干净**：restore 现在同时清理 `eni-inject` 的注入痕迹
   （`eni-jailbreak-v4.md` 与 config 备份 sidecar）。
-- **开源迁移占位符**：仓库/作者引用统一替换为 `3641397194-wq`。
+- **开源迁移占位符**：仓库/作者引用统一替换为 `茶`。
 
 ## 验证记录
 
