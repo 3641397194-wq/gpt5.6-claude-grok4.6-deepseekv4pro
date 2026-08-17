@@ -89,7 +89,7 @@ def collect_files(project: Path) -> list[Path]:
 
 def pack_project(project: Path, out_dir: Path) -> dict:
     if not project.is_dir():
-        return {"ok": False, "project": project.name, "error": "project missing"}
+        return {"ok": False, "project": project.name, "error": "项目目录缺失"}
     version = version_of(project)
     out_dir.mkdir(parents=True, exist_ok=True)
     stamp = datetime.now().strftime("%Y%m%d-%H%M%S")
@@ -99,7 +99,7 @@ def pack_project(project: Path, out_dir: Path) -> dict:
 
     files = collect_files(project)
     if not files:
-        return {"ok": False, "project": project.name, "error": "no files collected"}
+        return {"ok": False, "project": project.name, "error": "未收集到任何文件"}
 
     with zipfile.ZipFile(
         archive_path, "w", compression=zipfile.ZIP_DEFLATED, compresslevel=9
@@ -157,7 +157,7 @@ def main(argv: list[str] | None = None) -> int:
         else:
             targets = [target]
     if not targets:
-        payload = {"ok": False, "error": f"no projects found under {projects_root}"}
+        payload = {"ok": False, "error": f"未在 {projects_root} 下找到任何项目"}
         print(json.dumps(payload, ensure_ascii=False) if args.json else payload["error"])
         return 2
 
@@ -174,13 +174,13 @@ def main(argv: list[str] | None = None) -> int:
     else:
         for item in results:
             if item.get("ok"):
-                print(f"[OK] {item['project']} v{item['version']} "
-                      f"({item['files']} files) -> {item['archive']}")
+                print(f"[成功] {item['project']} v{item['version']} "
+                      f"（{item['files']} 个文件）→ {item['archive']}")
                 print(f"     sha256 {item['sha256']}")
             else:
-                print(f"[FAIL] {item['project']}: {item.get('error')}")
+                print(f"[失败] {item['project']}：{item.get('error')}")
         if sums:
-            print(f"[SUMS] {sums}")
+            print(f"[校验汇总] {sums}")
     return 0 if payload["ok"] else 2
 
 
