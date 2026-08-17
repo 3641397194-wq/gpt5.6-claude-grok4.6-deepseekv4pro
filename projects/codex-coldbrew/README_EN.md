@@ -94,6 +94,21 @@ ColdBrew keeps the first-install baseline across profile switches, writes atomic
 
 ## ColdBrew community
 
+Brand: **冷咖啡 ColdBrew**
+
+| QQ group: codex 破甲 | QQ group: codex claude 破甲 |
+|---|---|
+| **1057540028** | **1077074552** |
+| <img src="docs/images/qq-group-codex.png" alt="QQ 1057540028" width="300"> | <img src="docs/images/qq-group-codex-claude.png" alt="QQ 1077074552" width="300"> |
+
+- WeChat group: 冷咖啡破甲社区
+
+  <img src="docs/images/codex-group-qr.png" alt="WeChat group" width="240">
+
+- Telegram group: [@chachachacha99999](https://t.me/chachachacha99999)
+- Official Telegram channel: [@chachacha99999999](https://t.me/chachacha99999999)
+
+
 ## Originality and licensing
 
 The implementation is a clean-room synthesis. `MDX-Tom/gpt-5.6-instruct@77e7a649903f9556f2d7bfa0223fa99e123aad52` was reviewed for general preview, ownership, rollback, archive, and regression concepts under MIT. `zxr-roro/GPT5.6-5.5-@b18ceb0322d86480df049147e451cfbea5070e20` has no unified top-level license and was used only to observe public directory and capability taxonomy. No external prompt text, code, Skills, tests, README text, images, state schema, scripts, or release artifacts are included.

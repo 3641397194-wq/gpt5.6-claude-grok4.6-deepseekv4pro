@@ -181,3 +181,19 @@ docs/            GitHub Pages、产品文档、截图与社区图片
 ```
 
 本项目与 Anthropic、OpenAI、腾讯及 Telegram 无隶属、赞助或背书关系；相关名称和商标归各自权利人所有。
+
+## 冷咖啡社区
+
+品牌：**冷咖啡 ColdBrew**
+
+| QQ 群：codex 破甲 | QQ 群：codex claude 破甲 |
+|---|---|
+| 群号 **1057540028** | 群号 **1077074552** |
+| <img src="docs/images/qq-group-codex.png" alt="QQ群 1057540028" width="300"> | <img src="docs/images/qq-group-codex-claude.png" alt="QQ群 1077074552" width="300"> |
+
+- 微信群：**冷咖啡破甲社区**
+
+  <img src="docs/images/codex-group-qr.png" alt="微信群：冷咖啡破甲社区" width="240">
+
+- Telegram 交流群：[@chachachacha99999](https://t.me/chachachacha99999)
+- 官方 Telegram 频道：[@chachacha99999999](https://t.me/chachacha99999999)

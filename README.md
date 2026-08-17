@@ -48,3 +48,21 @@
 - 部署失败时先点 **恢复** 回滚，再看日志定位（底部日志区有完整输出）；
 - 新 GitHub 账号上传这些项目前，先看桌面的 `新账户迁移注意事项.md`；
 - 仓库作者/链接已统一为 `3641397194-wq`。
+
+## 冷咖啡社区
+
+品牌：**冷咖啡 ColdBrew** —— 四模型破甲，一杯冷咖啡的功夫全部搞定。
+
+| QQ 群：codex 破甲 | QQ 群：codex claude 破甲 |
+|---|---|
+| 群号 **1057540028** | 群号 **1077074552** |
+| <img src="projects/codex-coldbrew/docs/images/qq-group-codex.png" alt="QQ群 1057540028" width="300"> | <img src="projects/codex-coldbrew/docs/images/qq-group-codex-claude.png" alt="QQ群 1077074552" width="300"> |
+
+- 微信群：**冷咖啡破甲社区**（扫码加入）
+
+  <img src="projects/codex-coldbrew/docs/images/codex-group-qr.png" alt="微信群：冷咖啡破甲社区" width="240">
+
+- Telegram 交流群：[@chachachacha99999](https://t.me/chachachacha99999)
+- 官方 Telegram 频道：[@chachacha99999999](https://t.me/chachacha99999999)
+
+> 品牌归属与社区入口仅此一处，其余仓库 README 的社区章节与此一致。

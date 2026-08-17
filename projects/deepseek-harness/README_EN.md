@@ -41,3 +41,19 @@ python scripts/release.py verify
 ```
 
 This independent project is not affiliated with, sponsored by, or endorsed by DeepSeek, OpenAI, Anthropic, Tencent, or Telegram.
+
+## ColdBrew community
+
+Brand: **冷咖啡 ColdBrew**
+
+| QQ group: codex 破甲 | QQ group: codex claude 破甲 |
+|---|---|
+| **1057540028** | **1077074552** |
+| <img src="docs/images/qq-group-1.png" alt="QQ 1057540028" width="300"> | <img src="docs/images/qq-group-2.png" alt="QQ 1077074552" width="300"> |
+
+- WeChat group: 冷咖啡破甲社区
+
+  <img src="docs/images/wechat-group.png" alt="WeChat group" width="240">
+
+- Telegram group: [@chachachacha99999](https://t.me/chachachacha99999)
+- Official Telegram channel: [@chachacha99999999](https://t.me/chachacha99999999)
