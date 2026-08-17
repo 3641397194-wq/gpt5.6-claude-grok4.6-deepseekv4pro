@@ -116,6 +116,11 @@ release\ 目录
   <img src="projects/codex-coldbrew/docs/images/codex-group-qr.png" width="240">
 </p>
 
+<p align="center">
+  <strong>Telegram 交流群</strong>：<a href="https://t.me/chachachacha99999">@chachachacha99999</a><br>
+  <strong>官方 Telegram 频道</strong>：<a href="https://t.me/chachacha99999999">@chachacha99999999</a>
+</p>
+
 ## 📜 仓库
 
 
