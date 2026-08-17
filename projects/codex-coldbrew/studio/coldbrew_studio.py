@@ -62,7 +62,7 @@ if not ICON_PATH.exists():
 BRAND_IMAGE_PATH = RUNTIME_ROOT / "assets" / "ishii-brand.png"
 if not BRAND_IMAGE_PATH.exists():
     BRAND_IMAGE_PATH = ROOT / "assets" / "ishii-brand.png"
-PROJECT_SOURCE_URL = "https://github.com/3641397194-wq/codex5.6-coldbrew"
+PROJECT_SOURCE_URL = "https://github.com/茶/codex5.6-coldbrew"
 # Community promotion removed for the open-source release; the community
 # page now shows a plain notice instead of group links and QR images.
 COMMUNITY_IMAGE_PATHS: tuple[Path, ...] = ()
