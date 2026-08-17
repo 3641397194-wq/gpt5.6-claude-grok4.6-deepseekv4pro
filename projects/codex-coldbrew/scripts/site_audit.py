@@ -298,7 +298,7 @@ def audit(root: Path) -> list[dict[str, str]]:
         record(False, ".github/repository-metadata.json", f"parse:{exc.__class__.__name__}")
     else:
         record(metadata.get("description") == EXPECTED_DESCRIPTION, "repository description", "exact UTF-8 source")
-        record(metadata.get("homepage") == "https://3641397194-wq.github.io/codex5.6-coldbrew/", "repository homepage", "Pages URL")
+        record(metadata.get("homepage") == "https://茶.github.io/codex5.6-coldbrew/", "repository homepage", "Pages URL")
         topics = metadata.get("topics", [])
         record(isinstance(topics, list) and "codex" in topics and "coldbrew" in topics, "repository topics", "core topics")
 
