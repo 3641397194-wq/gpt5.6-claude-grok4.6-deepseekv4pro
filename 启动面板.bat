@@ -12,7 +12,7 @@ if not defined PY (
     if not errorlevel 1 set "PY=py -3"
 )
 
-if defined PY goto :run
+if defined PY goto :tkcheck
 
 echo [错误] 未找到可用的 Python 3.10 或更高版本
 echo.
@@ -22,6 +22,21 @@ echo      安装时务必勾选 "Add python.exe to PATH"；
 echo   2. 如果已经装了 Python 仍报这个错，多半是 Microsoft Store 的
 echo      假 Python 占位在捣乱：打开 设置 - 应用 - 高级应用设置 -
 echo      应用执行别名，把 python.exe 和 python3.exe 的开关关掉。
+echo.
+echo 修好后重新双击本文件即可。
+echo.
+pause
+exit /b 1
+
+:tkcheck
+%PY% -c "import tkinter" >nul 2>nul
+if not errorlevel 1 goto :run
+
+echo [错误] Python 缺少 tkinter（Tcl/Tk 组件未安装）
+echo.
+echo 解决办法：重新运行 Python 安装器，选 Modify ，
+echo 在 Optional Features 里勾选 "tcl/tk and IDLE" 完成安装，
+echo 或者直接去 python.org 重装一遍 Python（默认即带 tkinter）。
 echo.
 echo 修好后重新双击本文件即可。
 echo.
