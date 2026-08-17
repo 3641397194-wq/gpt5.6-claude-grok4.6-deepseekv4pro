@@ -144,12 +144,21 @@ projects\
 ### QQ 群
 
 <p align="center">
-  <img src="projects/codex-coldbrew/docs/images/qq-group-codex.png" width="230">
-  <img src="projects/codex-coldbrew/docs/images/qq-group-codex-claude.png" width="230">
+  <strong>🐧 codex 破甲 1057540028 ｜ 🐧 codex claude 破甲 1077074552</strong><br>
+  <img src="projects/codex-coldbrew/docs/images/qq-group-codex.png" width="340">
+  <img src="projects/codex-coldbrew/docs/images/qq-group-codex-claude.png" width="340">
 </p>
 
-| 二维码 | 群号 |
-|---|---|
+### 微信群
+
+<p align="center">
+  <img src="projects/codex-coldbrew/docs/images/codex-group-qr.png" width="220">
+</p>
+
+### Telegram
+
+- ✈️ [@chachachacha99999](https://t.me/chachachacha99999)
+- ✈️ [@chachacha99999999](https://t.me/chachacha99999999)---|---|
 | `projects/codex-coldbrew/docs/images/qq-group-codex.png` | 1057540028 |
 | `projects/codex-coldbrew/docs/images/qq-group-codex-claude.png` | 1077074552 |
 
