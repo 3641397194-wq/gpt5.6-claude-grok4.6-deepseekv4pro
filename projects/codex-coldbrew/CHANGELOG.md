@@ -15,7 +15,7 @@ All notable changes to this project are documented here.
   gate (one_solo_block, isible_route_contract) passes.
 - Restore now also undoes the injector footprint (eni-jailbreak-v4.md and
   config backup sidecars).
-- Switched repository/author references to 3641397194-wq
+- Switched repository/author references to 茶
   placeholders for the open-source release migration.
 ## 6.1.0 - 2026-08-17
 
@@ -228,7 +228,7 @@ All notable changes to this project are documented here.
 
 - Standardized the Skill folder and installed name to `eni-coldbrew`.
 - Updated Codex UI metadata and current Skill frontmatter format.
-- Updated project copyright to `3641397194-wq and contributors`.
+- Updated project copyright to `茶 and contributors`.
 
 ### Fixed
 
