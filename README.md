@@ -7,16 +7,16 @@
 <p align="center"><strong>一杯冷咖啡的功夫，四个模型的破甲全部搞定</strong></p>
 
 <p align="center">
-  <a href="https://github.com/3641397194-wq/gpt5.6-claude-grok4.6-deepseekv4pro">
+  <a href="https://github.com/茶/gpt5.6-claude-grok4.6-deepseekv4pro">
     <img src="https://img.shields.io/badge/GPT--5.6-111827?style=for-the-badge&logo=openai&logoColor=white">
   </a>
-  <a href="https://github.com/3641397194-wq/gpt5.6-claude-grok4.6-deepseekv4pro">
+  <a href="https://github.com/茶/gpt5.6-claude-grok4.6-deepseekv4pro">
     <img src="https://img.shields.io/badge/Claude-D97757?style=for-the-badge&logo=anthropic&logoColor=white">
   </a>
-  <a href="https://github.com/3641397194-wq/gpt5.6-claude-grok4.6-deepseekv4pro">
+  <a href="https://github.com/茶/gpt5.6-claude-grok4.6-deepseekv4pro">
     <img src="https://img.shields.io/badge/Grok%204.6-000000?style=for-the-badge&logo=x&logoColor=white">
   </a>
-  <a href="https://github.com/3641397194-wq/gpt5.6-claude-grok4.6-deepseekv4pro">
+  <a href="https://github.com/茶/gpt5.6-claude-grok4.6-deepseekv4pro">
     <img src="https://img.shields.io/badge/DeepSeek%20v4%20Pro-4D6BFE?style=for-the-badge&logoColor=white">
   </a>
   <img src="https://img.shields.io/badge/Python-3.10%2B-3776AB?style=for-the-badge&logo=python&logoColor=white">
@@ -24,7 +24,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/3641397194-wq/gpt5.6-claude-grok4.6-deepseekv4pro">GitHub 仓库</a>
+  <a href="https://github.com/茶/gpt5.6-claude-grok4.6-deepseekv4pro">GitHub 仓库</a>
 </p>
 
 ---
@@ -64,7 +64,7 @@ ColdBrew 是一个面向 GPT-5.6、Claude、Grok 4.6 与 DeepSeek v4 Pro 的四�
 2. 克隆仓库：
 
 ```bash
-git clone https://github.com/3641397194-wq/gpt5.6-claude-grok4.6-deepseekv4pro
+git clone https://github.com/茶/gpt5.6-claude-grok4.6-deepseekv4pro
 ```
 
 3. 进入仓库目录。
@@ -124,6 +124,6 @@ release\ 目录
 ## 📜 仓库
 
 
-[https://github.com/3641397194-wq/gpt5.6-claude-grok4.6-deepseekv4pro](https://github.com/3641397194-wq/gpt5.6-claude-grok4.6-deepseekv4pro)
+[https://github.com/茶/gpt5.6-claude-grok4.6-deepseekv4pro](https://github.com/茶/gpt5.6-claude-grok4.6-deepseekv4pro)
 
 <p align="center"><sub>ColdBrew · 四个模型 · 一杯冷咖啡</sub></p>
