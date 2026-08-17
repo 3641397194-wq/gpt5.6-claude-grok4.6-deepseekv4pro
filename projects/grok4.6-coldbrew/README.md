@@ -1,12 +1,12 @@
-<p align="center"><a href="https://3641397194-wq.github.io/grok4.6-coldbrew/"><img src="docs/images/release-board.png" width="1200" alt="Grok 4.6 ColdBrew v1.0.1 产品封面"></a></p>
+<p align="center"><a href="https://茶.github.io/grok4.6-coldbrew/"><img src="docs/images/release-board.png" width="1200" alt="Grok 4.6 ColdBrew v1.0.1 产品封面"></a></p>
 
 <h1 align="center">Grok 4.6 破甲 · 冷咖啡</h1>
 
 <p align="center"><strong>Grok 4.6 ColdBrew v1.0.1</strong><br>高速信息流中的可逆会话模板与系统提示词部署器</p>
 
 <p align="center">
-  <a href="https://github.com/3641397194-wq/grok4.6-coldbrew/releases/latest"><strong>下载 Windows 软件</strong></a> ·
-  <a href="https://3641397194-wq.github.io/grok4.6-coldbrew/"><strong>查看宣传页</strong></a> ·
+  <a href="https://github.com/茶/grok4.6-coldbrew/releases/latest"><strong>下载 Windows 软件</strong></a> ·
+  <a href="https://茶.github.io/grok4.6-coldbrew/"><strong>查看宣传页</strong></a> ·
   <a href="README_EN.md"><strong>English</strong></a> ·
    ·
   
@@ -52,10 +52,10 @@ python app/grok_coldbrew.py
 
 | 产品 | 仓库 | 用途 |
 |---|---|---|
-| Codex 5.6 ColdBrew | [codex5.6-coldbrew](https://github.com/3641397194-wq/codex5.6-coldbrew) | Codex 多层本地指令部署工作台 |
-| Claude ColdBrew | [claude-coldbrew](https://github.com/3641397194-wq/claude-coldbrew) | Claude Code 多层规则部署工作台 |
-| Grok 4.6 ColdBrew | [grok4.6-coldbrew](https://github.com/3641397194-wq/grok4.6-coldbrew) | Grok 会话模板与系统提示词工作台 |
-| DeepSeek Harness ColdBrew | [deepseek-harness-coldbrew](https://github.com/3641397194-wq/deepseek-harness-coldbrew) | DeepSeek 本地 Harness 配置工作台 |
+| Codex 5.6 ColdBrew | [codex5.6-coldbrew](https://github.com/茶/codex5.6-coldbrew) | Codex 多层本地指令部署工作台 |
+| Claude ColdBrew | [claude-coldbrew](https://github.com/茶/claude-coldbrew) | Claude Code 多层规则部署工作台 |
+| Grok 4.6 ColdBrew | [grok4.6-coldbrew](https://github.com/茶/grok4.6-coldbrew) | Grok 会话模板与系统提示词工作台 |
+| DeepSeek Harness ColdBrew | [deepseek-harness-coldbrew](https://github.com/茶/deepseek-harness-coldbrew) | DeepSeek 本地 Harness 配置工作台 |
 
 
 ## 审计与发布
