@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="ogbg" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#0b0f14"/>
+      <stop offset=".55" stop-color="#111a20"/>
+      <stop offset="1" stop-color="#0b1015"/>
+    </linearGradient>
+    <pattern id="oggrid" width="42" height="42" patternUnits="userSpaceOnUse">
+      <path d="M42 0H0V42" fill="none" stroke="#72ffe4" stroke-opacity=".08"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#ogbg)"/>
+  <rect width="1200" height="630" fill="url(#oggrid)"/>
+  <path d="M120 160H1080M190 466H1010" stroke="#72ffe4" stroke-opacity=".18"/>
+  <circle cx="600" cy="306" r="214" fill="none" stroke="#5fffe0" stroke-opacity=".1" stroke-width="2"/>
+  <g font-family="Segoe UI,Microsoft YaHei,sans-serif" text-anchor="middle">
+    <text x="600" y="122" fill="#83bdb4" font-size="17" letter-spacing="8">COLD BREW · 四合一破甲</text>
+    <text x="600" y="267" fill="#ecfffb" font-size="92" font-weight="700">冷咖啡 <tspan fill="#72ffe4">ColdBrew</tspan></text>
+    <text x="600" y="322" fill="#b9cfcb" font-size="23" letter-spacing="4">GPT-5.6 · Claude · Grok 4.6 · DeepSeek v4 Pro</text>
+    <text x="600" y="540" fill="#638783" font-size="14" letter-spacing="4">COFFEE FOR EVERY MODEL</text>
+  </g>
+  <g transform="translate(255 381)" fill="none" stroke="#8ff5df" stroke-width="3">
+    <path d="M20 25H180L165 108Q158 133 100 137Q42 133 35 108Z" fill="#38231a" stroke="#b6fff0" stroke-width="4"/>
+    <path d="M34 28H167" stroke="#e4d3ad" stroke-width="7"/>
+    <path d="M56 16L78 42L102 13L129 42L151 17" fill="#e6fff8" fill-opacity=".55"/>
+    <path d="M95 -15L126 30L146 48" stroke="#6dffe0" stroke-width="5"/>
+    <path d="M20 25L-10 177M180 25L210 177M-10 177H210" stroke="#b6fff0"/>
+  </g>
+  <g transform="translate(520 406)" fill="#dffef7" fill-opacity=".2" stroke="#8ff5df" stroke-width="2">
+    <rect x="0" y="0" width="86" height="62" rx="10" transform="rotate(-12)"/>
+    <rect x="92" y="8" width="78" height="58" rx="10" transform="rotate(13 130 38)"/>
+    <path d="M32 16L67 42M115 20L151 48" stroke="#eafff9"/>
+  </g>
+  <g transform="translate(810 381)" fill="none" stroke="#8ff5df" stroke-width="3">
+    <path d="M20 25H180L165 108Q158 133 100 137Q42 133 35 108Z" fill="#38231a" stroke="#b6fff0" stroke-width="4"/>
+    <path d="M34 28H167" stroke="#e4d3ad" stroke-width="7"/>
+    <path d="M56 16L78 42L102 13L129 42L151 17" fill="#e6fff8" fill-opacity=".55"/>
+    <path d="M95 -15L126 30L146 48" stroke="#6dffe0" stroke-width="5"/>
+    <path d="M20 25L-10 177M180 25L210 177M-10 177H210" stroke="#b6fff0"/>
+  </g>
+</svg>
