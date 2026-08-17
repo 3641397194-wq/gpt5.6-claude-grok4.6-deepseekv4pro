@@ -15,6 +15,12 @@ from profile_engine import profile_names
 from transaction import TransactionError, deploy, preview, resolve_layout, restore, verify
 
 ROOT = Path(__file__).resolve().parents[1]
+SHARED = ROOT.parent / "shared"
+if not SHARED.is_dir():
+    SHARED = ROOT / "shared"
+sys.path.insert(0, str(SHARED))
+from coldbrew_ui import launch_shared_gui
+
 COMMUNITY = {
 
     "wechat": "微信群：冷咖啡破甲社区",
@@ -41,7 +47,7 @@ def export_template(destination: Path, profile: str) -> dict:
     return {"action": "export", "ok": True, "prompt": str(prompt), "template": str(session)}
 
 
-def launch_gui(home: Path | None = None) -> int:
+def _legacy_launch_gui(home: Path | None = None) -> int:
     import tkinter as tk
     from tkinter import messagebox, ttk
 
@@ -89,6 +95,25 @@ def launch_gui(home: Path | None = None) -> int:
     ttk.Button(buttons, text="社区入口", style="Quiet.TButton", command=lambda: output.insert("end", "\n\n" + json.dumps(COMMUNITY, ensure_ascii=False, indent=2))).pack(side="right")
     window.mainloop()
     return 0
+
+
+def launch_gui(home: Path | None = None) -> int:
+    """Open the shared ColdBrew workbench while preserving CLI contracts."""
+    return launch_shared_gui(
+        title="Grok 4.6 ColdBrew · Workbench",
+        model="Grok 4.6",
+        subtitle="实时信息流适配器 · 可回溯配置、预览与事务式恢复",
+        accent="#23F5D7",
+        home=home,
+        resolve_layout=resolve_layout,
+        profile_names=profile_names,
+        preview=preview,
+        deploy=deploy,
+        verify=verify,
+        restore=restore,
+        export_template=export_template,
+        community=COMMUNITY,
+    )
 
 
 def parser() -> argparse.ArgumentParser:
