@@ -1,3 +1,5 @@
+<p align="center"><img src="docs/images/banner.png" width="1200" alt="冷咖啡 ColdBrew 四合一破甲正式版 banner"></p>
+
 # 冷咖啡 · ColdBrew Hub（四合一破甲面板）
 
 一个窗口，四个工具：**GPT-5.6 / Claude Code / Grok 4.6 / DeepSeek**。
@@ -24,6 +26,16 @@
 
 - `studio/eni_solo_deploy.py` — eni-solo v4.0.0 部署桥接器（deploy/restore/status/verify/doctor，全链路备份回滚）
 - `pack/eni-solo/` — 完整越狱包（89 个技能、确定性路由器、石井人格、20 条工作流）
+
+
+## 四工具
+
+<p align="center">
+  <img src="docs/images/card-codex-coldbrew.png" width="46%" alt="GPT-5.6">
+  <img src="docs/images/card-claude-coldbrew.png" width="46%" alt="Claude Code">
+  <img src="docs/images/card-grok4.6-coldbrew.png" width="46%" alt="Grok 4.6">
+  <img src="docs/images/card-deepseek-harness.png" width="46%" alt="DeepSeek v4 Pro">
+</p>
 
 ## 目录结构
 
