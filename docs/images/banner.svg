@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b0f14"/>
+      <stop offset="1" stop-color="#10151b"/>
+    </linearGradient>
+    <linearGradient id="cyan" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#5fffe0"/>
+      <stop offset="1" stop-color="#9fd8ff"/>
+    </linearGradient>
+    <pattern id="grid" width="36" height="36" patternUnits="userSpaceOnUse">
+      <path d="M36 0H0V36" fill="none" stroke="#8cf7df" stroke-opacity=".075"/>
+    </pattern>
+    <pattern id="scan" width="4" height="18" patternUnits="userSpaceOnUse">
+      <path d="M0 0H4" stroke="#b8fff0" stroke-opacity=".055"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  <rect width="1200" height="630" fill="url(#scan)"/>
+  <path d="M0 116H1200M0 474H1200" stroke="#72ffe4" stroke-opacity=".16"/>
+  <path d="M732 88H1138M784 102H1198M692 492H1130" stroke="#72ffe4" stroke-opacity=".12"/>
+  <circle cx="1010" cy="306" r="184" fill="none" stroke="#5fffe0" stroke-opacity=".12" stroke-width="2"/>
+  <circle cx="1010" cy="306" r="145" fill="none" stroke="#5fffe0" stroke-opacity=".08"/>
+  <g font-family="Segoe UI,Microsoft YaHei,sans-serif">
+    <text x="82" y="472" fill="#e9fffa" font-size="126" font-weight="700" letter-spacing="18" writing-mode="tb">冷咖啡</text>
+    <text x="314" y="218" fill="url(#cyan)" font-size="76" font-weight="700" letter-spacing="2">ColdBrew</text>
+    <text x="318" y="276" fill="#d8e6e5" font-size="25" letter-spacing="7">四合一破甲 · 正式版</text>
+    <rect x="318" y="315" width="548" height="1" fill="#5fffe0" opacity=".45"/>
+    <g font-size="17" font-weight="600">
+      <rect x="318" y="343" width="112" height="34" rx="17" fill="#9fd8ff" fill-opacity=".14" stroke="#9fd8ff" stroke-opacity=".55"/>
+      <text x="374" y="365" text-anchor="middle" fill="#c6eaff">GPT-5.6</text>
+      <rect x="442" y="343" width="112" height="34" rx="17" fill="#f4e3c8" fill-opacity=".12" stroke="#f4e3c8" stroke-opacity=".55"/>
+      <text x="498" y="365" text-anchor="middle" fill="#f4e3c8">Claude</text>
+      <rect x="566" y="343" width="112" height="34" rx="17" fill="#8ff0a1" fill-opacity=".12" stroke="#8ff0a1" stroke-opacity=".55"/>
+      <text x="622" y="365" text-anchor="middle" fill="#aaffb3">Grok 4.6</text>
+      <rect x="690" y="343" width="176" height="34" rx="17" fill="#b39ddb" fill-opacity=".13" stroke="#b39ddb" stroke-opacity=".55"/>
+      <text x="778" y="365" text-anchor="middle" fill="#d4c5f2">DeepSeek v4 Pro</text>
+    </g>
+    <text x="82" y="572" fill="#8fa9a7" font-size="17" letter-spacing="2">QQ 群 1057540028 · 1077074552</text>
+    <text x="1118" y="572" text-anchor="end" fill="#5fffe0" font-size="14" letter-spacing="3">COLD BREW / 01</text>
+  </g>
+  <g transform="translate(930 160)">
+    <path d="M34 60H184L166 354Q160 388 109 394Q58 388 52 354Z" fill="#b9fff0" fill-opacity=".1" stroke="#9fffea" stroke-width="4"/>
+    <path d="M47 118H174L166 354Q160 383 109 389Q58 383 52 354Z" fill="#2f1e18" fill-opacity=".86"/>
+    <path d="M48 119H173" stroke="#e9d8b5" stroke-width="7"/>
+    <path d="M73 81L92 106L112 79L137 107L155 84" fill="#dffdf6" fill-opacity=".62" stroke="#c6fff1" stroke-width="2"/>
+    <path d="M104 20L142 93" stroke="#70ffe0" stroke-width="5" stroke-linecap="round"/>
+    <path d="M142 93L158 112" stroke="#70ffe0" stroke-width="5" stroke-linecap="round"/>
+    <path d="M64 61H153" stroke="#9fffea" stroke-width="4"/>
+    <path d="M34 60L6 445M184 60L211 445M6 445H211" fill="none" stroke="#9fffea" stroke-width="4"/>
+    <path d="M22 437H196" stroke="#5fffe0" stroke-opacity=".45" stroke-width="12"/>
+  </g>
+</svg>
