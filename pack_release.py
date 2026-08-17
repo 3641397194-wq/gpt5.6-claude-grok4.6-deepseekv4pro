@@ -98,17 +98,25 @@ def pack_project(project: Path, out_dir: Path) -> dict:
     checksum_path = out_dir / f"{archive_name}.sha256"
 
     files = collect_files(project)
-    if not files:
+    archive_files: list[tuple[Path, Path]] = [(relative, project / relative) for relative in files]
+    # Grok and DeepSeek use the shared workbench.  Vendor that one small module
+    # into their standalone archives so each project ZIP remains runnable.
+    if project.name in {"grok4.6-coldbrew", "deepseek-harness"}:
+        shared_ui = project.parent / "shared" / "coldbrew_ui.py"
+        if shared_ui.is_file():
+            archive_files.append((Path("shared") / shared_ui.name, shared_ui))
+    archive_files.sort(key=lambda item: item[0].as_posix())
+    if not archive_files:
         return {"ok": False, "project": project.name, "error": "未收集到任何文件"}
 
     with zipfile.ZipFile(
         archive_path, "w", compression=zipfile.ZIP_DEFLATED, compresslevel=9
     ) as handle:
-        for relative in files:
+        for relative, source in archive_files:
             info = zipfile.ZipInfo(f"{project.name}/{relative.as_posix()}", FIXED_MTIME)
             info.compress_type = zipfile.ZIP_DEFLATED
             info.external_attr = 0o644 << 16
-            handle.writestr(info, (project / relative).read_bytes())
+            handle.writestr(info, source.read_bytes())
 
     digest = hashlib.sha256(archive_path.read_bytes()).hexdigest()
     checksum_path.write_text(f"{digest}  {archive_name}\n", encoding="utf-8", newline="\n")
@@ -117,7 +125,7 @@ def pack_project(project: Path, out_dir: Path) -> dict:
         "ok": True,
         "project": project.name,
         "version": version,
-        "files": len(files),
+        "files": len(archive_files),
         "archive": str(archive_path),
         "sha256": digest,
         "stamp": stamp,
@@ -134,7 +142,7 @@ def write_sums(out_dir: Path, results: list[dict]) -> Path:
 def list_projects(root: Path) -> list[Path]:
     if not root.is_dir():
         return []
-    return sorted(p for p in root.iterdir() if p.is_dir() and not p.name.startswith((".", "_")))
+    return sorted(p for p in root.iterdir() if p.is_dir() and not p.name.startswith((".", "_")) and p.name != "shared")
 
 
 def main(argv: list[str] | None = None) -> int:

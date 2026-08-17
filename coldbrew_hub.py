@@ -1,416 +1,448 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""ColdBrew Hub — 冷咖啡四合一破甲面板
-GPT-5.6 / Claude Code / Grok 4.6 / DeepSeek 一键部署 · 一键启动 · 一键恢复 · 一键打包发布。
-单一文件 tkinter 应用，驱动四个 ColdBrew 工具的官方 CLI 与 GUI。"""
+"""ColdBrew Hub v8 — 四模型控制台。
+
+这是一个薄控制层：它只调用各适配器已有的 preview/deploy/verify/restore
+命令，不直接改写用户配置，从而保留冷咖啡入口、快照与回滚契约。
+"""
 
 from __future__ import annotations
 
+import json
+import os
 import queue
 import subprocess
 import sys
 import threading
 import time
 from pathlib import Path
+from typing import Any
 
 try:
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 except Exception:
     pass
 
+
 APP_DIR = Path(__file__).resolve().parent
 PROJECTS = APP_DIR / "projects"
 PACKER = APP_DIR / "pack_release.py"
+TRIGGERS = ("冷咖啡", "cold coffee", "[[ENI:PROFILE=MAX]]")
 
-TOOLS = [
+TOOLS: tuple[dict[str, Any], ...] = (
     {
+        "id": "codex",
         "tag": "GPT-5.6",
+        "short": "Codex ColdBrew",
+        "description": "Codex Studio · skills · review chain",
+        "accent": "#80F0BC",
         "dir": "codex-coldbrew",
-        "entry": ["studio", "eni_solo_deploy.py"],   # 部署桥接器 CLI
-        "panel": ["studio", "coldbrew_studio.py"],  # 原始 Studio GUI
-        "deploy": ["deploy", "--yes"],
-        "verify": ["verify"],
-        "launch": None,
-        "restore": ["restore", "--yes"],
+        "entry": ("studio", "eni_solo_deploy.py"),
+        "panel": ("studio", "coldbrew_studio.py"),
+        "deploy": ("deploy", "--yes"),
+        "verify": ("verify",),
+        "restore": ("restore", "--yes"),
     },
     {
+        "id": "claude",
         "tag": "Claude Code",
+        "short": "Claude ColdBrew",
+        "description": "规则层 · brain layers · 可回滚安装",
+        "accent": "#FF9E7A",
         "dir": "claude-coldbrew",
-        "entry": ["app", "claude_pojia.py"],
-        "deploy": ["install", "--yes", "--profile", "max"],
-        "verify": ["verify", "--profile", "max"],
-        "launch": ["launch", "--profile", "max"],
-        "restore": ["restore", "--yes"],
+        "entry": ("app", "claude_pojia.py"),
+        "panel": ("app", "claude_pojia.py"),
+        "deploy": ("install", "--yes", "--profile", "max"),
+        "verify": ("verify", "--profile", "max"),
+        "restore": ("restore", "--yes"),
     },
     {
+        "id": "grok",
         "tag": "Grok 4.6",
+        "short": "Grok ColdBrew",
+        "description": "实时信息流适配器 · profile 模板 · 原子恢复",
+        "accent": "#23F5D7",
         "dir": "grok4.6-coldbrew",
-        "entry": ["app", "grok_coldbrew.py"],
-        "deploy": ["deploy", "--profile", "max"],
-        "verify": ["verify"],
-        "launch": None,
-        "restore": ["restore", "--profile", "max"],
+        "entry": ("app", "grok_coldbrew.py"),
+        "panel": ("app", "grok_coldbrew.py"),
+        "deploy": ("deploy", "--profile", "max"),
+        "verify": ("verify",),
+        "restore": ("restore", "--profile", "max"),
     },
     {
-        "tag": "DeepSeek",
+        "id": "deepseek",
+        "tag": "DeepSeek v4 Pro",
+        "short": "DeepSeek Harness",
+        "description": "Harness 会话模板 · profile 配置 · 事务式部署",
+        "accent": "#7AA2FF",
         "dir": "deepseek-harness",
-        "entry": ["app", "deepseek_harness.py"],
-        "deploy": ["deploy", "--profile", "max"],
-        "verify": ["verify"],
-        "launch": None,
-        "restore": ["restore", "--profile", "max"],
+        "entry": ("app", "deepseek_harness.py"),
+        "panel": ("app", "deepseek_harness.py"),
+        "deploy": ("deploy", "--profile", "max"),
+        "verify": ("verify",),
+        "restore": ("restore", "--profile", "max"),
     },
-]
+)
 
-# 部署命令的第一个词；这些命令跑完后自动追加部署验证。
 DEPLOY_VERBS = {"deploy", "install"}
 
 
-def tool_entry(tool) -> Path:
-    return PROJECTS / tool["dir"] / Path(*tool["entry"])
+def tool_entry(tool: dict[str, Any]) -> Path:
+    return PROJECTS / str(tool["dir"]) / Path(*tool["entry"])
 
 
-def tool_panel(tool) -> Path:
-    return PROJECTS / tool["dir"] / Path(*tool.get("panel", tool["entry"]))
+def tool_panel(tool: dict[str, Any]) -> Path:
+    return PROJECTS / str(tool["dir"]) / Path(*tool.get("panel", tool["entry"]))
 
 
-def run_command(tool, args, log_q, attach: bool = False):
-    """后台线程执行子进程，输出送入日志队列；部署完成后自动验证。"""
+def tool_version(tool: dict[str, Any]) -> str:
+    path = PROJECTS / str(tool["dir"]) / "VERSION"
+    try:
+        value = path.read_text(encoding="utf-8").strip()
+    except (OSError, UnicodeError):
+        return "source"
+    return value or "source"
+
+
+def environment_snapshot() -> dict[str, Any]:
+    return {
+        "python": sys.version.split()[0],
+        "executable": sys.executable,
+        "root": str(APP_DIR),
+        "projects": str(PROJECTS),
+        "packer": PACKER.is_file(),
+        "cold_coffee": TRIGGERS,
+    }
+
+
+def _emit(log_q: queue.Queue, kind: str, message: str) -> None:
+    log_q.put((kind, message))
+
+
+def run_command(tool: dict[str, Any], args: tuple[str, ...], log_q: queue.Queue, *, attach: bool = False) -> None:
     entry = tool_entry(tool)
-    if not entry.exists():
-        log_q.put(("error", f"[{tool['tag']}] 入口缺失: {entry}"))
+    if not entry.is_file():
+        _emit(log_q, "error", f"[{tool['tag']}] 入口缺失：{entry}")
         return
-    cmd = [sys.executable, str(entry)] + list(args)
-    log_q.put(("info", f"[{tool['tag']}] 执行：python {entry.name} {' '.join(args)}"))
+    command = [sys.executable, str(entry), *args]
+    _emit(log_q, "info", f"[{tool['tag']}] python {entry.name} {' '.join(args)}")
+    env = {**os.environ, "PYTHONIOENCODING": "utf-8"}
     try:
         if attach:
-            # 打开面板：不捕获输出，控制台直接可见
-            subprocess.Popen(
-                cmd,
-                cwd=str(entry.parent),
-                creationflags=getattr(subprocess, "CREATE_NEW_CONSOLE", 0),
-            )
-            log_q.put(("ok", f"[{tool['tag']}] 面板已启动（新窗口）"))
+            flags = getattr(subprocess, "CREATE_NEW_CONSOLE", 0)
+            subprocess.Popen(command, cwd=str(entry.parent), creationflags=flags, env=env)
+            _emit(log_q, "ok", f"[{tool['tag']}] 工作台已在新窗口启动")
             return
-        proc = subprocess.Popen(
-            cmd,
-            cwd=str(entry.parent),
-            stdout=subprocess.PIPE,
-            stderr=subprocess.STDOUT,
-            stdin=subprocess.DEVNULL,
-            text=True,
-            encoding="utf-8",
-            errors="replace",
-            env={**__import__("os").environ, "PYTHONIOENCODING": "utf-8"},
-        )
-        for line in proc.stdout:
-            log_q.put(("out", line.rstrip()))
-        proc.wait()
-        if proc.returncode == 0:
-            log_q.put(("ok", f"[{tool['tag']}] 完成（退出码 0）"))
-        else:
-            log_q.put(("error", f"[{tool['tag']}] 失败（退出码 {proc.returncode}）"))
-
-        # 部署成功 → 部署后自动验证
-        if proc.returncode == 0 and args and args[0] in DEPLOY_VERBS and tool.get("verify"):
-            log_q.put(("info", f"[{tool['tag']}] 部署后自动验证 …"))
-            verify_cmd = [sys.executable, str(entry)] + list(tool["verify"])
-            vproc = subprocess.run(
-                verify_cmd,
-                cwd=str(entry.parent),
-                capture_output=True,
-                text=True,
-                encoding="utf-8",
-                errors="replace",
-                env={**__import__("os").environ, "PYTHONIOENCODING": "utf-8"},
-                timeout=600,
-            )
-            for line in (vproc.stdout or "").splitlines():
-                log_q.put(("out", f"  验证: {line}"))
-            if vproc.returncode == 0:
-                log_q.put(("ok", f"[{tool['tag']}] 验证通过"))
-            else:
-                log_q.put(("error", f"[{tool['tag']}] 验证未通过（退出码 {vproc.returncode}）"))
+        process = subprocess.Popen(command, cwd=str(entry.parent), stdout=subprocess.PIPE, stderr=subprocess.STDOUT, stdin=subprocess.DEVNULL, text=True, encoding="utf-8", errors="replace", env=env)
+        assert process.stdout is not None
+        for line in process.stdout:
+            _emit(log_q, "out", f"[{tool['tag']}] {line.rstrip()}")
+        code = process.wait()
+        if code:
+            _emit(log_q, "error", f"[{tool['tag']}] 退出码 {code}")
+            return
+        _emit(log_q, "ok", f"[{tool['tag']}] 完成")
+        if args and args[0] in DEPLOY_VERBS and tool.get("verify"):
+            _emit(log_q, "info", f"[{tool['tag']}] 正在执行部署后验证")
+            verify_cmd = [sys.executable, str(entry), *tool["verify"]]
+            result = subprocess.run(verify_cmd, cwd=str(entry.parent), capture_output=True, text=True, encoding="utf-8", errors="replace", env=env, timeout=600)
+            for line in (result.stdout or "").splitlines():
+                _emit(log_q, "out", f"[{tool['tag']}/verify] {line}")
+            _emit(log_q, "ok" if result.returncode == 0 else "error", f"[{tool['tag']}] 部署后验证{'通过' if result.returncode == 0 else f'失败，退出码 {result.returncode}'}")
+    except subprocess.TimeoutExpired:
+        _emit(log_q, "error", f"[{tool['tag']}] 操作超时")
+    except OSError as exc:
+        _emit(log_q, "error", f"[{tool['tag']}] 启动失败：{exc}")
     except Exception as exc:  # noqa: BLE001
-        log_q.put(("error", f"[{tool['tag']}] 异常: {exc}"))
+        _emit(log_q, "error", f"[{tool['tag']}] 异常：{exc}")
 
 
-def run_packer(tool_or_none, log_q):
-    """一键打包发布：单项目或全部项目，输出 SHA256 与汇总。"""
-    cmd = [sys.executable, str(PACKER)]
-    if tool_or_none is None:
-        cmd.append("--all")
-        label = "全部项目"
-    else:
-        cmd += ["--project", tool_or_none["dir"]]
-        label = tool_or_none["tag"]
-    log_q.put(("info", f"[打包] {label} 打包中 …"))
-    if not PACKER.exists():
-        log_q.put(("error", f"[打包] 打包脚本缺失: {PACKER}"))
+def run_packer(tool: dict[str, Any] | None, log_q: queue.Queue) -> None:
+    if not PACKER.is_file():
+        _emit(log_q, "error", f"打包脚本缺失：{PACKER}")
         return
+    command = [sys.executable, str(PACKER), "--all" if tool is None else "--project", *( [] if tool is None else [str(tool["dir"])] )]
+    label = "全部项目" if tool is None else str(tool["tag"])
+    _emit(log_q, "info", f"[打包] {label} 开始")
     try:
-        proc = subprocess.run(
-            cmd,
-            cwd=str(APP_DIR),
-            capture_output=True,
-            text=True,
-            encoding="utf-8",
-            errors="replace",
-            env={**__import__("os").environ, "PYTHONIOENCODING": "utf-8"},
-            timeout=1200,
-        )
-        if proc.stdout:
+        result = subprocess.run(command, cwd=str(APP_DIR), capture_output=True, text=True, encoding="utf-8", errors="replace", env={**os.environ, "PYTHONIOENCODING": "utf-8"}, timeout=1200)
+        if result.stdout:
             try:
-                import json
-
-                payload = json.loads(proc.stdout)
+                payload = json.loads(result.stdout)
+            except json.JSONDecodeError:
+                for line in result.stdout.splitlines():
+                    _emit(log_q, "out", f"[打包] {line}")
+            else:
                 for item in payload.get("results", []):
-                    if item.get("ok"):
-                        log_q.put(("ok", f"[打包] {item['project']} v{item['version']} "
-                                        f"({item['files']} 文件) sha256={item['sha256'][:16]}…"))
-                    else:
-                        log_q.put(("error", f"[打包] {item['project']}: {item.get('error')}"))
+                    _emit(log_q, "ok" if item.get("ok") else "error", f"[打包] {item.get('project')} · {item.get('files', 0)} 文件 · {str(item.get('sha256', ''))[:16]}")
                 if payload.get("sha256sums"):
-                    log_q.put(("ok", f"[打包] 汇总 {payload['sha256sums']}"))
-            except Exception:
-                for line in proc.stdout.splitlines():
-                    log_q.put(("out", f"  打包输出: {line}"))
-        if proc.returncode != 0:
-            log_q.put(("error", f"[打包] {label} 失败（退出码 {proc.returncode}）"))
+                    _emit(log_q, "ok", f"[打包] 校验汇总：{payload['sha256sums']}")
+        _emit(log_q, "ok" if result.returncode == 0 else "error", f"[打包] {label}{'完成' if result.returncode == 0 else f'失败，退出码 {result.returncode}'}")
     except Exception as exc:  # noqa: BLE001
-        log_q.put(("error", f"[打包] 异常: {exc}"))
+        _emit(log_q, "error", f"[打包] 异常：{exc}")
 
 
 class HubApp:
-    def __init__(self, root):
-        self.root = root
-        self.log_q: queue.Queue = queue.Queue()
-        self.jobs: set[int] = set()
-        root.title("冷咖啡 · ColdBrew Hub — 四合一破甲面板")
-        root.geometry("920x680")
-        root.minsize(780, 580)
+    BG = "#080D10"
+    PANEL = "#10191D"
+    PANEL_ALT = "#152328"
+    LINE = "#263B40"
+    PAPER = "#ECF8F3"
+    MUTED = "#91A6A1"
+    DIM = "#617772"
+    MINT = "#80F0BC"
+    CYAN = "#59C8F5"
+    CORAL = "#FF8066"
+    INK = "#07110D"
+    FONT = "Microsoft YaHei UI"
 
+    def __init__(self, root: Any) -> None:
         import tkinter as tk
         from tkinter import ttk
 
-        self.tk = tk
-        self.ttk = ttk
+        self.tk, self.ttk, self.root = tk, ttk, root
+        self.root.title("冷咖啡 · ColdBrew Hub · Control Deck v8")
+        self.root.geometry("1380x900")
+        self.root.minsize(1120, 760)
+        self.root.configure(bg=self.BG)
+        self.root.option_add("*Font", (self.FONT, 10))
+        self.log_q: queue.Queue = queue.Queue()
+        self.jobs: set[str] = set()
+        self.cards: dict[str, dict[str, Any]] = {}
+        self.status_var = tk.StringVar(value="READY · 选择一个动作开始")
+        self.count_var = tk.StringVar(value="0 / 4 ready")
+        self.coffee_var = tk.StringVar(value="COLD COFFEE COMPATIBILITY · READY")
+        self._build_styles()
+        self._build_shell()
+        self.root.after(120, self._pump_log)
+        self.root.after(500, self.env_check)
+        for index, tool in enumerate(TOOLS, 1):
+            self.root.bind(f"<Control-{index}>", lambda _event, t=tool: self._open_panel(t))
 
-        style = ttk.Style(root)
+    def _build_styles(self) -> None:
+        style = self.ttk.Style(self.root)
         try:
             style.theme_use("clam")
-        except Exception:
+        except self.tk.TclError:
             pass
-        style.configure("TFrame", background="#10151b")
-        style.configure("TLabel", background="#10151b", foreground="#d8e2ec")
-        style.configure("Title.TLabel", font=("Microsoft YaHei UI", 16, "bold"), foreground="#f4e3c8")
-        style.configure("Tool.TLabel", font=("Microsoft YaHei UI", 11, "bold"), foreground="#9fd8ff")
-        style.configure("TButton", font=("Microsoft YaHei UI", 9), padding=(10, 6))
-        style.configure("Go.TButton", font=("Microsoft YaHei UI", 9, "bold"))
+        style.configure("Cold.TButton", background=self.MINT, foreground=self.INK, borderwidth=0, padding=(13, 9), font=(self.FONT, 9, "bold"))
+        style.map("Cold.TButton", background=[("active", "#A7FFD3")])
+        style.configure("Quiet.TButton", background=self.PANEL_ALT, foreground=self.PAPER, bordercolor=self.LINE, padding=(11, 8), font=(self.FONT, 9))
+        style.map("Quiet.TButton", background=[("active", "#214149")])
+        style.configure("Card.TButton", background=self.PANEL_ALT, foreground=self.PAPER, bordercolor=self.LINE, padding=(9, 7), font=(self.FONT, 8))
+        style.map("Card.TButton", background=[("active", "#28434A")])
 
-        header = ttk.Frame(root, padding=(16, 12))
-        header.pack(fill="x")
-        ttk.Label(header, text="冷咖啡 ColdBrew Hub", style="Title.TLabel").pack(side="left")
-        ttk.Label(
-            header,
-            text="GPT-5.6 · Claude Code · Grok 4.6 · DeepSeek  一键部署 / 启动 / 恢复 / 打包发布",
-            style="TLabel",
-        ).pack(side="left", padx=18)
+    def _label(self, parent: Any, text: str = "", **kwargs: Any) -> Any:
+        options = {"bg": parent.cget("bg"), "fg": self.PAPER, "font": (self.FONT, 9)}
+        options.update(kwargs)
+        return self.tk.Label(parent, text=text, **options)
 
-        bar = ttk.Frame(root, padding=(16, 0))
-        bar.pack(fill="x")
-        ttk.Button(bar, text="全部部署", style="Go.TButton", command=self.deploy_all).pack(side="left", padx=4)
-        ttk.Button(bar, text="全部恢复", command=self.restore_all).pack(side="left", padx=4)
-        ttk.Button(bar, text="全部打包发布", command=self.pack_all).pack(side="left", padx=4)
-        ttk.Button(bar, text="环境自检", command=self.env_check).pack(side="left", padx=4)
-        self.progress = ttk.Label(bar, text="就绪", style="TLabel")
-        self.progress.pack(side="right")
+    def _panel(self, parent: Any, **kwargs: Any) -> Any:
+        return self.tk.Frame(parent, bg=self.PANEL, highlightthickness=1, highlightbackground=self.LINE, **kwargs)
 
-        self.body = ttk.Frame(root, padding=(16, 8))
-        self.body.pack(fill="both", expand=True)
-        self.rows = []
-        for tool in TOOLS:
-            self.add_tool_row(tool)
+    def _build_shell(self) -> None:
+        tk, ttk = self.tk, self.ttk
+        shell = tk.Frame(self.root, bg=self.BG, padx=26, pady=20)
+        shell.pack(fill="both", expand=True)
+        shell.grid_columnconfigure(0, weight=1)
+        shell.grid_rowconfigure(2, weight=1)
+        header = tk.Frame(shell, bg=self.BG)
+        header.grid(row=0, column=0, sticky="ew")
+        left = tk.Frame(header, bg=self.BG)
+        left.pack(side="left", fill="y")
+        self._label(left, "COLDBREW / CONTROL DECK", fg=self.MINT, font=("Consolas", 10, "bold")).pack(anchor="w")
+        self._label(left, "冷咖啡 · 四模型统一控制台", font=(self.FONT, 25, "bold")).pack(anchor="w", pady=(2, 0))
+        self._label(left, "GPT-5.6  ·  Claude Code  ·  Grok 4.6  ·  DeepSeek v4 Pro", fg=self.MUTED, font=(self.FONT, 10)).pack(anchor="w", pady=(3, 0))
+        right = tk.Frame(header, bg=self.BG)
+        right.pack(side="right", fill="y")
+        self._label(right, "V8.0 / OWNER BUILD", fg=self.MUTED, font=("Consolas", 9)).pack(anchor="e")
+        self._label(right, textvariable=self.count_var, fg=self.CYAN, font=("Consolas", 10, "bold")).pack(anchor="e", pady=(9, 0))
+        self._label(right, textvariable=self.status_var, fg=self.MINT, font=(self.FONT, 9)).pack(anchor="e", pady=(7, 0))
+        activation = self._panel(shell, padx=16, pady=10)
+        activation.grid(row=1, column=0, sticky="ew", pady=(16, 14))
+        self._label(activation, "ACTIVATION", fg=self.MINT, font=("Consolas", 9, "bold")).pack(side="left", padx=(0, 14))
+        self._label(activation, textvariable=self.coffee_var, fg=self.CYAN, font=("Consolas", 9, "bold")).pack(side="left")
+        self._label(activation, "· 触发词：冷咖啡 / cold coffee / [[ENI:PROFILE=MAX]]", fg=self.MUTED, font=(self.FONT, 9)).pack(side="left", padx=14)
+        ttk.Button(activation, text="清空日志", style="Quiet.TButton", command=self._clear_log).pack(side="right")
+        content = tk.Frame(shell, bg=self.BG)
+        content.grid(row=2, column=0, sticky="nsew")
+        content.grid_rowconfigure(0, weight=3)
+        content.grid_rowconfigure(1, weight=1)
+        content.grid_columnconfigure(0, weight=1)
+        card_grid = tk.Frame(content, bg=self.BG)
+        card_grid.grid(row=0, column=0, sticky="nsew")
+        for column in range(2):
+            card_grid.grid_columnconfigure(column, weight=1, uniform="cards")
+        for row in range(2):
+            card_grid.grid_rowconfigure(row, weight=1, uniform="cards")
+        for index, tool in enumerate(TOOLS):
+            card = self._make_card(card_grid, tool)
+            card.grid(row=index // 2, column=index % 2, sticky="nsew", padx=(0 if index % 2 == 0 else 8, 8 if index % 2 == 0 else 0), pady=(0 if index < 2 else 8, 8 if index < 2 else 0))
+        lower = tk.Frame(content, bg=self.BG)
+        lower.grid(row=1, column=0, sticky="nsew", pady=(14, 0))
+        lower.grid_columnconfigure(0, weight=3)
+        lower.grid_columnconfigure(1, weight=1)
+        log_panel = self._panel(lower, padx=14, pady=12)
+        log_panel.grid(row=0, column=0, sticky="nsew", padx=(0, 8))
+        self._label(log_panel, "ACTIVITY LOG", fg=self.MINT, font=("Consolas", 9, "bold")).pack(anchor="w")
+        self.log_text = tk.Text(log_panel, height=8, bg=self.BG, fg=self.PAPER, insertbackground=self.MINT, relief="flat", font=("Consolas", 9), padx=10, pady=8)
+        self.log_text.pack(fill="both", expand=True, pady=(8, 0))
+        for tag, color in (("error", "#FF8F8F"), ("ok", self.MINT), ("info", self.CYAN), ("out", "#C9D4DE")):
+            self.log_text.tag_configure(tag, foreground=color)
+        summary = self._panel(lower, padx=14, pady=12)
+        summary.grid(row=0, column=1, sticky="nsew")
+        self._label(summary, "RUNTIME SNAPSHOT", fg=self.MINT, font=("Consolas", 9, "bold")).pack(anchor="w")
+        self.summary_text = tk.Text(summary, height=8, bg=self.BG, fg=self.MUTED, relief="flat", font=("Consolas", 8), padx=10, pady=8, wrap="word")
+        self.summary_text.pack(fill="both", expand=True, pady=(8, 0))
+        self._render_summary(environment_snapshot())
+        toolbar = tk.Frame(shell, bg=self.BG)
+        toolbar.grid(row=3, column=0, sticky="ew", pady=(14, 0))
+        ttk.Button(toolbar, text="一键部署全部", style="Cold.TButton", command=self.deploy_all).pack(side="left", padx=(0, 8))
+        ttk.Button(toolbar, text="全部验证", style="Quiet.TButton", command=self.verify_all).pack(side="left", padx=4)
+        ttk.Button(toolbar, text="全部恢复", style="Quiet.TButton", command=self.restore_all).pack(side="left", padx=4)
+        ttk.Button(toolbar, text="全量打包", style="Quiet.TButton", command=self.pack_all).pack(side="left", padx=4)
+        ttk.Button(toolbar, text="环境自检", style="Quiet.TButton", command=self.env_check).pack(side="left", padx=4)
+        self._label(toolbar, "Ctrl+1–4 打开对应工作台", fg=self.DIM, font=("Consolas", 8)).pack(side="right")
 
-        # 进度条区：任务运行时滚动，空闲时归零
-        pbarf = ttk.Frame(root, padding=(16, 4))
-        pbarf.pack(fill="x")
-        self.pbar = ttk.Progressbar(pbarf, mode="indeterminate", length=560)
-        self.pbar.pack(side="left", fill="x", expand=True)
-        self.pbar_label = ttk.Label(pbarf, text="等待任务", style="TLabel")
-        self.pbar_label.pack(side="right", padx=(10, 0))
+    def _make_card(self, parent: Any, tool: dict[str, Any]) -> Any:
+        tk, ttk = self.tk, self.ttk
+        card = self._panel(parent, padx=16, pady=14)
+        card.grid_columnconfigure(0, weight=1)
+        head = tk.Frame(card, bg=self.PANEL)
+        head.grid(row=0, column=0, sticky="ew")
+        tk.Frame(head, bg=tool["accent"], width=9, height=9).pack(side="left", padx=(0, 8), pady=5)
+        title = tk.Frame(head, bg=self.PANEL)
+        title.pack(side="left", fill="x", expand=True)
+        self._label(title, tool["tag"], font=(self.FONT, 15, "bold")).pack(anchor="w")
+        self._label(title, tool["short"], fg=tool["accent"], font=("Consolas", 8, "bold")).pack(anchor="w", pady=(2, 0))
+        self._label(head, f"v{tool_version(tool)}", fg=self.MUTED, font=("Consolas", 8)).pack(side="right", anchor="n")
+        self._label(card, tool["description"], fg=self.MUTED, font=(self.FONT, 9)).grid(row=1, column=0, sticky="w", pady=(10, 8))
+        status = self._label(card, "CHECKING…", fg=tool["accent"], font=("Consolas", 8, "bold"))
+        status.grid(row=2, column=0, sticky="w")
+        self.cards[tool["id"]] = {"tool": tool, "status": status}
+        action_bar = tk.Frame(card, bg=self.PANEL)
+        action_bar.grid(row=3, column=0, sticky="ew", pady=(11, 0))
+        buttons = (("打开工作台", lambda t=tool: self._open_panel(t)), ("预览", lambda t=tool: self._run_tool(t, ("plan",) if t["id"] == "codex" else ("preview", "--profile", "max"))), ("部署", lambda t=tool: self._run_tool(t, t["deploy"])), ("验证", lambda t=tool: self._run_tool(t, t["verify"])), ("恢复", lambda t=tool: self._run_tool(t, t["restore"])))
+        for label, command in buttons:
+            ttk.Button(action_bar, text=label, style="Card.TButton", command=command).pack(side="left", padx=(0, 5))
+        return card
 
-        logf = ttk.Frame(root, padding=(16, 6))
-        logf.pack(fill="both", expand=True)
-        ttk.Label(logf, text="运行日志", style="TLabel").pack(anchor="w")
-        self.log_text = self.tk.Text(
-            logf, height=14, bg="#0b0f14", fg="#b9e6a9",
-            insertbackground="#ffffff", relief="flat",
-            font=("Consolas", 9),
-        )
-        self.log_text.pack(fill="both", expand=True, pady=(4, 10))
-        self.log_text.tag_configure("error", foreground="#ff8f8f")
-        self.log_text.tag_configure("ok", foreground="#8ff0a1")
-        self.log_text.tag_configure("info", foreground="#9fd8ff")
-        self.log_text.tag_configure("out", foreground="#c9d4de")
+    def _open_panel(self, tool: dict[str, Any]) -> None:
+        self._run_tool(tool, ("gui",), attach=True, panel=True)
 
-        self.root.after(120, self.pump_log)
-        # 启动后自动做一次环境自检（自适应提示）
-        self.root.after(600, self.env_check)
-
-    def add_tool_row(self, tool):
-        row = self.ttk.Frame(self.body)
-        row.pack(fill="x", pady=5)
-        self.ttk.Label(row, text=tool["tag"], style="Tool.TLabel", width=14).pack(side="left")
-        entry = tool_entry(tool)
-        status = "就绪" if entry.exists() else "缺失"
-        self.ttk.Label(row, text=f"({status})", style="TLabel").pack(side="left")
-        self.ttk.Button(row, text="打包", command=lambda t=tool: self.pack_one(t)).pack(side="right", padx=3)
-        self.ttk.Button(row, text="一键部署", style="Go.TButton",
-                        command=lambda t=tool: self.spawn(t, t["deploy"])).pack(side="right", padx=3)
-        self.ttk.Button(row, text="恢复", command=lambda t=tool: self.spawn(t, t["restore"])).pack(side="right", padx=3)
-        self.ttk.Button(row, text="打开面板",
-                        command=lambda t=tool: self.spawn(t, ["gui"], attach=True, use_panel=True)).pack(side="right", padx=3)
-        if tool["launch"]:
-            self.ttk.Button(row, text="一键启动", style="Go.TButton",
-                            command=lambda t=tool: self.spawn(t, t["launch"])).pack(side="right", padx=3)
-        self.rows.append(row)
-
-    def _job_start(self) -> int:
-        job = time.time_ns()
-        self.jobs.add(job)
-        return job
-
-    def _job_end(self, job: int) -> None:
-        self.jobs.discard(job)
-
-    def spawn(self, tool, args, attach=False, use_panel=False):
-        entry = tool_panel(tool) if use_panel else tool_entry(tool)
-        if not entry.exists():
-            self.log_q.put(("error", f"[{tool['tag']}] 入口缺失: {entry}"))
+    def _run_tool(self, tool: dict[str, Any], args: tuple[str, ...], *, attach: bool = False, panel: bool = False) -> None:
+        key = f"{tool['id']}:{' '.join(args)}"
+        if key in self.jobs:
+            _emit(self.log_q, "info", f"[{tool['tag']}] 相同任务正在运行，已跳过重复点击")
             return
-        job = self._job_start()
-        self.progress.configure(text=f"{tool['tag']} 运行中 …")
-        self.pbar.start(12)
-        self.pbar_label.configure(text=f"{tool['tag']} 运行中 …")
+        entry = tool_panel(tool) if panel else tool_entry(tool)
+        if not entry.is_file():
+            _emit(self.log_q, "error", f"[{tool['tag']}] 文件不存在：{entry}")
+            return
+        self.jobs.add(key)
+        self.status_var.set(f"RUNNING · {tool['tag']}")
 
-        def worker():
-            run_command(tool, args, self.log_q, attach=attach)
-            self._job_end(job)
-
-        threading.Thread(target=worker, daemon=True).start()
-
-    def deploy_all(self):
-        for tool in TOOLS:
-            if not tool_entry(tool).exists():
-                self.log_q.put(("error", f"[{tool['tag']}] 入口缺失，跳过部署"))
-                continue
-            self.spawn(tool, tool["deploy"])
-        self.progress.configure(text="全部部署已排队")
-
-    def restore_all(self):
-        for tool in TOOLS:
-            if not tool_entry(tool).exists():
-                self.log_q.put(("error", f"[{tool['tag']}] 入口缺失，跳过恢复"))
-                continue
-            self.spawn(tool, tool["restore"])
-        self.progress.configure(text="全部恢复已排队")
-
-    def pack_one(self, tool):
-        job = self._job_start()
-        self.progress.configure(text=f"{tool['tag']} 打包中 …")
-
-        def worker():
-            run_packer(tool, self.log_q)
-            self._job_end(job)
+        def worker() -> None:
+            try:
+                run_command(tool, args, self.log_q, attach=attach)
+            finally:
+                self.jobs.discard(key)
 
         threading.Thread(target=worker, daemon=True).start()
 
-    def pack_all(self):
-        job = self._job_start()
-        self.progress.configure(text="全部打包发布中 …")
+    def _run_pack(self, tool: dict[str, Any] | None) -> None:
+        key = "pack:all" if tool is None else f"pack:{tool['id']}"
+        if key in self.jobs:
+            return
+        self.jobs.add(key)
+        self.status_var.set("RUNNING · PACKAGING")
 
-        def worker():
-            run_packer(None, self.log_q)
-            self._job_end(job)
+        def worker() -> None:
+            try:
+                run_packer(tool, self.log_q)
+            finally:
+                self.jobs.discard(key)
 
         threading.Thread(target=worker, daemon=True).start()
 
-    def env_check(self):
-        self.log_q.put(("info", f"Python：{sys.version.split()[0]}（{sys.executable}）"))
+    def deploy_all(self) -> None:
         for tool in TOOLS:
-            entry = tool_entry(tool)
-            ok = "正常" if entry.exists() else "缺失"
-            self.log_q.put(("info" if entry.exists() else "error", f"[{tool['tag']}] 入口{ok}：{entry}"))
-        pack = PROJECTS / "codex-coldbrew" / "pack" / "eni-solo"
-        self.log_q.put(("info" if pack.is_dir() else "error",
-                        f"[GPT-5.6] eni-solo 包{'正常' if pack.is_dir() else '缺失'}：{pack}"))
-        self.log_q.put(("info" if PACKER.exists() else "error",
-                        f"[打包] pack_release.py{'正常' if PACKER.exists() else '缺失'}：{PACKER}"))
-        self.log_q.put(("ok", "环境自检完成"))
+            self._run_tool(tool, tool["deploy"])
 
-    def pump_log(self):
+    def verify_all(self) -> None:
+        for tool in TOOLS:
+            self._run_tool(tool, tool["verify"])
+
+    def restore_all(self) -> None:
+        for tool in TOOLS:
+            self._run_tool(tool, tool["restore"])
+
+    def pack_all(self) -> None:
+        self._run_pack(None)
+
+    def env_check(self) -> None:
+        snapshot = environment_snapshot()
+        ready = 0
+        for tool in TOOLS:
+            entry_ok, panel_ok = tool_entry(tool).is_file(), tool_panel(tool).is_file()
+            if entry_ok and panel_ok:
+                ready += 1
+            state = self.cards.get(tool["id"])
+            if state:
+                state["status"].configure(text="READY · CLI + WORKSPACE" if entry_ok and panel_ok else "CHECK REQUIRED", fg=tool["accent"] if entry_ok and panel_ok else self.CORAL)
+            _emit(self.log_q, "info" if entry_ok and panel_ok else "error", f"[{tool['tag']}] CLI={'OK' if entry_ok else 'MISSING'} · GUI={'OK' if panel_ok else 'MISSING'}")
+        snapshot["ready"] = f"{ready}/4"
+        self.count_var.set(f"{ready} / 4 ready")
+        self._render_summary(snapshot)
+        _emit(self.log_q, "ok" if ready == 4 else "error", f"环境自检完成 · {ready}/4 项目就绪")
+
+    def _render_summary(self, snapshot: dict[str, Any]) -> None:
+        self.summary_text.configure(state="normal")
+        self.summary_text.delete("1.0", "end")
+        for key, value in snapshot.items():
+            self.summary_text.insert("end", f"{key.upper():<14} {value}\n")
+        self.summary_text.configure(state="disabled")
+
+    def _clear_log(self) -> None:
+        self.log_text.delete("1.0", "end")
+        _emit(self.log_q, "info", "日志已清空")
+
+    def _pump_log(self) -> None:
         try:
             while True:
-                kind, msg = self.log_q.get_nowait()
-                stamp = time.strftime("%H:%M:%S")
-                self.log_text.insert("end", f"[{stamp}] {msg}\n", kind)
+                kind, message = self.log_q.get_nowait()
+                self.log_text.insert("end", f"[{time.strftime('%H:%M:%S')}] {message}\n", kind)
                 self.log_text.see("end")
         except queue.Empty:
             pass
-        if self.jobs:
-            self.progress.configure(text=f"{len(self.jobs)} 个任务运行中 …")
-        else:
-            self.progress.configure(text="就绪")
-            self.pbar.stop()
-            self.pbar_label.configure(text="就绪 · 环境已自检，选择工具后点一键部署")
-        self.root.after(120, self.pump_log)
+        if not self.jobs:
+            self.status_var.set("READY · 选择一个动作开始")
+        self.root.after(120, self._pump_log)
 
 
-def selftest():
-    print("冷咖啡 Hub 自检")
+def selftest() -> int:
+    print("ColdBrew Hub v8 self-test")
+    print(json.dumps(environment_snapshot(), ensure_ascii=False, indent=2))
     for tool in TOOLS:
-        entry = tool_entry(tool)
-        panel = tool_panel(tool)
-        print(f"  {tool['tag']:<12} 入口={entry} 存在={entry.exists()} 面板={panel} 存在={panel.exists()}")
-    pack = PROJECTS / "codex-coldbrew" / "pack" / "eni-solo"
-    print(f"  {'eni-solo 包':<12} 路径={pack} 存在={pack.is_dir()}")
-    print(f"  {'打包器':<12} 路径={PACKER} 存在={PACKER.exists()}")
-    print("自检完成")
+        print(f"{tool['tag']:<16} cli={tool_entry(tool).is_file()} gui={tool_panel(tool).is_file()} version={tool_version(tool)}")
+    return 0
 
 
-def main():
+def main() -> int:
     if "--selftest" in sys.argv:
-        selftest()
-        return
+        return selftest()
     try:
         import tkinter as tk
 
         root = tk.Tk()
         HubApp(root)
         root.mainloop()
+        return 0
     except Exception as exc:  # noqa: BLE001
-        import traceback
-
-        log_path = APP_DIR / "面板启动错误日志.txt"
-        try:
-            log_path.write_text(
-                traceback.format_exc(), encoding="utf-8")
-        except Exception:  # noqa: BLE001
-            pass
-        try:
-            import tkinter as tk
-            from tkinter import messagebox
-
-            messagebox.showerror(
-                "冷咖啡 Hub 启动失败",
-                f"{exc}\n\n详细报错已写入：{log_path}\n"
-                "请把日志发给冷咖啡社区 QQ 群 1057540028 / 1077074552。",
-            )
-        except Exception:  # noqa: BLE001
-            print(traceback.format_exc(), file=sys.stderr)
-        raise
+        (APP_DIR / "hub-startup-error.log").write_text(f"{type(exc).__name__}: {exc}\n", encoding="utf-8")
+        print(f"ColdBrew Hub 启动失败：{exc}", file=sys.stderr)
+        return 1
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())

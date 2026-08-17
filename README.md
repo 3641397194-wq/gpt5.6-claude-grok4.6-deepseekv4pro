@@ -1,129 +1,87 @@
-# ☕ 冷咖啡 ColdBrew 四合一破甲
+# 冷咖啡 ColdBrew · 四模型工作台
 
 <p align="center">
-  <img src="docs/images/banner.png" width="880">
+  <img src="docs/images/banner.png" width="880" alt="ColdBrew banner">
 </p>
 
-<p align="center"><strong>一杯冷咖啡的功夫，四个模型的破甲全部搞定</strong></p>
+<p align="center"><strong>一套面板，管理 GPT-5.6、Claude Code、Grok 4.6 与 DeepSeek v4 Pro</strong></p>
 
 <p align="center">
-  <a href="https://github.com/茶/gpt5.6-claude-grok4.6-deepseekv4pro">
-    <img src="https://img.shields.io/badge/GPT--5.6-111827?style=for-the-badge&logo=openai&logoColor=white">
-  </a>
-  <a href="https://github.com/茶/gpt5.6-claude-grok4.6-deepseekv4pro">
-    <img src="https://img.shields.io/badge/Claude-D97757?style=for-the-badge&logo=anthropic&logoColor=white">
-  </a>
-  <a href="https://github.com/茶/gpt5.6-claude-grok4.6-deepseekv4pro">
-    <img src="https://img.shields.io/badge/Grok%204.6-000000?style=for-the-badge&logo=x&logoColor=white">
-  </a>
-  <a href="https://github.com/茶/gpt5.6-claude-grok4.6-deepseekv4pro">
-    <img src="https://img.shields.io/badge/DeepSeek%20v4%20Pro-4D6BFE?style=for-the-badge&logoColor=white">
-  </a>
   <img src="https://img.shields.io/badge/Python-3.10%2B-3776AB?style=for-the-badge&logo=python&logoColor=white">
   <img src="https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white">
+  <img src="https://img.shields.io/badge/ColdBrew-v8-80F0BC?style=for-the-badge&logoColor=07110D">
 </p>
 
-<p align="center">
-  <a href="https://github.com/茶/gpt5.6-claude-grok4.6-deepseekv4pro">GitHub 仓库</a>
-</p>
+## 这次升级了什么
 
----
+- **ColdBrew Hub v8**：四模型卡片、状态检查、后台任务、部署后验证、全量打包和恢复。
+- **统一工作台**：Grok 4.6 与 DeepSeek Harness 接入共享的深色 Tkinter 工作台，预览、部署、验证、恢复、导出模板一套操作完成。
+- **保留原契约**：不改底层快照、事务式部署、恢复逻辑和冷咖啡兼容入口。
+- **可回溯发布**：打包器按固定时间戳、排序和 SHA-256 生成可复现源码 ZIP。
 
-## 🚀 项目简介
+## 快速开始（Windows）
 
-ColdBrew 是一个面向 GPT-5.6、Claude、Grok 4.6 与 DeepSeek v4 Pro 的四合一工作台，提供统一的部署、启动、恢复、打包与发布入口。
-
-它把不同模型的槽位、破甲 Studio、桥接器、工作流和发布目录集中到同一个 Windows 面板中，减少重复配置，让模型切换和环境维护更直接。
-
-## 🖼️ 四模型槽位
-
-<table>
-  <tr>
-    <td align="center">
-      <img src="docs/images/card-codex-coldbrew.png" width="400">
-    </td>
-    <td align="center">
-      <img src="docs/images/card-claude-coldbrew.png" width="400">
-    </td>
-  </tr>
-  <tr>
-    <td align="center">
-      <img src="docs/images/card-grok4.6-coldbrew.png" width="400">
-    </td>
-    <td align="center">
-      <img src="docs/images/card-deepseek-harness.png" width="400">
-    </td>
-  </tr>
-</table>
-
-## 📥 启动
-
-### Windows 快速启动
-
-1. 安装 Python 3.10+。
+1. 安装 Python 3.10 或更高版本，并确保包含 `tkinter`。
 2. 克隆仓库：
 
-```bash
-git clone https://github.com/茶/gpt5.6-claude-grok4.6-deepseekv4pro
+   ```powershell
+   git clone https://github.com/3641397194-wq/gpt5.6-claude-grok4.6-deepseekv4pro.git
+   cd gpt5.6-claude-grok4.6-deepseekv4pro
+   ```
+
+3. 双击 `启动面板.bat`，或执行：
+
+   ```powershell
+   python coldbrew_hub.py
+   ```
+
+4. 在面板中先点 **环境自检**，再按模型卡片执行预览、部署和验证。所有操作完成后都可以点 **恢复** 回到快照状态。
+
+## 命令行入口
+
+四个适配器都支持 `preview`、`deploy`、`verify`、`restore`、`status`、`community` 和 `export`。例如：
+
+```powershell
+python projects/grok4.6-coldbrew/app/grok_coldbrew.py --home "$env:USERPROFILE\.coldbrew\grok" preview --profile max --json
+python projects/grok4.6-coldbrew/app/grok_coldbrew.py --home "$env:USERPROFILE\.coldbrew\grok" deploy --profile max --json
+python projects/grok4.6-coldbrew/app/grok_coldbrew.py --home "$env:USERPROFILE\.coldbrew\grok" verify --json
 ```
 
-3. 进入仓库目录。
-4. 双击 `启动面板.bat`。
-5. 根据面板按钮执行部署、启动、恢复或打包操作。
+`--home` 用来指定目标配置目录；建议先用临时目录预览，再部署到真实目录。
 
-### 启动：双击 启动面板.bat；git clone 上述仓库地址
+## 发布源码包
 
-## 🎛️ 面板按钮表
+```powershell
+python pack_release.py --all --json
+```
 
-| 按钮 | 说明 |
-|## 📦 发布流程
+输出位于 `release/`，包括四个项目 ZIP、每个 ZIP 的 `.sha256` 文件和总校验清单。ZIP 不包含 `.git`、缓存、日志、编译产物或旧 ZIP。
+
+## 目录结构
 
 ```text
-启动面板
-   ↓
-选择模型槽位
-   ↓
-一键部署 / 一键恢复
-   ↓
-状态验证
-   ↓
-单独打包或全部打包发布
-   ↓
-release\ 目录
+coldbrew_hub.py                    # 四模型控制台
+pack_release.py                     # 可复现源码打包器
+projects/shared/coldbrew_ui.py     # 共享工作台 UI
+projects/codex-coldbrew/            # GPT-5.6 / Codex
+projects/claude-coldbrew/           # Claude Code
+projects/grok4.6-coldbrew/          # Grok 4.6
+projects/deepseek-harness/          # DeepSeek v4 Pro
 ```
 
-## 🔄 推荐使用流程
+## 验证与回滚
 
-1. 克隆仓库并确认 Python 版本为 3.10+。
-2. 双击 `启动面板.bat`。
-3. 首次使用时执行对应槽位的 `⚡一键部署`。
-4. 使用 `🖥️打开面板` 进入控制面板。
-5. 修改或更新槽位前保留备份。
-6. 使用 `↩️恢复` 回滚到稳定状态。
-7. 发布前执行 `🎯全部部署·全部恢复` 与状态检查。
-8. 使用 `🚢全部打包发布` 生成统一发布产物。
+```powershell
+python -m compileall -q .
+python coldbrew_hub.py --selftest
+```
 
-## ☕ 冷咖啡社区
+部署前先点 **预览变更**；出现异常时点对应卡片的 **完整恢复**。每个适配器的 `.coldbrew/` 状态目录用于保存快照和校验信息，请不要手工删除。
 
-<p align="center">
-  <strong>🐧 codex 破甲 1057540028 ｜ 🐧 codex claude 破甲 1077074552</strong><br>
-  <img src="projects/codex-coldbrew/docs/images/qq-group-codex.png" width="340">
-  <img src="projects/codex-coldbrew/docs/images/qq-group-codex-claude.png" width="340">
-</p>
+## 社区入口
 
-<p align="center">
-  <strong>微信群：冷咖啡破甲社区</strong><br>
-  <img src="projects/codex-coldbrew/docs/images/codex-group-qr.png" width="240">
-</p>
+仓库内的 `projects/*/docs/images/` 保存 QQ、微信群二维码和发布板图片。二维码以项目目录为准，避免把个人联系方式硬编码进程序。
 
-<p align="center">
-  <strong>Telegram 交流群</strong>：<a href="https://t.me/chachachacha99999">@chachachacha99999</a><br>
-  <strong>官方 Telegram 频道</strong>：<a href="https://t.me/chachacha99999999">@chachacha99999999</a>
-</p>
+## 许可证与说明
 
-## 📜 仓库
-
-
-[https://github.com/茶/gpt5.6-claude-grok4.6-deepseekv4pro](https://github.com/茶/gpt5.6-claude-grok4.6-deepseekv4pro)
-
-<p align="center"><sub>ColdBrew · 四个模型 · 一杯冷咖啡</sub></p>
+本仓库是本地配置编排和 UI 工具集合。使用前请阅读 `AUTHORIZATION.md`、`SECURITY_AUDIT.md` 和 `THIRD_PARTY_NOTICES.md`，并自行保管好账号、密钥和本地配置备份。

@@ -1,0 +1,29 @@
+ColdBrew Suite v8 verification
+==============================
+
+Workspace: gpt5.6-claude-grok4.6-deepseekv4pro
+Date: 2026-08-18
+
+PASS  python -m compileall -q .
+PASS  python coldbrew_hub.py --selftest (4/4 CLI + GUI entries)
+PASS  all 9 test_*.py files executed individually (59 tests, all OK)
+PASS  Grok temporary preview -> deploy -> verify -> restore
+PASS  DeepSeek temporary preview -> deploy -> verify -> restore
+PASS  standalone Grok ZIP --help (shared UI bundled)
+PASS  standalone DeepSeek ZIP --help (shared UI bundled)
+PASS  python pack_release.py --all --json
+
+Release package:
+  C:\Users\17495\Documents\GitHub仓库\.codex-work\gpt5.6-suite-upgrade-20260818\gpt5.6-suite-v8-source.zip
+  files=740
+  sha256=see the external SHA-256 value in the delivery note (avoids a self-referential archive hash)
+
+Project release directory:
+  release-20260818b\
+  SHA256SUMS-20260818-064027.txt
+
+Rollback commands:
+  python projects\grok4.6-coldbrew\app\grok_coldbrew.py restore --profile max
+  python projects\deepseek-harness\app\deepseek_harness.py restore --profile max
+  python projects\grok4.6-coldbrew\app\grok_coldbrew.py verify
+  python projects\deepseek-harness\app\deepseek_harness.py verify
