@@ -103,7 +103,21 @@ release\ 目录
 7. 发布前执行 `🎯全部部署·全部恢复` 与状态检查。
 8. 使用 `🚢全部打包发布` 生成统一发布产物。
 
+## ☕ 冷咖啡社区
+
+<p align="center">
+  <strong>🐧 codex 破甲 1057540028 ｜ 🐧 codex claude 破甲 1077074552</strong><br>
+  <img src="projects/codex-coldbrew/docs/images/qq-group-codex.png" width="340">
+  <img src="projects/codex-coldbrew/docs/images/qq-group-codex-claude.png" width="340">
+</p>
+
+<p align="center">
+  <strong>微信群：冷咖啡破甲社区</strong><br>
+  <img src="projects/codex-coldbrew/docs/images/codex-group-qr.png" width="240">
+</p>
+
 ## 📜 仓库
+
 
 [https://github.com/3641397194-wq/gpt5.6-claude-grok4.6-deepseekv4pro](https://github.com/3641397194-wq/gpt5.6-claude-grok4.6-deepseekv4pro)
 
