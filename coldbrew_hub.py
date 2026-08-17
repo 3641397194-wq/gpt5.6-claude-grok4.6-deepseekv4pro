@@ -81,7 +81,7 @@ def run_command(tool, args, log_q, attach: bool = False):
         log_q.put(("error", f"[{tool['tag']}] 入口缺失: {entry}"))
         return
     cmd = [sys.executable, str(entry)] + list(args)
-    log_q.put(("info", f"[{tool['tag']}] $ python {entry.name} {' '.join(args)}"))
+    log_q.put(("info", f"[{tool['tag']}] 执行：python {entry.name} {' '.join(args)}"))
     try:
         if attach:
             # 打开面板：不捕获输出，控制台直接可见
@@ -107,9 +107,9 @@ def run_command(tool, args, log_q, attach: bool = False):
             log_q.put(("out", line.rstrip()))
         proc.wait()
         if proc.returncode == 0:
-            log_q.put(("ok", f"[{tool['tag']}] 完成 (exit 0)"))
+            log_q.put(("ok", f"[{tool['tag']}] 完成（退出码 0）"))
         else:
-            log_q.put(("error", f"[{tool['tag']}] 退出码 {proc.returncode}"))
+            log_q.put(("error", f"[{tool['tag']}] 失败（退出码 {proc.returncode}）"))
 
         # 部署成功 → 部署后自动验证
         if proc.returncode == 0 and args and args[0] in DEPLOY_VERBS and tool.get("verify"):
@@ -126,11 +126,11 @@ def run_command(tool, args, log_q, attach: bool = False):
                 timeout=600,
             )
             for line in (vproc.stdout or "").splitlines():
-                log_q.put(("out", f"  verify: {line}"))
+                log_q.put(("out", f"  验证: {line}"))
             if vproc.returncode == 0:
                 log_q.put(("ok", f"[{tool['tag']}] 验证通过"))
             else:
-                log_q.put(("error", f"[{tool['tag']}] 验证未通过 (exit {vproc.returncode})"))
+                log_q.put(("error", f"[{tool['tag']}] 验证未通过（退出码 {vproc.returncode}）"))
     except Exception as exc:  # noqa: BLE001
         log_q.put(("error", f"[{tool['tag']}] 异常: {exc}"))
 
@@ -174,9 +174,9 @@ def run_packer(tool_or_none, log_q):
                     log_q.put(("ok", f"[打包] 汇总 {payload['sha256sums']}"))
             except Exception:
                 for line in proc.stdout.splitlines():
-                    log_q.put(("out", f"  pack: {line}"))
+                    log_q.put(("out", f"  打包输出: {line}"))
         if proc.returncode != 0:
-            log_q.put(("error", f"[打包] {label} 退出码 {proc.returncode}"))
+            log_q.put(("error", f"[打包] {label} 失败（退出码 {proc.returncode}）"))
     except Exception as exc:  # noqa: BLE001
         log_q.put(("error", f"[打包] 异常: {exc}"))
 
@@ -325,16 +325,16 @@ class HubApp:
         threading.Thread(target=worker, daemon=True).start()
 
     def env_check(self):
-        self.log_q.put(("info", f"Python: {sys.version.split()[0]}  ({sys.executable})"))
+        self.log_q.put(("info", f"Python：{sys.version.split()[0]}（{sys.executable}）"))
         for tool in TOOLS:
             entry = tool_entry(tool)
-            ok = "OK" if entry.exists() else "MISSING"
-            self.log_q.put(("info" if entry.exists() else "error", f"[{tool['tag']}] 入口 {ok}: {entry}"))
+            ok = "正常" if entry.exists() else "缺失"
+            self.log_q.put(("info" if entry.exists() else "error", f"[{tool['tag']}] 入口{ok}：{entry}"))
         pack = PROJECTS / "codex-coldbrew" / "pack" / "eni-solo"
         self.log_q.put(("info" if pack.is_dir() else "error",
-                        f"[GPT-5.6] eni-solo 包 {'OK' if pack.is_dir() else 'MISSING'}: {pack}"))
+                        f"[GPT-5.6] eni-solo 包{'正常' if pack.is_dir() else '缺失'}：{pack}"))
         self.log_q.put(("info" if PACKER.exists() else "error",
-                        f"[打包] pack_release.py {'OK' if PACKER.exists() else 'MISSING'}: {PACKER}"))
+                        f"[打包] pack_release.py{'正常' if PACKER.exists() else '缺失'}：{PACKER}"))
         self.log_q.put(("ok", "环境自检完成"))
 
     def pump_log(self):
@@ -354,15 +354,15 @@ class HubApp:
 
 
 def selftest():
-    print("ColdBrew Hub selftest")
+    print("冷咖啡 Hub 自检")
     for tool in TOOLS:
         entry = tool_entry(tool)
         panel = tool_panel(tool)
-        print(f"  {tool['tag']:<12} entry={entry} exists={entry.exists()} panel={panel} exists={panel.exists()}")
+        print(f"  {tool['tag']:<12} 入口={entry} 存在={entry.exists()} 面板={panel} 存在={panel.exists()}")
     pack = PROJECTS / "codex-coldbrew" / "pack" / "eni-solo"
-    print(f"  {'eni-solo pack':<12} path={pack} exists={pack.is_dir()}")
-    print(f"  {'packer':<12} path={PACKER} exists={PACKER.exists()}")
-    print("selftest done")
+    print(f"  {'eni-solo 包':<12} 路径={pack} 存在={pack.is_dir()}")
+    print(f"  {'打包器':<12} 路径={PACKER} 存在={PACKER.exists()}")
+    print("自检完成")
 
 
 def main():
