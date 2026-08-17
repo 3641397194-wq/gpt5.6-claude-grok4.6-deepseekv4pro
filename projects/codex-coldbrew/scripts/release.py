@@ -127,8 +127,8 @@ Windows source launch:
 macOS / Linux source launch:
     sh ./start-studio.sh
 
-Project: https://github.com/3641397194-wq/codex5.6-coldbrew
-Release: https://github.com/3641397194-wq/codex5.6-coldbrew/releases/tag/v{VERSION}
+Project: https://github.com/茶/codex5.6-coldbrew
+Release: https://github.com/茶/codex5.6-coldbrew/releases/tag/v{VERSION}
 
 ColdBrew community:
     WeChat group QR docs/images/codex-group-qr.png
