@@ -1,12 +1,12 @@
-<p align="center"><a href="https://3641397194-wq.github.io/codex5.6-coldbrew/"><img src="docs/images/codex-release-board.png" width="1200" alt="Codex 破甲 ColdBrew Studio v6.1.0 工作台与产品视觉板"></a></p>
+<p align="center"><a href="https://茶.github.io/codex5.6-coldbrew/"><img src="docs/images/codex-release-board.png" width="1200" alt="Codex 破甲 ColdBrew Studio v6.1.0 工作台与产品视觉板"></a></p>
 
 <h1 align="center">Codex 破甲 · 冷咖啡</h1>
 
 <p align="center"><strong>Codex ColdBrew Studio v6.1.0</strong><br>默认任务链直接就绪，保留多层部署、预览、验证、启动与完整恢复。</p>
 
 <p align="center">
-  <a href="https://github.com/3641397194-wq/codex5.6-coldbrew/releases/latest"><strong>下载 Windows 软件</strong></a> ·
-  <a href="https://3641397194-wq.github.io/codex5.6-coldbrew/"><strong>查看宣传页</strong></a> ·
+  <a href="https://github.com/茶/codex5.6-coldbrew/releases/latest"><strong>下载 Windows 软件</strong></a> ·
+  <a href="https://茶.github.io/codex5.6-coldbrew/"><strong>查看宣传页</strong></a> ·
   <a href="README_EN.md"><strong>English</strong></a> ·
    ·
   
@@ -39,7 +39,7 @@ Windows 用户打开软件后，预览、部署、验证、恢复与启动控制
 
 ### Windows
 
-1. 打开 [Releases](https://github.com/3641397194-wq/codex5.6-coldbrew/releases/latest)。
+1. 打开 [Releases](https://github.com/茶/codex5.6-coldbrew/releases/latest)。
 2. 下载 `Codex-ColdBrew-Studio-v6.1.0-Windows.exe`。
 3. 双击软件后先点“预览变更”，确认目标为自己的 Codex Home。
 4. 需要完整启动文案时，在顶部输入框输入 `冷咖啡`；已有旧工作流可使用 `cold coffee` 或 `[[ENI:PROFILE=MAX]]`。
@@ -146,10 +146,10 @@ eni-solo v4.0.0 包（89 个技能、确定性路由器、石井人格清单与 
 
 | 产品 | 仓库 | 用途 |
 |---|---|---|
-| Codex 5.6 ColdBrew | [codex5.6-coldbrew](https://github.com/3641397194-wq/codex5.6-coldbrew) | Codex 多层本地指令部署工作台 |
-| Claude ColdBrew | [claude-coldbrew](https://github.com/3641397194-wq/claude-coldbrew) | Claude Code 多层规则部署工作台 |
-| Grok 4.6 ColdBrew | [grok4.6-coldbrew](https://github.com/3641397194-wq/grok4.6-coldbrew) | Grok 会话模板与系统提示词工作台 |
-| DeepSeek Harness ColdBrew | [deepseek-harness-coldbrew](https://github.com/3641397194-wq/deepseek-harness-coldbrew) | DeepSeek 本地 Harness 配置工作台 |
+| Codex 5.6 ColdBrew | [codex5.6-coldbrew](https://github.com/茶/codex5.6-coldbrew) | Codex 多层本地指令部署工作台 |
+| Claude ColdBrew | [claude-coldbrew](https://github.com/茶/claude-coldbrew) | Claude Code 多层规则部署工作台 |
+| Grok 4.6 ColdBrew | [grok4.6-coldbrew](https://github.com/茶/grok4.6-coldbrew) | Grok 会话模板与系统提示词工作台 |
+| DeepSeek Harness ColdBrew | [deepseek-harness-coldbrew](https://github.com/茶/deepseek-harness-coldbrew) | DeepSeek 本地 Harness 配置工作台 |
 
 
 ## 原创与来源
