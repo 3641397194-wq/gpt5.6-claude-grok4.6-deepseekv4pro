@@ -232,6 +232,14 @@ class HubApp:
         for tool in TOOLS:
             self.add_tool_row(tool)
 
+        # 进度条区：任务运行时滚动，空闲时归零
+        pbarf = ttk.Frame(root, padding=(16, 4))
+        pbarf.pack(fill="x")
+        self.pbar = ttk.Progressbar(pbarf, mode="indeterminate", length=560)
+        self.pbar.pack(side="left", fill="x", expand=True)
+        self.pbar_label = ttk.Label(pbarf, text="等待任务", style="TLabel")
+        self.pbar_label.pack(side="right", padx=(10, 0))
+
         logf = ttk.Frame(root, padding=(16, 6))
         logf.pack(fill="both", expand=True)
         ttk.Label(logf, text="运行日志", style="TLabel").pack(anchor="w")
@@ -247,6 +255,8 @@ class HubApp:
         self.log_text.tag_configure("out", foreground="#c9d4de")
 
         self.root.after(120, self.pump_log)
+        # 启动后自动做一次环境自检（自适应提示）
+        self.root.after(600, self.env_check)
 
     def add_tool_row(self, tool):
         row = self.ttk.Frame(self.body)
@@ -281,6 +291,8 @@ class HubApp:
             return
         job = self._job_start()
         self.progress.configure(text=f"{tool['tag']} 运行中 …")
+        self.pbar.start(12)
+        self.pbar_label.configure(text=f"{tool['tag']} 运行中 …")
 
         def worker():
             run_command(tool, args, self.log_q, attach=attach)
@@ -350,6 +362,8 @@ class HubApp:
             self.progress.configure(text=f"{len(self.jobs)} 个任务运行中 …")
         else:
             self.progress.configure(text="就绪")
+            self.pbar.stop()
+            self.pbar_label.configure(text="就绪 · 环境已自检，选择工具后点一键部署")
         self.root.after(120, self.pump_log)
 
 
