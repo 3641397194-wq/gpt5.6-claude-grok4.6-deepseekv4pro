@@ -89,11 +89,11 @@ def draw_info_card(draw, box):
         yy += 54
 
 def main():
-    make_qr("https://t.me/chachachacha99999", OUT / "telegram-group.png")
+    make_qr("https://t.me/chachachacha99999", OUT / "telegram-group-v2.png")
     # Exact channel URL supplied by the user.
-    make_qr("https://t.me/chachacha99999999", OUT / "telegram-channel.png")
-    qq_card(ASSET / "qq-group-1.png", OUT / "qq-group-1-card.png", "ColdBrew QQ", "1057540028", "#80f0bc")
-    qq_card(ASSET / "qq-group-2.png", OUT / "qq-group-2-card.png", "Codex / Claude", "1077074552", "#9aa7ff")
+    make_qr("https://t.me/chachacha99999999", OUT / "telegram-channel-v2.png")
+    qq_card(ASSET / "qq-group-1.png", OUT / "qq-group-1-v2.png", "ColdBrew QQ", "1057540028", "#80f0bc")
+    qq_card(ASSET / "qq-group-2.png", OUT / "qq-group-2-v2.png", "Codex / Claude", "1077074552", "#9aa7ff")
 
     width, height = 1600, 1720
     board = Image.new("RGB", (width, height), "#f5f8fc")
@@ -104,15 +104,15 @@ def main():
     draw.text((92, 58), "ColdBrew Community", font=font(54, True), fill="#f7e8c7")
     draw.text((96, 130), "Four-model workbench / community hub", font=font(30), fill="#90dceb")
     draw.text((96, 178), "QQ groups  |  WeChat group  |  Telegram group  |  Telegram channel", font=font(20), fill="#b8c8d2")
-    draw_qr_card(draw, board, (80, 280, 690, 420), "QQ Group 1057540028", "ColdBrew QQ", OUT / "qq-group-1-card.png", "#80f0bc", "QQ group 1057540028")
-    draw_qr_card(draw, board, (830, 280, 690, 420), "QQ Group 1077074552", "Codex / Claude", OUT / "qq-group-2-card.png", "#9aa7ff", "QQ group 1077074552")
+    draw_qr_card(draw, board, (80, 280, 690, 420), "QQ Group 1057540028", "ColdBrew QQ", OUT / "qq-group-1-v2.png", "#80f0bc", "QQ group 1057540028")
+    draw_qr_card(draw, board, (830, 280, 690, 420), "QQ Group 1077074552", "Codex / Claude", OUT / "qq-group-2-v2.png", "#9aa7ff", "QQ group 1077074552")
     draw_qr_card(draw, board, (80, 750, 690, 420), "WeChat Group", "Scan and note: ColdBrew", ASSET / "wechat-group.png", "#ffd68a", "QR validity follows the image")
-    draw_qr_card(draw, board, (830, 750, 690, 420), "Telegram Group", "Discussion and support", OUT / "telegram-group.png", "#66d9ff", "t.me/chachachacha99999")
+    draw_qr_card(draw, board, (830, 750, 690, 420), "Telegram Group", "Discussion and support", OUT / "telegram-group-v2.png", "#66d9ff", "t.me/chachachacha99999")
     draw_info_card(draw, (80, 1220, 690, 330))
-    draw_qr_card(draw, board, (830, 1220, 690, 420), "Telegram Channel", "Announcements and releases", OUT / "telegram-channel.png", "#9aa7ff", "t.me/chachacha99999999")
+    draw_qr_card(draw, board, (830, 1220, 690, 420), "Telegram Channel", "Announcements and releases", OUT / "telegram-channel-v2.png", "#9aa7ff", "t.me/chachacha99999999")
     draw.rounded_rectangle((80, 1650, 1520, 1695), radius=18, fill="#dbeaf2")
     draw.text((800, 1672), "github.com/3641397194-wq/gpt5.6-claude-grok4.6-deepseekv4pro", font=font(17), fill="#456674", anchor="mm")
-    board.save(OUT / "community-board.png")
+    board.save(OUT / "community-board-v2.png")
 
 if __name__ == "__main__":
     main()

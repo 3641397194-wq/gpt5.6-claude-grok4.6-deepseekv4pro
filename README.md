@@ -89,15 +89,15 @@ Preview before deployment. Each adapter stores snapshots and verification data i
 ## Community | &#x793e;&#x533a;&#x5165;&#x53e3;
 
 <p align="center">
-  <img src="docs/images/community-board.png" width="900" alt="ColdBrew community board">
+  <img src="docs/images/community-board-v2.png" width="900" alt="ColdBrew community board">
 </p>
 
 ### QQ groups
 
 <table>
   <tr>
-    <td align="center"><a href="projects/grok4.6-coldbrew/docs/images/qq-group-1-card.png"><img src="docs/images/qq-group-1-card.png" width="300" alt="QQ group 1057540028"></a><br><strong>ColdBrew QQ</strong><br><code>1057540028</code></td>
-    <td align="center"><a href="projects/grok4.6-coldbrew/docs/images/qq-group-2-card.png"><img src="docs/images/qq-group-2-card.png" width="300" alt="QQ group 1077074552"></a><br><strong>Codex / Claude</strong><br><code>1077074552</code></td>
+    <td align="center"><a href="projects/grok4.6-coldbrew/docs/images/qq-group-1-v2.png"><img src="docs/images/qq-group-1-v2.png" width="300" alt="QQ group 1057540028"></a><br><strong>ColdBrew QQ</strong><br><code>1057540028</code></td>
+    <td align="center"><a href="projects/grok4.6-coldbrew/docs/images/qq-group-2-v2.png"><img src="docs/images/qq-group-2-v2.png" width="300" alt="QQ group 1077074552"></a><br><strong>Codex / Claude</strong><br><code>1077074552</code></td>
   </tr>
 </table>
 
@@ -113,8 +113,8 @@ Scan and note **ColdBrew**. QR validity follows the live image; replace the imag
 
 <table>
   <tr>
-    <td align="center"><a href="https://t.me/chachachacha99999"><img src="docs/images/telegram-group.png" width="260" alt="Telegram group QR"></a><br><strong><a href="https://t.me/chachachacha99999">Discussion group</a></strong><br><code>t.me/chachachacha99999</code></td>
-    <td align="center"><a href="https://t.me/chachacha99999999"><img src="docs/images/telegram-channel.png" width="260" alt="Telegram channel QR"></a><br><strong><a href="https://t.me/chachacha99999999">Announcement channel</a></strong><br><code>t.me/chachacha99999999</code></td>
+    <td align="center"><a href="https://t.me/chachachacha99999"><img src="docs/images/telegram-group-v2.png" width="260" alt="Telegram group QR"></a><br><strong><a href="https://t.me/chachachacha99999">Discussion group</a></strong><br><code>t.me/chachachacha99999</code></td>
+    <td align="center"><a href="https://t.me/chachacha99999999"><img src="docs/images/telegram-channel-v2.png" width="260" alt="Telegram channel QR"></a><br><strong><a href="https://t.me/chachacha99999999">Announcement channel</a></strong><br><code>t.me/chachacha99999999</code></td>
   </tr>
 </table>
 
