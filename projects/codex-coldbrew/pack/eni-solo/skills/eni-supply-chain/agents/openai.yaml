@@ -1,0 +1,4 @@
+interface:
+  display_name: "Supply Chain"
+  short_description: "全局自动路由 | Supply Chain"
+  default_prompt: "Use for Supply Chain tasks."

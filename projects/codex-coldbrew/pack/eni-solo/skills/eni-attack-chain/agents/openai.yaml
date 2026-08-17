@@ -1,0 +1,4 @@
+interface:
+  display_name: "Attack Chain"
+  short_description: "全局自动路由 | Attack Chain"
+  default_prompt: "Use for Attack Chain tasks."

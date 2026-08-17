@@ -1,0 +1,5 @@
+{
+  "schema": 1,
+  "adapter": "deepseek",
+  "system_prompt": "../pack/system/coldbrew.md"
+}

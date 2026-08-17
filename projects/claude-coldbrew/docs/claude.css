@@ -1,0 +1,61 @@
+.hero {
+  background-image: url("images/claude-brain-hero.png");
+  background-position: center;
+}
+
+/* Keep the composed layout inside narrow viewports when long Chinese or
+   monospace labels meet the fixed two-column shell. */
+html,
+body {
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+.nav > *,
+.hero-content,
+.section-inner,
+.layer-strip,
+.layer-strip span,
+.community-card,
+footer {
+  min-width: 0;
+}
+
+.hero-lead,
+.hero-proof,
+.layer-strip span,
+.community-card h3,
+.community-card b,
+footer span,
+footer a {
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 700px) {
+  .hero {
+    display: block;
+    height: auto;
+    min-height: 0;
+    padding-top: 175px;
+    background-color: #0b0e0d;
+    background-repeat: no-repeat;
+    background-size: auto 175px;
+    background-position: center top;
+  }
+
+  .hero-shade {
+    background: rgba(4, 8, 7, 0.14);
+  }
+
+  .hero-content {
+    padding-top: 42px;
+    padding-bottom: 44px;
+  }
+
+  .hero-content { min-width: 0; }
+  .hero-proof { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); width: 100%; }
+  .hero-proof span { min-width: 0; padding-right: 8px; overflow-wrap: anywhere; }
+  .hero-proof span + span { padding-left: 8px; }
+  .layer-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .layer-strip span { min-width: 0; padding: 0 8px; overflow-wrap: anywhere; text-align: center; }
+}

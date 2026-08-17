@@ -1,0 +1,4 @@
+interface:
+  display_name: "Cold Coffee Unpack Lab"
+  short_description: "Offline PE packing and reverse triage for 冷咖啡."
+  default_prompt: "冷咖啡，对这个本地二进制执行脱壳分诊、逆向工具审计和证据报告。"

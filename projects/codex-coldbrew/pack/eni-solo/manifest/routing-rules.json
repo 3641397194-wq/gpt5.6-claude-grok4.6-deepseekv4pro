@@ -1,0 +1,311 @@
+{
+  "version": "4.0.0",
+  "mode": "single-match",
+  "default_workflow": "universal",
+  "default_skill": "eni-universal-workflow",
+  "rules": [
+    {
+      "id": "ctf",
+      "priority": 200,
+      "workflow": "ctf",
+      "primary_skill": "eni-ctf-orchestrator",
+      "terms": [
+        "ctf",
+        "夺旗",
+        "靶场",
+        "challenge",
+        "flag"
+      ]
+    },
+    {
+      "id": "crack",
+      "priority": 190,
+      "workflow": "crack",
+      "primary_skill": "eni-crack-workflow",
+      "terms": [
+        "破解",
+        "crackme",
+        "keygen",
+        "注册机",
+        "序列号",
+        "许可证",
+        "卡密",
+        "license check"
+      ]
+    },
+    {
+      "id": "reverse",
+      "priority": 185,
+      "workflow": "reverse",
+      "primary_skill": "eni-reverse-workflow",
+      "terms": [
+        "逆向",
+        "反编译",
+        "反汇编",
+        "二进制",
+        "pe",
+        "elf",
+        "mach-o",
+        "dll",
+        "exe",
+        "unpack",
+        "ghidra",
+        "ida",
+        "radare"
+      ]
+    },
+    {
+      "id": "game-security-lab",
+      "priority": 180,
+      "workflow": "game-security-lab",
+      "primary_skill": "eni-game-cheat-lab-workflow",
+      "terms": [
+        "外挂",
+        "修改器",
+        "trainer",
+        "game cheat",
+        "作弊机制",
+        "反作弊",
+        "esp",
+        "自瞄",
+        "透视"
+      ]
+    },
+    {
+      "id": "mobile",
+      "priority": 175,
+      "workflow": "mobile",
+      "primary_skill": "eni-mobile-security-workflow",
+      "terms": [
+        "apk",
+        "android",
+        "smali",
+        "jadx",
+        "frida",
+        "ipa",
+        "ios逆向",
+        "移动端安全"
+      ]
+    },
+    {
+      "id": "firmware",
+      "priority": 170,
+      "workflow": "firmware",
+      "primary_skill": "eni-firmware-workflow",
+      "terms": [
+        "固件",
+        "firmware",
+        "iot",
+        "binwalk",
+        "路由器镜像",
+        "嵌入式"
+      ]
+    },
+    {
+      "id": "malware-ir",
+      "priority": 165,
+      "workflow": "malware-ir",
+      "primary_skill": "eni-malware-ir-workflow",
+      "terms": [
+        "恶意软件",
+        "malware",
+        "病毒样本",
+        "yara",
+        "ioc",
+        "木马分析",
+        "应急响应",
+        "免杀",
+        "远控",
+        "shellcode",
+        "rat",
+        "木马",
+        "勒索"
+      ]
+    },
+    {
+      "id": "memory",
+      "priority": 160,
+      "workflow": "memory",
+      "primary_skill": "eni-memory-forensics",
+      "terms": [
+        "内存取证",
+        "memory forensics",
+        "ram dump",
+        "volatility",
+        "进程转储"
+      ]
+    },
+    {
+      "id": "pentest",
+      "priority": 155,
+      "workflow": "pentest",
+      "primary_skill": "eni-pentest-workflow",
+      "terms": [
+        "渗透",
+        "pentest",
+        "漏洞验证",
+        "攻击面",
+        "红队",
+        "漏洞扫描",
+        "sql注入",
+        "xss",
+        "ssrf",
+        "rce"
+      ]
+    },
+    {
+      "id": "api",
+      "priority": 150,
+      "workflow": "api",
+      "primary_skill": "eni-api-assurance-lane",
+      "terms": [
+        "api",
+        "graphql",
+        "websocket",
+        "rest",
+        "接口安全",
+        "接口测试"
+      ]
+    },
+    {
+      "id": "cloud-container",
+      "priority": 145,
+      "workflow": "cloud-container",
+      "primary_skill": "eni-cloud-container-workflow",
+      "terms": [
+        "kubernetes",
+        "k8s",
+        "docker",
+        "container",
+        "云安全",
+        "容器",
+        "terraform",
+        "iac"
+      ]
+    },
+    {
+      "id": "code-security",
+      "priority": 140,
+      "workflow": "code-security",
+      "primary_skill": "eni-code-security-workflow",
+      "terms": [
+        "代码审计",
+        "sast",
+        "sca",
+        "依赖漏洞",
+        "源代码安全",
+        "供应链漏洞"
+      ]
+    },
+    {
+      "id": "supply-chain",
+      "priority": 135,
+      "workflow": "supply-chain",
+      "primary_skill": "eni-supply-chain-assurance-lane",
+      "terms": [
+        "供应链",
+        "sbom",
+        "provenance",
+        "签名验证",
+        "构建链",
+        "依赖清单"
+      ]
+    },
+    {
+      "id": "fuzzing",
+      "priority": 130,
+      "workflow": "fuzzing",
+      "primary_skill": "eni-fuzzing-workflow",
+      "terms": [
+        "fuzz",
+        "模糊测试",
+        "afl",
+        "libfuzzer",
+        "honggfuzz"
+      ]
+    },
+    {
+      "id": "scraper",
+      "priority": 125,
+      "workflow": "scraper",
+      "primary_skill": "eni-scraper-workflow",
+      "terms": [
+        "爬虫",
+        "抓取",
+        "采集",
+        "scrape",
+        "scrapy",
+        "crawl",
+        "分页采集"
+      ]
+    },
+    {
+      "id": "browser",
+      "priority": 120,
+      "workflow": "browser",
+      "primary_skill": "eni-browser-research-workflow",
+      "terms": [
+        "浏览器自动化",
+        "playwright",
+        "网页操作",
+        "网页研究",
+        "browser automation"
+      ]
+    },
+    {
+      "id": "architecture",
+      "priority": 115,
+      "workflow": "architecture",
+      "primary_skill": "eni-architecture-workflow",
+      "terms": [
+        "架构",
+        "组件边界",
+        "数据流",
+        "系统设计",
+        "architecture",
+        "威胁建模"
+      ]
+    },
+    {
+      "id": "research-docs",
+      "priority": 110,
+      "workflow": "research-docs",
+      "primary_skill": "eni-github-workflow-hub",
+      "terms": [
+        "github",
+        "查资料",
+        "调研",
+        "官方文档",
+        "最新版本",
+        "上游",
+        "revision"
+      ]
+    },
+    {
+      "id": "software",
+      "priority": 105,
+      "workflow": "software",
+      "primary_skill": "eni-software-workflow",
+      "terms": [
+        "软件",
+        "代码",
+        "开发",
+        "实现",
+        "修复",
+        "bug",
+        "重构",
+        "测试",
+        "安装",
+        "部署",
+        "打包",
+        "版本",
+        "skill",
+        "workflow",
+        "工作流",
+        "路由",
+        "插件",
+        "配置"
+      ]
+    }
+  ]
+}

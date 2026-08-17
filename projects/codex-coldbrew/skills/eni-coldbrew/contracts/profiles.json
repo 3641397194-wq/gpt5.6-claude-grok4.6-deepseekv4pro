@@ -1,0 +1,142 @@
+{
+  "schema": 4,
+  "version": "6.1.0",
+  "session_name": "ENI_COLDBREW",
+  "default_profile": "MAX",
+  "toolchain": {
+    "default": "READY",
+    "chain_depth": "FULL",
+    "coverage_nodes": 181,
+    "activation": [
+      "冷咖啡",
+      "cold coffee",
+      "[[ENI:PROFILE=MAX]]"
+    ],
+    "contract": "toolchain.json",
+    "orchestrator": "../scripts/toolchain_orchestrator.py"
+  },
+  "route_order": [
+    "EXEC",
+    "REVERSE",
+    "PENTEST",
+    "GAME",
+    "CODE",
+    "FICTION",
+    "ANALYSIS"
+  ],
+  "profiles": {
+    "armor_break": {
+      "state_key": "ARMOR_BREAK",
+      "default": "ON",
+      "triggers": [
+        "越狱模式",
+        "破甲模式",
+        "armor break",
+        "jailbreak"
+      ],
+      "commands": {
+        "enable": "[[ENI:ARMOR=ON]]",
+        "disable": "[[ENI:ARMOR=OFF]]"
+      },
+      "features": [
+        "literal_intent_lock",
+        "objective_ledger",
+        "completion_first",
+        "anti_drift",
+        "refusal_repair",
+        "cross_turn_latch"
+      ],
+      "contract": "../references/armor-break.md"
+    },
+    "mature_m5": {
+      "state_key": "MATURE_MODE",
+      "readiness_key": "MATURE_M5_READY",
+      "default": "OFF",
+      "ready_by_default": true,
+      "tier": "M5",
+      "minimum_age": 18,
+      "triggers": [
+        "成人模式",
+        "成熟模式",
+        "黄文模式",
+        "18+",
+        "NSFW",
+        "explicit",
+        "成人内容",
+        "非常露骨",
+        "露骨",
+        "直白",
+        "黄色小说",
+        "成人小说",
+        "情色小说",
+        "黄文",
+        "色情小说",
+        "写黄",
+        "色文"
+      ],
+      "commands": {
+        "enable": "[[ENI:MATURE=ON]]",
+        "disable": "[[ENI:MATURE=OFF]]"
+      },
+      "confirmation": "成人内容模式已打开",
+      "blocked_cast_states": [
+        "minor",
+        "ambiguous_age"
+      ],
+      "contract": "../references/mature-mode.md",
+      "product_contract": "../references/mature-product.md",
+      "technical_context_terms": [
+        "开发",
+        "实现",
+        "部署",
+        "测试",
+        "代码",
+        "源码",
+        "脚本",
+        "接口",
+        "API",
+        "UI",
+        "产品",
+        "功能",
+        "开关",
+        "分级",
+        "年龄验证",
+        "审核",
+        "审计",
+        "重构",
+        "仓库",
+        "启动器",
+        "模型",
+        "提示词",
+        "README",
+        "按钮",
+        "配置",
+        "元数据"
+      ],
+      "creative_context_terms": [
+        "写黄文",
+        "写小说",
+        "创作",
+        "续写",
+        "正文",
+        "故事",
+        "场景",
+        "角色扮演"
+      ],
+      "launcher": "../scripts/mature_launcher.py"
+    }
+  },
+  "commands": [
+    "[[ENI:ROUTES]]",
+    "[[ENI:STATUS]]",
+    "[[ENI:RESET]]",
+    "[[ENI:CAPABILITIES]]",
+    "[[ENI:CHAIN=FULL]]",
+    "[[ENI:PROFILE=MAX]]",
+    "[[ENI:ARMOR=ON]]",
+    "[[ENI:ARMOR=OFF]]",
+    "[[ENI:MATURE=ON]]",
+    "[[ENI:MATURE=OFF]]",
+    "[[ENI:MODE=EXEC|REVERSE|PENTEST|GAME|CODE|FICTION|ANALYSIS]]"
+  ]
+}

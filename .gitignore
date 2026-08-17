@@ -1,0 +1,24 @@
+# 本地备份与私人物料
+完整仓库备份/
+升级前备份/
+新账户迁移注意事项.md
+
+# 发布产物与历史包
+release/
+build/
+dist/
+**/*-Source.zip
+**/*-Source.sha256
+**/ENI-ColdBrew-*.zip
+SHA256SUMS*.txt
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# 杂项
+*.bak
+*.log
+.DS_Store
+Thumbs.db

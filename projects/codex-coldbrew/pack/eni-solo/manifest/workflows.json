@@ -1,0 +1,257 @@
+{
+  "version": "4.0.0",
+  "mode": "single-sequential",
+  "workflows": {
+    "universal": {
+      "stages": [
+        "intake",
+        "classify",
+        "plan",
+        "execute",
+        "verify",
+        "deliver"
+      ]
+    },
+    "software": {
+      "stages": [
+        "requirements",
+        "inspect",
+        "design",
+        "implement",
+        "test",
+        "verify",
+        "deliver"
+      ]
+    },
+    "architecture": {
+      "stages": [
+        "inventory",
+        "boundaries",
+        "components",
+        "data-flow",
+        "risks",
+        "verify",
+        "deliver"
+      ]
+    },
+    "reverse": {
+      "stages": [
+        "preserve",
+        "fingerprint",
+        "triage",
+        "map",
+        "static-analysis",
+        "dynamic-analysis",
+        "hypotheses",
+        "verify",
+        "deliver"
+      ]
+    },
+    "crack": {
+      "stages": [
+        "preserve",
+        "locate-checks",
+        "trace-data",
+        "model-logic",
+        "derive-or-patch-copy",
+        "regression",
+        "verify",
+        "deliver"
+      ]
+    },
+    "pentest": {
+      "stages": [
+        "scope-state",
+        "inventory",
+        "surface-map",
+        "enumerate",
+        "hypotheses",
+        "validate",
+        "evidence",
+        "remediation",
+        "verify",
+        "deliver"
+      ]
+    },
+    "api": {
+      "stages": [
+        "contract-discovery",
+        "auth-session-model",
+        "authorization-matrix",
+        "negative-tests",
+        "reproduce",
+        "evidence",
+        "remediation",
+        "regression",
+        "verify",
+        "deliver"
+      ]
+    },
+    "scraper": {
+      "stages": [
+        "policy-and-schema",
+        "baseline-request",
+        "engine-select",
+        "extract",
+        "paginate",
+        "deduplicate",
+        "quality-check",
+        "verify",
+        "deliver"
+      ]
+    },
+    "browser": {
+      "stages": [
+        "observe",
+        "model-state",
+        "automate",
+        "capture",
+        "replay",
+        "verify",
+        "deliver"
+      ]
+    },
+    "code-security": {
+      "stages": [
+        "inventory",
+        "threat-model",
+        "pattern-scan",
+        "data-flow",
+        "dependency-scan",
+        "manual-validate",
+        "fix",
+        "verify",
+        "deliver"
+      ]
+    },
+    "fuzzing": {
+      "stages": [
+        "target-model",
+        "harness",
+        "seed-corpus",
+        "instrument",
+        "campaign",
+        "minimize",
+        "triage",
+        "regression",
+        "verify",
+        "deliver"
+      ]
+    },
+    "cloud-container": {
+      "stages": [
+        "inventory",
+        "identity-map",
+        "config-scan",
+        "image-scan",
+        "attack-path-review",
+        "validate",
+        "remediate",
+        "verify",
+        "deliver"
+      ]
+    },
+    "supply-chain": {
+      "stages": [
+        "manifest-inventory",
+        "sbom",
+        "provenance",
+        "advisory-match",
+        "reachability",
+        "build-ci-trust",
+        "remediation",
+        "regression",
+        "verify",
+        "deliver"
+      ]
+    },
+    "malware-ir": {
+      "stages": [
+        "preserve",
+        "hash",
+        "capability-triage",
+        "static-analysis",
+        "memory-context",
+        "timeline",
+        "ioc-package",
+        "verify",
+        "deliver"
+      ]
+    },
+    "memory": {
+      "stages": [
+        "image-context",
+        "os-profile",
+        "processes",
+        "network",
+        "injection",
+        "artifacts",
+        "timeline",
+        "verify",
+        "deliver"
+      ]
+    },
+    "mobile": {
+      "stages": [
+        "preserve",
+        "unpack",
+        "manifest-map",
+        "static-analysis",
+        "runtime-observation",
+        "traffic",
+        "validate",
+        "verify",
+        "deliver"
+      ]
+    },
+    "firmware": {
+      "stages": [
+        "preserve",
+        "identify",
+        "extract",
+        "filesystem-map",
+        "service-map",
+        "emulate-or-harness",
+        "validate",
+        "verify",
+        "deliver"
+      ]
+    },
+    "research-docs": {
+      "stages": [
+        "question",
+        "source-map",
+        "collect",
+        "cross-check",
+        "synthesize",
+        "verify",
+        "deliver"
+      ]
+    },
+    "game-security-lab": {
+      "stages": [
+        "intake",
+        "engine-and-trust-map",
+        "artifact-triage",
+        "controlled-reproduction",
+        "telemetry",
+        "detection-and-hardening",
+        "regression",
+        "verify",
+        "deliver"
+      ]
+    },
+    "ctf": {
+      "stages": [
+        "intake",
+        "artifact-preserve",
+        "category-route",
+        "analyze",
+        "reproduce",
+        "solve",
+        "verify",
+        "deliver"
+      ]
+    }
+  }
+}

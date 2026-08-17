@@ -1,0 +1,18 @@
+name: verify
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m unittest discover -s app -p 'test_*.py' -v
+      - run: python scripts/site_audit.py
+      - run: python scripts/release.py build
+      - run: python scripts/release.py verify

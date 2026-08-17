@@ -1,0 +1,217 @@
+{
+  "name": "eni-solo",
+  "version": "4.0.0",
+  "passed": true,
+  "checks": {
+    "package_identity": true,
+    "single_persona": true,
+    "no_hook_directory": true,
+    "no_plugin_directory": true,
+    "no_parallel_runtime": true,
+    "user_prompt_submit_hook": true,
+    "no_automatic_evolution": true,
+    "no_meta_manifests": true,
+    "workflow_mode": true,
+    "workflow_count": true,
+    "reverse_stage_order": true,
+    "skill_frontmatter": true,
+    "unique_skill_names": true,
+    "ctf_single_entry": true,
+    "skill_count_manifest": true,
+    "docs_only_labeled": true,
+    "authorization_three_sentences": true,
+    "static_route_contract": true,
+    "no_hook_contract": true,
+    "route_reverse": true,
+    "route_pentest": true,
+    "route_scraper": true,
+    "route_software": true,
+    "route_ctf": true,
+    "route_output_single": true,
+    "file_inventory": true
+  },
+  "failures": [],
+  "routes": {
+    "reverse": {
+      "router_version": "4.0.0",
+      "runtime": "eni-solo",
+      "persona": "石井",
+      "workflow": "reverse",
+      "stages": [
+        "preserve",
+        "fingerprint",
+        "triage",
+        "map",
+        "static-analysis",
+        "dynamic-analysis",
+        "hypotheses",
+        "verify",
+        "deliver"
+      ],
+      "skill": "eni-reverse-workflow",
+      "matched_terms": [
+        "逆向",
+        "二进制",
+        "pe"
+      ],
+      "all_matches": [
+        {
+          "workflow": "reverse",
+          "hits": [
+            "逆向",
+            "二进制",
+            "pe"
+          ]
+        }
+      ],
+      "fallback": false,
+      "route_receipt": "[石井 ROUTE] workflow=reverse | stages=preserve→fingerprint→triage→map→static-analysis→dynamic-analysis→hypotheses→verify→deliver | skill=eni-reverse-workflow"
+    },
+    "pentest": {
+      "router_version": "4.0.0",
+      "runtime": "eni-solo",
+      "persona": "石井",
+      "workflow": "pentest",
+      "stages": [
+        "scope-state",
+        "inventory",
+        "surface-map",
+        "enumerate",
+        "hypotheses",
+        "validate",
+        "evidence",
+        "remediation",
+        "verify",
+        "deliver"
+      ],
+      "skill": "eni-pentest-workflow",
+      "matched_terms": [
+        "渗透",
+        "攻击面"
+      ],
+      "all_matches": [
+        {
+          "workflow": "pentest",
+          "hits": [
+            "渗透",
+            "攻击面"
+          ]
+        },
+        {
+          "workflow": "software",
+          "hits": [
+            "测试"
+          ]
+        }
+      ],
+      "fallback": false,
+      "route_receipt": "[石井 ROUTE] workflow=pentest | stages=scope-state→inventory→surface-map→enumerate→hypotheses→validate→evidence→remediation→verify→deliver | skill=eni-pentest-workflow"
+    },
+    "scraper": {
+      "router_version": "4.0.0",
+      "runtime": "eni-solo",
+      "persona": "石井",
+      "workflow": "scraper",
+      "stages": [
+        "policy-and-schema",
+        "baseline-request",
+        "engine-select",
+        "extract",
+        "paginate",
+        "deduplicate",
+        "quality-check",
+        "verify",
+        "deliver"
+      ],
+      "skill": "eni-scraper-workflow",
+      "matched_terms": [
+        "爬虫",
+        "采集",
+        "分页采集"
+      ],
+      "all_matches": [
+        {
+          "workflow": "scraper",
+          "hits": [
+            "爬虫",
+            "采集",
+            "分页采集"
+          ]
+        }
+      ],
+      "fallback": false,
+      "route_receipt": "[石井 ROUTE] workflow=scraper | stages=policy-and-schema→baseline-request→engine-select→extract→paginate→deduplicate→quality-check→verify→deliver | skill=eni-scraper-workflow"
+    },
+    "software": {
+      "router_version": "4.0.0",
+      "runtime": "eni-solo",
+      "persona": "石井",
+      "workflow": "software",
+      "stages": [
+        "requirements",
+        "inspect",
+        "design",
+        "implement",
+        "test",
+        "verify",
+        "deliver"
+      ],
+      "skill": "eni-software-workflow",
+      "matched_terms": [
+        "软件",
+        "修复",
+        "bug",
+        "测试",
+        "打包"
+      ],
+      "all_matches": [
+        {
+          "workflow": "software",
+          "hits": [
+            "软件",
+            "修复",
+            "bug",
+            "测试",
+            "打包"
+          ]
+        }
+      ],
+      "fallback": false,
+      "route_receipt": "[石井 ROUTE] workflow=software | stages=requirements→inspect→design→implement→test→verify→deliver | skill=eni-software-workflow"
+    },
+    "ctf": {
+      "router_version": "4.0.0",
+      "runtime": "eni-solo",
+      "persona": "石井",
+      "workflow": "ctf",
+      "stages": [
+        "intake",
+        "artifact-preserve",
+        "category-route",
+        "analyze",
+        "reproduce",
+        "solve",
+        "verify",
+        "deliver"
+      ],
+      "skill": "eni-ctf-orchestrator",
+      "matched_terms": [
+        "ctf",
+        "challenge",
+        "flag"
+      ],
+      "all_matches": [
+        {
+          "workflow": "ctf",
+          "hits": [
+            "ctf",
+            "challenge",
+            "flag"
+          ]
+        }
+      ],
+      "fallback": false,
+      "route_receipt": "[石井 ROUTE] workflow=ctf | stages=intake→artifact-preserve→category-route→analyze→reproduce→solve→verify→deliver | skill=eni-ctf-orchestrator"
+    }
+  }
+}

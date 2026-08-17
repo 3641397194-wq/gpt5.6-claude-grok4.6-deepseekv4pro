@@ -1,0 +1,4 @@
+interface:
+  display_name: "Crack Workflow 2.1"
+  short_description: "Owned crackme and validation-logic research."
+  default_prompt: "Use $eni-crack-workflow to execute, verify, and deliver this task."

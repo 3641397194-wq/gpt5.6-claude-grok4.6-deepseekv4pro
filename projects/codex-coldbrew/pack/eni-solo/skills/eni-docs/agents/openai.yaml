@@ -1,0 +1,4 @@
+interface:
+  display_name: "Docs"
+  short_description: "全局自动路由 | Docs"
+  default_prompt: "Use for Docs tasks."

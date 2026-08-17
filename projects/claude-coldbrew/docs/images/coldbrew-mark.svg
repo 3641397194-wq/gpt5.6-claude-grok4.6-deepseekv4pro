@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" role="img" aria-label="冷咖啡 ColdBrew mark">
+  <rect width="80" height="80" fill="#d6ff65"/>
+  <path d="M15 16h21c15 0 25 9 25 24s-10 24-25 24H15V16Zm13 11v26h7c8 0 13-4 13-13s-5-13-13-13h-7Z" fill="#10100d"/>
+  <path d="M55 10h11v16H55zM55 54h11v16H55z" fill="#10100d"/>
+</svg>

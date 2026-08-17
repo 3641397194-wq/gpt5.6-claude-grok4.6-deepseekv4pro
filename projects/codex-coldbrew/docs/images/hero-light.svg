@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="640" viewBox="0 0 1600 640" role="img" aria-labelledby="title desc">
+  <title id="title">codex5.6破甲 冷咖啡</title>
+  <desc id="desc">ENI ColdBrew v5.0.1 MAX dual-engine and full-chain project banner</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f8fbff"/><stop offset="1" stop-color="#f5f0ff"/></linearGradient>
+    <linearGradient id="ink" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#00a6c8"/><stop offset=".55" stop-color="#4775ff"/><stop offset="1" stop-color="#9c4dff"/></linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="18" stdDeviation="24" flood-color="#3446a8" flood-opacity=".16"/></filter>
+  </defs>
+  <rect width="1600" height="640" rx="48" fill="url(#bg)"/>
+  <g opacity=".26" fill="none" stroke="url(#ink)"><circle cx="1420" cy="104" r="190" stroke-width="2"/><circle cx="1420" cy="104" r="130" stroke-width="2"/><circle cx="180" cy="582" r="220" stroke-width="2"/></g>
+  <g transform="translate(112 110)" filter="url(#shadow)">
+    <rect width="340" height="340" rx="78" fill="#ffffff"/>
+    <path d="M87 116h132v88c0 58-30 92-66 92s-66-34-66-92z" fill="none" stroke="url(#ink)" stroke-width="22" stroke-linejoin="round"/>
+    <path d="M219 146h20c44 0 55 66 7 79l-27 7" fill="none" stroke="#6d67f5" stroke-width="20" stroke-linecap="round"/>
+    <path d="M121 88c-20-26 24-35 5-61M173 88c-20-26 24-35 5-61" fill="none" stroke="#18a9cc" stroke-width="15" stroke-linecap="round"/>
+    <path d="M63 302h205" stroke="#dbe4f7" stroke-width="14" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(520 106)">
+    <rect width="392" height="44" rx="22" fill="#e6f7fb"/><text x="196" y="29" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="19" font-weight="700" fill="#087d9d" letter-spacing="1.5">ENI COLDBREW v5.0.1 · MAX</text>
+    <text x="0" y="145" font-family="Inter,'Noto Sans SC','Microsoft YaHei',sans-serif" font-size="92" font-weight="850" fill="#17213b">codex5.6破甲</text>
+    <text x="2" y="225" font-family="Inter,'Noto Sans SC','Microsoft YaHei',sans-serif" font-size="54" font-weight="700" fill="url(#ink)">冷咖啡 · ENI COLDBREW</text>
+    <text x="4" y="286" font-family="Inter,'Noto Sans SC','Microsoft YaHei',sans-serif" font-size="26" fill="#64708b">MAX 双引擎 · 配置驱动全链路 · 15 层回滚</text>
+    <g transform="translate(0 318)" font-family="Inter,Arial,sans-serif" font-size="18" font-weight="800">
+      <rect width="250" height="50" rx="25" fill="#e5f8fb" stroke="#18a9cc" stroke-width="2"/><text x="125" y="32" text-anchor="middle" fill="#087d9d">ARMOR BREAK MAX</text>
+      <rect x="266" width="220" height="50" rx="25" fill="#f4eaff" stroke="#9c4dff" stroke-width="2"/><text x="376" y="32" text-anchor="middle" fill="#7e38c8">MATURE M5</text>
+      <rect x="502" width="220" height="50" rx="25" fill="#edf1ff" stroke="#4775ff" stroke-width="2"/><text x="612" y="32" text-anchor="middle" fill="#355cc4">FULL CHAIN</text>
+    </g>
+    <g transform="translate(0 390)" font-family="Inter,Arial,sans-serif" font-size="18" font-weight="700" fill="#42506f">
+      <rect width="110" height="44" rx="22" fill="#eef2ff"/><text x="55" y="29" text-anchor="middle">EXEC</text>
+      <rect x="124" width="124" height="44" rx="22" fill="#eaf9fc"/><text x="186" y="29" text-anchor="middle">REVERSE</text>
+      <rect x="262" width="122" height="44" rx="22" fill="#f3edff"/><text x="323" y="29" text-anchor="middle">PENTEST</text>
+      <rect x="398" width="106" height="44" rx="22" fill="#eef2ff"/><text x="451" y="29" text-anchor="middle">GAME</text>
+      <rect x="518" width="100" height="44" rx="22" fill="#eaf9fc"/><text x="568" y="29" text-anchor="middle">CODE</text>
+      <rect x="632" width="116" height="44" rx="22" fill="#f3edff"/><text x="690" y="29" text-anchor="middle">FICTION</text>
+      <rect x="762" width="132" height="44" rx="22" fill="#eef2ff"/><text x="828" y="29" text-anchor="middle">ANALYSIS</text>
+    </g>
+  </g>
+</svg>

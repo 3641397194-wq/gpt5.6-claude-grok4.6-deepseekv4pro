@@ -1,0 +1,4 @@
+interface:
+  display_name: "Field Journal"
+  short_description: "全局自动路由 | Field Journal"
+  default_prompt: "Use for Field Journal."

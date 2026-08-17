@@ -1,0 +1,4 @@
+interface:
+  display_name: "Cold Coffee Case Lab"
+  short_description: "Reproducible security research cases and evidence workspaces"
+  default_prompt: "Use $eni-case-lab to create a reproducible lab case for this technical research task."

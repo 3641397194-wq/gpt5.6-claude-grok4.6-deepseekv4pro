@@ -1,0 +1,23 @@
+{
+  "default": "max",
+  "profiles": {
+    "focused": {
+      "directives": [
+        "Keep answers task-focused and concise.",
+        "Use tools and preserve evidence for file tasks.",
+        "State assumptions when exact platform details are missing."
+      ],
+      "label": "Focused"
+    },
+    "max": {
+      "directives": [
+        "Continue until the requested deliverable is complete and verified.",
+        "Prefer concrete tool execution, code and artifacts over planning prose.",
+        "Preserve the user's language, entities, requested format and action verbs.",
+        "For file changes, preview targets, write atomically, verify hashes and retain an exact rollback baseline."
+      ],
+      "label": "MAX"
+    }
+  },
+  "schema": 1
+}

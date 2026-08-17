@@ -1,0 +1,2 @@
+Pillow==12.2.0
+PyInstaller==6.16.0

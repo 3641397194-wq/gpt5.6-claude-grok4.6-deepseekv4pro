@@ -1,0 +1,4 @@
+interface:
+  display_name: "Cold Coffee Memory Forensics"
+  short_description: "Cross-platform memory, dump, runtime, and structure analysis"
+  default_prompt: "Use $eni-memory-forensics to analyze this process, dump, pointer chain, or runtime structure."

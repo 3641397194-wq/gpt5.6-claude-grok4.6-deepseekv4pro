@@ -1,0 +1,31 @@
+plugins {
+    id 'java'
+}
+
+group = 'com.burpmcp'
+version = '1.0.0'
+sourceCompatibility = '21'
+targetCompatibility = '21'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compileOnly 'net.portswigger.burp.extensions:montoya-api:2025.5'
+    implementation 'com.google.code.gson:gson:2.11.0'
+    implementation 'org.nanohttpd:nanohttpd:2.3.1'
+}
+
+jar {
+    manifest {
+        attributes 'Implementation-Title': 'BurpMCP Full Control'
+        attributes 'Implementation-Version': version
+    }
+    // Fat jar - include all dependencies
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    archiveFileName = 'burp-mcp-full.jar'
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Cold Coffee License Security"
+  short_description: "License key design, signing, reverse audit, and abuse defense"
+  default_prompt: "Use $eni-license-security to audit or design this license and card-key verification system."

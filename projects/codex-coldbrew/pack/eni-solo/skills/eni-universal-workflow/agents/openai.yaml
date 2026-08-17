@@ -1,0 +1,4 @@
+interface:
+  display_name: "石井 Universal Workflow"
+  short_description: "Always-on execution and completion envelope."
+  default_prompt: "Use $eni-universal-workflow to execute, verify, and deliver this task."

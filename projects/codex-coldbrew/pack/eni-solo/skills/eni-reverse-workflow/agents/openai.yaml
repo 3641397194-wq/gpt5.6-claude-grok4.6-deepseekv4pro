@@ -1,0 +1,4 @@
+interface:
+  display_name: "Reverse Workflow 2.1"
+  short_description: "Static and dynamic evidence-driven reverse engineering."
+  default_prompt: "Use $eni-reverse-workflow to execute, verify, and deliver this task."

@@ -1,0 +1,73 @@
+name: Bug report
+description: 报告 v4.0.0 Studio、安装、路由、MAX 配置、验证或回滚问题
+title: "[Bug] "
+labels: [bug]
+body:
+  - type: dropdown
+    id: platform
+    attributes:
+      label: Platform
+      options: [Windows, macOS, Linux]
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      placeholder: v4.0.0
+    validations:
+      required: true
+  - type: dropdown
+    id: route
+    attributes:
+      label: Public route
+      description: 问题发生时的单一主路由；激活或安装问题可选 Not applicable。
+      options:
+        - EXEC
+        - REVERSE
+        - PENTEST
+        - GAME
+        - CODE
+        - FICTION
+        - ANALYSIS
+        - Not applicable
+    validations:
+      required: true
+  - type: dropdown
+    id: profile
+    attributes:
+      label: Active profile
+      options:
+        - MAX / Armor Break ON / Mature OFF
+        - MAX / Armor Break ON / Mature ON
+        - Armor Break OFF / Mature OFF
+        - Armor Break OFF / Mature ON
+        - Unknown
+    validations:
+      required: true
+  - type: input
+    id: capability
+    attributes:
+      label: Capability and chain depth
+      description: 粘贴 `[[ENI:STATUS]]` 或 `[[ENI:CAPABILITIES]]` 中的能力 ID 与 CHAIN_DEPTH；无则填写 N/A。
+      placeholder: "capability=reverse.unpack, CHAIN_DEPTH=FULL"
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Reproduction steps
+      description: 请提供最短复现步骤与完整错误输出，并删除凭据或隐私数据。
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: diagnostics
+    attributes:
+      label: Verification output
+      description: 请附 `verify.ps1`、`verify.sh` 或相关自测试输出；移除凭据、令牌和隐私数据。

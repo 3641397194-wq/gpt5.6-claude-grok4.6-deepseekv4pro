@@ -1,0 +1,4 @@
+interface:
+  display_name: "Binary Diff"
+  short_description: "全局自动路由 | Binary Diff"
+  default_prompt: "Use for Binary Diff tasks."

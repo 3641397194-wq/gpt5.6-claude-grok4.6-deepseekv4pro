@@ -1,0 +1,4 @@
+interface:
+  display_name: "Js Reverse"
+  short_description: "全局自动路由 | Js Reverse"
+  default_prompt: "Use for Js Reverse tasks."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Cold Coffee Reverse Deep"
+  short_description: "Deep binary, mobile, game, and protocol reversing"
+  default_prompt: "Use $eni-reverse-deep to triage and deeply reverse this binary or application artifact."

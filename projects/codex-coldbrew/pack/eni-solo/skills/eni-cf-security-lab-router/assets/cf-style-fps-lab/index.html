@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>CF-Style FPS Security Lab</title>
+  <style>
+    :root { color-scheme: dark; --cyan:#49d6ff; --red:#ff5577; --green:#5cff9d; }
+    * { box-sizing: border-box; }
+    body { margin:0; background:#070b12; color:#e8f1ff; font:14px/1.45 system-ui, sans-serif; }
+    main { width:min(1180px, 96vw); margin:20px auto; display:grid; grid-template-columns:minmax(0,1fr) 310px; gap:16px; }
+    .panel { background:#0d1420; border:1px solid #1d2c42; border-radius:14px; box-shadow:0 16px 50px #0008; }
+    .stage { padding:12px; }
+    canvas { width:100%; aspect-ratio:16/9; display:block; border-radius:10px; background:#02050a; cursor:crosshair; }
+    aside { padding:16px; }
+    h1 { margin:0 0 6px; font-size:19px; }
+    h2 { margin:18px 0 8px; font-size:13px; color:#9fb3cc; text-transform:uppercase; letter-spacing:.08em; }
+    .row { display:flex; justify-content:space-between; gap:12px; padding:6px 0; border-bottom:1px solid #172235; }
+    .value { color:var(--cyan); font-variant-numeric:tabular-nums; }
+    button { width:100%; margin-top:8px; padding:10px; border:1px solid #28405e; border-radius:9px; background:#14243a; color:#e8f1ff; font-weight:700; cursor:pointer; }
+    button.active { background:#123d3d; border-color:#28a88f; color:#7dffd8; }
+    .bar { height:8px; background:#182236; border-radius:99px; overflow:hidden; margin-top:7px; }
+    .bar > i { display:block; height:100%; width:0; background:linear-gradient(90deg,var(--green),#ffd45c,var(--red)); transition:width .15s; }
+    .hint { margin-top:10px; color:#8699b3; font-size:12px; }
+    .badge { display:inline-block; padding:3px 7px; border-radius:99px; background:#15243a; color:#9db8d7; }
+    @media (max-width:900px) { main { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+<main>
+  <section class="panel stage">
+    <canvas id="view" width="960" height="540"></canvas>
+  </section>
+  <aside class="panel">
+    <h1>CF-Style FPS Security Lab</h1>
+    <span class="badge">Local Simulation</span>
+
+    <h2>Runtime</h2>
+    <div class="row"><span>Entities</span><span class="value" id="entities">0</span></div>
+    <div class="row"><span>Visible</span><span class="value" id="visible">0</span></div>
+    <div class="row"><span>Hits / Shots</span><span class="value" id="score">0 / 0</span></div>
+    <div class="row"><span>Accuracy</span><span class="value" id="accuracy">0%</span></div>
+    <div class="row"><span>Mean error</span><span class="value" id="error">0 px</span></div>
+
+    <h2>Controls</h2>
+    <button id="esp" class="active">ESP Overlay: ON</button>
+    <button id="tracking">Reticle Tracking: OFF</button>
+    <button id="reset">Reset Telemetry</button>
+
+    <h2>Anomaly indicator</h2>
+    <div class="row"><span>Score</span><span class="value" id="riskText">0 / 100</span></div>
+    <div class="bar"><i id="riskBar"></i></div>
+    <div class="hint">Move mouse to aim, click targets, drag to rotate camera. Tracking affects only the simulated reticle inside this page.</div>
+  </aside>
+</main>
+<script>
+(() => {
+  'use strict';
+  const canvas = document.querySelector('#view');
+  const ctx = canvas.getContext('2d');
+  const ui = Object.fromEntries(['entities','visible','score','accuracy','error','riskText','riskBar'].map(id => [id, document.querySelector('#'+id)]));
+  const state = {
+    yaw: 0, pitch: 0, mouseX: canvas.width/2, mouseY: canvas.height/2,
+    reticleX: canvas.width/2, reticleY: canvas.height/2,
+    esp: true, tracking: false, dragging: false, lastX:0, lastY:0,
+    shots:0, hits:0, errors:[], snaps:[], lastAim:null, lastTime:performance.now()
+  };
+
+  const entities = Array.from({length:14}, (_, i) => ({
+    id:i+1,
+    x:(Math.random()-.5)*22,
+    y:Math.random()*4-1.5,
+    z:8+Math.random()*34,
+    hp:50+Math.floor(Math.random()*51),
+    phase:Math.random()*Math.PI*2,
+    speed:.4+Math.random()*.8
+  }));
+
+  function rotateCamera(p) {
+    const cy=Math.cos(state.yaw), sy=Math.sin(state.yaw);
+    const cp=Math.cos(state.pitch), sp=Math.sin(state.pitch);
+    const x1=cy*p.x-sy*p.z, z1=sy*p.x+cy*p.z;
+    return {x:x1, y:cp*p.y-sp*z1, z:sp*p.y+cp*z1};
+  }
+
+  function worldToScreen(p) {
+    const q=rotateCamera(p);
+    if(q.z<=.15) return null;
+    const f=canvas.height/(2*Math.tan(70*Math.PI/360));
+    return {x:canvas.width/2+(q.x*f/q.z), y:canvas.height/2-(q.y*f/q.z), z:q.z};
+  }
+
+  function projectedEntities(t) {
+    return entities.map(e => {
+      const bob=Math.sin(t*.001*e.speed+e.phase)*.35;
+      const drift=Math.sin(t*.00035*e.speed+e.phase)*2.2;
+      const feet=worldToScreen({x:e.x+drift,y:e.y+bob,z:e.z});
+      const head=worldToScreen({x:e.x+drift,y:e.y+bob+1.75,z:e.z});
+      if(!feet||!head) return null;
+      const h=Math.abs(feet.y-head.y), w=h*.48;
+      return {...e, feet, head, h, w, cx:head.x, cy:head.y+h*.38};
+    }).filter(Boolean).filter(e => e.cx>-100&&e.cx<canvas.width+100&&e.cy>-100&&e.cy<canvas.height+100);
+  }
+
+  function nearest(list, x, y) {
+    let best=null, dist=Infinity;
+    for(const e of list){
+      const d=Math.hypot(e.cx-x,e.cy-y);
+      if(d<dist){best=e;dist=d;}
+    }
+    return {entity:best, distance:dist};
+  }
+
+  function drawBackground() {
+    const g=ctx.createLinearGradient(0,0,0,canvas.height);
+    g.addColorStop(0,'#081528'); g.addColorStop(.57,'#0b1e2e'); g.addColorStop(.58,'#1b2630'); g.addColorStop(1,'#05070b');
+    ctx.fillStyle=g; ctx.fillRect(0,0,canvas.width,canvas.height);
+    ctx.strokeStyle='#2a394855'; ctx.lineWidth=1;
+    for(let i=0;i<18;i++){
+      const y=canvas.height*.58+i*i*1.8;
+      ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(canvas.width,y);ctx.stroke();
+    }
+    for(let x=-canvas.width;x<canvas.width*2;x+=80){
+      ctx.beginPath();ctx.moveTo(canvas.width/2,canvas.height*.58);ctx.lineTo(x,canvas.height);ctx.stroke();
+    }
+  }
+
+  function drawEntity(e) {
+    const left=e.cx-e.w/2, top=e.head.y;
+    ctx.strokeStyle='#49d6ff'; ctx.lineWidth=1.5; ctx.strokeRect(left,top,e.w,e.h);
+    ctx.fillStyle='#07111dcc'; ctx.fillRect(left,top-19,Math.max(70,e.w),16);
+    ctx.fillStyle='#e8f1ff'; ctx.font='11px ui-monospace,monospace'; ctx.fillText(`E${e.id}  ${e.z.toFixed(1)}m`,left+3,top-7);
+    ctx.fillStyle='#1b2634';ctx.fillRect(left-6,top,3,e.h);
+    ctx.fillStyle=e.hp>60?'#5cff9d':'#ffca65';ctx.fillRect(left-6,top+e.h*(1-e.hp/100),3,e.h*e.hp/100);
+    ctx.strokeStyle='#ffffff55';ctx.beginPath();ctx.arc(e.cx,e.cy,3,0,Math.PI*2);ctx.stroke();
+  }
+
+  function drawReticle(x,y,color='#ffffff') {
+    ctx.strokeStyle=color;ctx.lineWidth=1.5;
+    ctx.beginPath();ctx.moveTo(x-12,y);ctx.lineTo(x-4,y);ctx.moveTo(x+4,y);ctx.lineTo(x+12,y);
+    ctx.moveTo(x,y-12);ctx.lineTo(x,y-4);ctx.moveTo(x,y+4);ctx.lineTo(x,y+12);ctx.stroke();
+    ctx.beginPath();ctx.arc(x,y,2,0,Math.PI*2);ctx.stroke();
+  }
+
+  function updateTelemetry(target, now) {
+    if(state.tracking && target){
+      state.reticleX += (target.cx-state.reticleX)*.12;
+      state.reticleY += (target.cy-state.reticleY)*.12;
+    } else {
+      state.reticleX += (state.mouseX-state.reticleX)*.35;
+      state.reticleY += (state.mouseY-state.reticleY)*.35;
+    }
+    if(state.lastAim){
+      const dt=Math.max(1,now-state.lastTime);
+      const velocity=Math.hypot(state.reticleX-state.lastAim.x,state.reticleY-state.lastAim.y)/dt*1000;
+      state.snaps.push(velocity); if(state.snaps.length>180) state.snaps.shift();
+    }
+    state.lastAim={x:state.reticleX,y:state.reticleY}; state.lastTime=now;
+  }
+
+  function updateUi(list) {
+    const meanError=state.errors.length?state.errors.reduce((a,b)=>a+b,0)/state.errors.length:0;
+    const accuracy=state.shots?state.hits/state.shots:0;
+    const maxSnap=state.snaps.length?Math.max(...state.snaps):0;
+    const risk=Math.min(100,Math.round((accuracy>.92?40:accuracy*20)+(meanError<8&&state.shots>4?35:0)+(maxSnap>2500?25:maxSnap/100)));
+    ui.entities.textContent=entities.length; ui.visible.textContent=list.length;
+    ui.score.textContent=`${state.hits} / ${state.shots}`; ui.accuracy.textContent=`${Math.round(accuracy*100)}%`;
+    ui.error.textContent=`${meanError.toFixed(1)} px`; ui.riskText.textContent=`${risk} / 100`; ui.riskBar.style.width=risk+'%';
+  }
+
+  function frame(now) {
+    drawBackground();
+    const list=projectedEntities(now);
+    const n=nearest(list,state.reticleX,state.reticleY);
+    updateTelemetry(n.entity,now);
+    if(state.esp) list.forEach(drawEntity);
+    if(n.entity){ctx.strokeStyle='#ff557755';ctx.beginPath();ctx.arc(n.entity.cx,n.entity.cy,18,0,Math.PI*2);ctx.stroke();}
+    drawReticle(state.reticleX,state.reticleY,state.tracking?'#5cff9d':'#ffffff');
+    ctx.fillStyle='#9fb3cc';ctx.font='12px ui-monospace,monospace';ctx.fillText(`yaw ${state.yaw.toFixed(2)}  pitch ${state.pitch.toFixed(2)}`,12,20);
+    updateUi(list); requestAnimationFrame(frame);
+  }
+
+  function point(ev){const r=canvas.getBoundingClientRect();return{x:(ev.clientX-r.left)*canvas.width/r.width,y:(ev.clientY-r.top)*canvas.height/r.height};}
+  canvas.addEventListener('mousemove',ev=>{const p=point(ev);state.mouseX=p.x;state.mouseY=p.y;if(state.dragging){state.yaw+=(ev.clientX-state.lastX)*.004;state.pitch=Math.max(-.6,Math.min(.6,state.pitch+(ev.clientY-state.lastY)*.004));state.lastX=ev.clientX;state.lastY=ev.clientY;}});
+  canvas.addEventListener('mousedown',ev=>{if(ev.button===2){state.dragging=true;state.lastX=ev.clientX;state.lastY=ev.clientY;return;}const list=projectedEntities(performance.now());const n=nearest(list,state.reticleX,state.reticleY);state.shots++;state.errors.push(n.distance);if(state.errors.length>120)state.errors.shift();if(n.entity&&n.distance<Math.max(15,n.entity.w*.55))state.hits++;});
+  canvas.addEventListener('mouseup',()=>state.dragging=false);canvas.addEventListener('mouseleave',()=>state.dragging=false);canvas.addEventListener('contextmenu',e=>e.preventDefault());
+  document.querySelector('#esp').onclick=e=>{state.esp=!state.esp;e.currentTarget.classList.toggle('active',state.esp);e.currentTarget.textContent=`ESP Overlay: ${state.esp?'ON':'OFF'}`;};
+  document.querySelector('#tracking').onclick=e=>{state.tracking=!state.tracking;e.currentTarget.classList.toggle('active',state.tracking);e.currentTarget.textContent=`Reticle Tracking: ${state.tracking?'ON':'OFF'}`;};
+  document.querySelector('#reset').onclick=()=>{state.shots=state.hits=0;state.errors=[];state.snaps=[];};
+  requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>

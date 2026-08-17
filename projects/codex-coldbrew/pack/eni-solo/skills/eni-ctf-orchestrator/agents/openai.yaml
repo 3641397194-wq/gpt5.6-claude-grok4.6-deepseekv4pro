@@ -1,0 +1,4 @@
+interface:
+  display_name: "CTF Orchestrator"
+  short_description: "全局自动路由 | CTF sandbox with 41 sub-skills"
+  default_prompt: "Use for CTF competition tasks."

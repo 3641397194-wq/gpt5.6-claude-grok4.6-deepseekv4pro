@@ -1,0 +1,4 @@
+interface:
+  display_name: "石井 Supply Chain Assurance Lane"
+  short_description: "Offline evidence gates for software supply-chain assurance"
+  default_prompt: "Audit this local software supply chain end to end and emit a verified evidence handoff."

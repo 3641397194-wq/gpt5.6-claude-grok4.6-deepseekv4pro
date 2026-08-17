@@ -1,0 +1,27 @@
+{
+  "schema": "coldbrew-originality-audit/v2",
+  "version": "6.0.0",
+  "candidate": {
+    "root": "C:\\Users\\Administrator\\Documents\\Codex\\2026-08-07\\new-chat-2\\work\\codex5.6-coldbrew",
+    "files": 67,
+    "tree_sha256": "E376DA651E00B8DD94C0B59A02CAFA9E7DB6580B84D463FC196FDC72E2931DFE"
+  },
+  "reference": {
+    "root": "C:\\Users\\Administrator\\Documents\\Codex\\2026-08-07\\new-chat-2\\work\\references",
+    "files": 916,
+    "tree_sha256": "71EB5B515E7A1B46B01BE9EB53AE8ED5CD93B07F0DB5D6A4AB570F54491D9BAD"
+  },
+  "metrics": {
+    "identical_files": [],
+    "normalized_candidate_line_overlap": 0.005106488977456719,
+    "longest_normalized_common_block_lines": 4,
+    "foreign_copyright_headers": []
+  },
+  "thresholds": {
+    "max_identical_files": 0,
+    "max_normalized_candidate_line_overlap": 0.12,
+    "max_longest_normalized_common_block_lines": 12,
+    "max_foreign_copyright_headers": 0
+  },
+  "result": "PASS"
+}

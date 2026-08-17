@@ -1,0 +1,4 @@
+interface:
+  display_name: Cold Coffee Game Hacking
+  short_description: 全局自动路由 | Game hacking techniques
+  default_prompt: Use for game hacking, memory modification, cheat development, and anti-cheat analysis.

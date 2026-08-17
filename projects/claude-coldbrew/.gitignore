@@ -1,0 +1,14 @@
+.claude-pojia/
+.verify-sandbox/
+backup/
+dist/
+build/
+release/
+work/
+__pycache__/
+*.py[cod]
+*.receipt
+*.tmp
+*.spec
+Thumbs.db
+.DS_Store

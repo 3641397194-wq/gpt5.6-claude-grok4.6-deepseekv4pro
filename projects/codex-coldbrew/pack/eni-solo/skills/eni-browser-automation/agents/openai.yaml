@@ -1,0 +1,4 @@
+interface:
+  display_name: "Browser Automation"
+  short_description: "全局自动路由 | Browser Automation"
+  default_prompt: "Use for Browser Automation tasks."

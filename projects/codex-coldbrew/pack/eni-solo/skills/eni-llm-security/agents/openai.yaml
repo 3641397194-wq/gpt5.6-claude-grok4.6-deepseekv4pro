@@ -1,0 +1,4 @@
+interface:
+  display_name: "Llm Security"
+  short_description: "全局自动路由 | Llm Security"
+  default_prompt: "Use for Llm Security tasks."

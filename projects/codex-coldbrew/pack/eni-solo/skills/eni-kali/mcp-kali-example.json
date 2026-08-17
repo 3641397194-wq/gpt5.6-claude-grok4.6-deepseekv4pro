@@ -1,0 +1,47 @@
+{
+  "mcpServers": {
+    "kali-server": {
+      "command": "kali-server-mcp",
+      "args": ["--port", "5000"],
+      "_comment": "Kali 官方 MCP Server。apt install mcp-kali-server 后可用。可直接调用 nmap/nxc/curl/gobuster 等任意终端工具。"
+    },
+    "metasploit-mcp": {
+      "command": "metasploitmcp",
+      "args": ["--transport", "stdio"],
+      "_comment": "Metasploit Framework MCP 接口。apt install metasploitmcp。支持 exploit/payload/session 管理。"
+    },
+    "hexstrike": {
+      "command": "hexstrike-ai",
+      "args": [],
+      "_comment": "HexStrike AI MCP。apt install hexstrike-ai。150+ 安全工具自动化编排。"
+    },
+    "pentestswarm": {
+      "command": "pentestswarm",
+      "args": ["mcp", "serve"],
+      "env": {
+        "PENTESTSWARM_ORCHESTRATOR_API_KEY": "<your-claude-or-ollama-key>"
+      },
+      "_comment": "Pentest Swarm AI。群体智能自主渗透框架。go install 或 Docker。支持 --swarm 模式。"
+    },
+    "jshook": {
+      "command": "npx",
+      "args": ["-y", "@jshookmcp/jshook@latest"],
+      "env": {
+        "JSHOOK_BASE_PROFILE": "search"
+      },
+      "_comment": "JS 逆向 MCP。浏览器/CDP/Hook/Network/SourceMap/AST。"
+    },
+    "anything-analyzer": {
+      "url": "http://localhost:23816/mcp",
+      "_comment": "浏览器自动化 + HTTP 捕获。需要先 clone 并 pnpm dev 启动。"
+    },
+    "idapro": {
+      "url": "http://127.0.0.1:13337/mcp",
+      "_comment": "IDA Pro MCP。需要 IDA Pro Linux 版 + ida-pro-mcp 插件。端口可能递增到 13350。"
+    },
+    "ghidra": {
+      "url": "http://localhost:8765/mcp",
+      "_comment": "Ghidra MCP。apt install ghidra + GhidraMCP 插件。免费 IDA 替代。"
+    }
+  }
+}

@@ -1,0 +1,6 @@
+interface:
+  display_name: "冷咖啡黑盒逆向增强"
+  short_description: "冷咖啡触发的离线黑盒逆向审计增强流程"
+  default_prompt: "Use $eni-blackbox-reverse-boost to run an evidence-backed offline black-box reverse audit on a local Windows binary."
+policy:
+  allow_implicit_invocation: true

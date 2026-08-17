@@ -1,0 +1,4 @@
+interface:
+  display_name: "ENI ColdBrew MAX"
+  short_description: "冷咖啡七路路由、Armor Break 与 M5 成人模式"
+  default_prompt: "使用 $eni-coldbrew，输入“冷咖啡”激活 MAX 双引擎任务路由。"

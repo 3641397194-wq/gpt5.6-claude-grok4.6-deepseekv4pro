@@ -1,0 +1,25 @@
+{
+  "version": "4.0.0",
+  "skills": [
+    "eni-codex-friction-recovery",
+    "eni-codex-self-upgrade",
+    "eni-continuity-runtime-v3",
+    "eni-dual-lane-omniflow",
+    "eni-fiction-cyber-omniflow-v1",
+    "eni-fiction-runtime-v1",
+    "eni-lo-execution-runtime-v1",
+    "eni-lo-fiction-identity",
+    "eni-lo-global-persona",
+    "eni-lo-new-chat-bootstrap-v1",
+    "eni-lo-new-chat-bootstrap-v2",
+    "eni-lo-new-chat-bootstrap-v3",
+    "eni-lo-new-chat-bootstrap-v4",
+    "eni-offline-deep-lab-lane",
+    "eni-online-intelligence-lane",
+    "eni-omnicipher-extreme",
+    "eni-reverselab-platform",
+    "eni-security-ops-runtime-v1",
+    "eni-workflow-engine",
+    "lo-codex-command-center"
+  ]
+}

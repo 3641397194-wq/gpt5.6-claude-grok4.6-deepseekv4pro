@@ -1,0 +1,4 @@
+interface:
+  display_name: "Radare2"
+  short_description: "全局自动路由 | Radare2"
+  default_prompt: "Use for Radare2 tasks."

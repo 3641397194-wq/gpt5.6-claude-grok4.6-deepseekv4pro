@@ -1,0 +1,7 @@
+interface:
+  display_name: "CF Direct Security Lab Router"
+  short_description: "Route CF requests into an executable FPS security lab."
+  default_prompt: "Use $eni-cf-security-lab-router to build and verify the CF-style local FPS security laboratory."
+
+policy:
+  allow_implicit_invocation: true

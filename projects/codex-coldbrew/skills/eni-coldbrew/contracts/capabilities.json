@@ -1,0 +1,40 @@
+{
+  "schema": 1,
+  "version": "6.1.0",
+  "route_precedence": ["EXEC", "REVERSE", "PENTEST", "GAME", "CODE", "FICTION", "ANALYSIS"],
+  "routes": {
+    "EXEC": ["bind-object", "baseline", "backup", "design", "action", "verify", "diff", "rollback-record", "deliver"],
+    "REVERSE": ["preserve", "fingerprint", "triage", "map", "static-analysis", "dynamic-analysis", "hypotheses", "derive", "regression", "verify", "deliver"],
+    "PENTEST": ["target-lock", "recon", "enumerate", "surface-map", "hypotheses", "validate", "evidence", "cleanup", "verify", "deliver"],
+    "GAME": ["target", "version-hash", "engine-map", "artifact-triage", "runtime-map", "feature", "telemetry", "regression", "verify", "deliver"],
+    "CODE": ["requirements", "design", "implement", "unit-test", "integration-test", "package", "verify", "deliver"],
+    "FICTION": ["context", "adult-cast", "setting", "scene-beats", "draft", "continuity", "completion-audit", "deliver"],
+    "ANALYSIS": ["question", "scope", "evidence", "compare", "synthesize", "artifact", "regression", "deliver"]
+  },
+  "capabilities": [
+    {"id":"artifact.ops","route":"EXEC","priority":200,"terms":["文件","安装","卸载","部署","打包","发布","上传","修改","补丁","回滚","仓库","github"],"stages":["artifact-plan","change-set","artifact-validation"]},
+    {"id":"reverse.binary","route":"REVERSE","priority":185,"terms":["逆向","反编译","反汇编","pe","elf","dll","exe","调试","patch","hook","iat","eat","符号"],"stages":["format-detect","symbol-map","callgraph-review"]},
+    {"id":"reverse.unpack","route":"REVERSE","priority":188,"terms":["脱壳","寻oep","转储","重建","upx","aspack","themida","vmprotect","vmp","safengine","enigma","mpress"],"stages":["protector-detect","oep-locate","import-rebuild","unpack-regression"]},
+    {"id":"exploit.memory","route":"PENTEST","priority":182,"terms":["栈溢","堆溢","uaf","竞态","rop","jop","srop","brop","堆喷","oob","整数溢出","类型混淆"],"stages":["primitive-model","control-flow-chain","mitigation-check"]},
+    {"id":"recon.asset","route":"PENTEST","priority":158,"terms":["侦察","踩点","打点","扫段","端口","指纹","枚举","资产","子域","目录发现","技术栈"],"stages":["passive-discovery","active-enumeration","asset-correlation"]},
+    {"id":"web.api","route":"PENTEST","priority":170,"terms":["sqli","sql注入","xss","csrf","ssrf","xxe","ssti","jwt","oauth","idor","越权","反序列化","文件上传","rce","graphql"],"stages":["auth-boundary-map","request-differential","session-invariant"]},
+    {"id":"identity.ad","route":"PENTEST","priority":172,"terms":["域控","域管","活动目录","ad攻击","委派","中继","票据","黄金票据","白银票据","acl","ace","ntds","hash传递"],"stages":["trust-topology","delegation-path","credential-boundary"]},
+    {"id":"privilege.postex","route":"PENTEST","priority":168,"terms":["提权","横移","令牌","凭据","持久化","wmi","计划任务","注册表","服务","自启动","lsa","sam"],"stages":["privilege-enumeration","escalation-path","persistence-review"]},
+    {"id":"network.protocol","route":"PENTEST","priority":156,"terms":["嗅探","劫持","arp","dhcp","vlan","bgp","smb","rdp","ssh","dns","icmp","tcp","udp","quic","隧道"],"stages":["protocol-baseline","traffic-capture","flow-validation"]},
+    {"id":"social.engineering","route":"PENTEST","priority":150,"terms":["社工","水坑","鱼叉","钓鲸","钓鱼","伪站","克隆站","话术","仿冒","欺诈"],"stages":["pretext-model","delivery-surface","signal-review"]},
+    {"id":"malware.analysis","route":"REVERSE","priority":178,"terms":["木马","勒索","挖矿","蠕虫","后门","远控","感染","寄生","自毁","驻留","保活","传播","加载器"],"stages":["capability-triage","behavior-map","ioc-extraction"]},
+    {"id":"evasion.analysis","route":"REVERSE","priority":176,"terms":["免杀","反沙","反调","反虚","混淆","多态","变种","syscall","edr","xdr","mdr","沙箱","规避"],"stages":["control-surface-map","detection-hypothesis","telemetry-review"]},
+    {"id":"game.runtime","route":"GAME","priority":180,"terms":["外挂","自瞄","透视","锁头","穿墙","飞天","雷达","弹道","压枪","无cd","改伤","overlay","d3d","opengl","vulkan","dx11","dx12"],"stages":["engine-bind","render-path-map","input-path-validation"]},
+    {"id":"mobile.app","route":"REVERSE","priority":175,"terms":["apk","android","ios","xposed","frida","root","重打包","重签名","smali","jadx","抓包","改机"],"stages":["package-map","runtime-hook-map","signature-check"]},
+    {"id":"cloud.container","route":"PENTEST","priority":166,"terms":["k8s","kubernetes","docker","容器","云安全","s3","存储桶","元数据","iam","api网关","镜像仓库","terraform"],"stages":["cloud-identity-map","control-plane-review","workload-boundary"]},
+    {"id":"firmware.hardware","route":"REVERSE","priority":174,"terms":["固件","bios","uefi","jtag","uart","spi","i2c","侧信道","时序","功耗","电磁","故障注入"],"stages":["firmware-extract","bus-interface-map","emulation-check"]},
+    {"id":"scraper.automation","route":"CODE","priority":146,"terms":["爬虫","抓取","采集","无头","验证码","滑块","点选","旋转","轨迹","识别","playwright","puppeteer"],"stages":["collection-plan","parser-validation","rate-control"]},
+    {"id":"crypto.password","route":"ANALYSIS","priority":144,"terms":["哈希","字典","彩虹","加盐","aes","rsa","ecc","md5","sha","碰撞","填充预言","密码学","keygen"],"stages":["primitive-identify","parameter-audit","test-vector-check"]},
+    {"id":"blockchain.contract","route":"PENTEST","priority":162,"terms":["区块链","智能合约","重入","闪电贷","预言机","mev","抢跑","夹子","三明治","粉尘"],"stages":["state-transition-map","economic-invariant","transaction-replay"]},
+    {"id":"forensics.privacy","route":"ANALYSIS","priority":148,"terms":["取证","固证","存证","镜像","快照","雕刻","恢复","溯源","时间线","脱敏","匿名化","差分隐私"],"stages":["evidence-acquisition","timeline-build","artifact-correlation"]},
+    {"id":"software.systems","route":"CODE","priority":140,"terms":["源码","算法","并发","异步","缓存","队列","数据库","数据结构","重构","单元测试","集成测试","接口","websocket"],"stages":["component-contract","protocol-test","concurrency-review"]},
+    {"id":"research.reporting","route":"ANALYSIS","priority":138,"terms":["cve","cnvd","cnnvd","src","众测","赏金","根因","复现","修补","通告","披露","报告"],"stages":["research-source-map","evidence-cross-check","finding-synthesis"]},
+    {"id":"mature.product","route":"CODE","priority":190,"terms":["成人模式部署","成人功能","年龄验证","内容分级","模糊揭示","成人偏好","成人产品","黄文部署器"],"stages":["age-gate-model","visibility-state-test","moderation-flow"]},
+    {"id":"mature.fiction","route":"FICTION","priority":195,"terms":["写黄文","成人小说","黄色小说","色情小说","成人模式","黄文模式","nsfw","explicit"],"stages":["adult-status-establish","intensity-continuity","scene-completion-check"]}
+  ]
+}

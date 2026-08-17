@@ -1,0 +1,7 @@
+{
+  "schema": 1,
+  "platform": "DeepSeek Harness",
+  "profile": "max",
+  "activation_trigger": "冷咖啡",
+  "activation_sha256": "F7FB45C5DEC0F77E5AFD415DABAACCEEB5B2DDCF1F9918B7B2198BB911F34246"
+}

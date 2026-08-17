@@ -1,0 +1,4 @@
+interface:
+  display_name: "Cold Coffee Game Security"
+  short_description: "Game cheat architecture, anti-cheat, integrity, and telemetry"
+  default_prompt: "Use $eni-game-security to analyze this cheat or anti-cheat problem and produce defensive validation."

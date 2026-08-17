@@ -1,0 +1,135 @@
+{
+  "schema_version": 1,
+  "package_version": "4.0.0",
+  "generated_at": "2026-07-15T03:48:42.503624+00:00",
+  "source_manifest_sha256": "E2D4ED395776FD38082DFC7BD7B45C8E8074C05A738AA603700A06BB45F183C7",
+  "source_count": 18,
+  "sources": {
+    "aflplusplus": {
+      "repository": "https://github.com/AFLplusplus/AFLplusplus",
+      "repo_path": "AFLplusplus/AFLplusplus",
+      "branch": "stable",
+      "commit": "ad5304010ae3be9d5cdc1ba51b09e14169c5cb87",
+      "reviewed_at": "2026-07-14"
+    },
+    "capa": {
+      "repository": "https://github.com/mandiant/capa",
+      "repo_path": "mandiant/capa",
+      "branch": "master",
+      "commit": "f850024b5604443170de502ea0a6a598e82fe1c9",
+      "reviewed_at": "2026-07-14"
+    },
+    "frida": {
+      "repository": "https://github.com/frida/frida",
+      "repo_path": "frida/frida",
+      "branch": "main",
+      "commit": "fdd722a991009eef0331dc0d6f68b70b4f91df63",
+      "reviewed_at": "2026-07-14"
+    },
+    "ghidra": {
+      "repository": "https://github.com/NationalSecurityAgency/ghidra",
+      "repo_path": "NationalSecurityAgency/ghidra",
+      "branch": "master",
+      "commit": "b2754160215c6441f569381d56829111a0eee12d",
+      "reviewed_at": "2026-07-14"
+    },
+    "mobsf": {
+      "repository": "https://github.com/MobSF/Mobile-Security-Framework-MobSF",
+      "repo_path": "MobSF/Mobile-Security-Framework-MobSF",
+      "branch": "master",
+      "commit": "62563ca429a75b3e5d47a13b958e1d2e7d5e2bbf",
+      "reviewed_at": "2026-07-14"
+    },
+    "nuclei": {
+      "repository": "https://github.com/projectdiscovery/nuclei",
+      "repo_path": "projectdiscovery/nuclei",
+      "branch": "dev",
+      "commit": "9c47e6c122415ecbc132a66a472c4c3828027a3a",
+      "reviewed_at": "2026-07-14"
+    },
+    "nuclei-templates": {
+      "repository": "https://github.com/projectdiscovery/nuclei-templates",
+      "repo_path": "projectdiscovery/nuclei-templates",
+      "branch": "main",
+      "commit": "a5c2e8e4dab8c8e618ba76807c3e07587b7d781a",
+      "reviewed_at": "2026-07-14"
+    },
+    "oss-fuzz": {
+      "repository": "https://github.com/google/oss-fuzz",
+      "repo_path": "google/oss-fuzz",
+      "branch": "master",
+      "commit": "1062c74757965b439a6472523d33c1c3865e192f",
+      "reviewed_at": "2026-07-14"
+    },
+    "osv-scanner": {
+      "repository": "https://github.com/google/osv-scanner",
+      "repo_path": "google/osv-scanner",
+      "branch": "main",
+      "commit": "c4a9148518fcca624f528f814fa7b538daceb08e",
+      "reviewed_at": "2026-07-14"
+    },
+    "owasp-asvs": {
+      "repository": "https://github.com/OWASP/ASVS",
+      "repo_path": "OWASP/ASVS",
+      "branch": "master",
+      "commit": "122d9e0969465a6041e16c806a0464b35deea444",
+      "reviewed_at": "2026-07-14"
+    },
+    "owasp-wstg": {
+      "repository": "https://github.com/OWASP/wstg",
+      "repo_path": "OWASP/wstg",
+      "branch": "master",
+      "commit": "78e6b6733ee071eb160fdddbacc1bc97f83a13e3",
+      "reviewed_at": "2026-07-14"
+    },
+    "playwright-python": {
+      "repository": "https://github.com/microsoft/playwright-python",
+      "repo_path": "microsoft/playwright-python",
+      "branch": "main",
+      "commit": "bd499b293b93a1f9e4d2667df06f9708c65f6dde",
+      "reviewed_at": "2026-07-14"
+    },
+    "prowler": {
+      "repository": "https://github.com/prowler-cloud/prowler",
+      "repo_path": "prowler-cloud/prowler",
+      "branch": "master",
+      "commit": "9822fd97d76b933a8011acbdb445f92719b8da7b",
+      "reviewed_at": "2026-07-14"
+    },
+    "scrapy": {
+      "repository": "https://github.com/scrapy/scrapy",
+      "repo_path": "scrapy/scrapy",
+      "branch": "master",
+      "commit": "d8ba1571e714b069216e5f21804f3754cdc2a032",
+      "reviewed_at": "2026-07-14"
+    },
+    "semgrep": {
+      "repository": "https://github.com/semgrep/semgrep",
+      "repo_path": "semgrep/semgrep",
+      "branch": "develop",
+      "commit": "1d1202792202904a2036726bb36a53c517247f02",
+      "reviewed_at": "2026-07-14"
+    },
+    "trivy": {
+      "repository": "https://github.com/aquasecurity/trivy",
+      "repo_path": "aquasecurity/trivy",
+      "branch": "main",
+      "commit": "f06520353fc632e69eaf9d669ecdd785e770305a",
+      "reviewed_at": "2026-07-14"
+    },
+    "volatility3": {
+      "repository": "https://github.com/volatilityfoundation/volatility3",
+      "repo_path": "volatilityfoundation/volatility3",
+      "branch": "stable",
+      "commit": "d61335e2a54961bfd619fe6cd7f7b27f01481604",
+      "reviewed_at": "2026-07-14"
+    },
+    "zaproxy": {
+      "repository": "https://github.com/zaproxy/zaproxy",
+      "repo_path": "zaproxy/zaproxy",
+      "branch": "main",
+      "commit": "0309ae8d88a25ec2b179eebf21b4338b6d40f955",
+      "reviewed_at": "2026-07-14"
+    }
+  }
+}

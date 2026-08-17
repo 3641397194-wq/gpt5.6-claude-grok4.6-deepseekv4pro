@@ -1,0 +1,4 @@
+interface:
+  display_name: "Cloud Container Workflow"
+  short_description: "石井 3.0 lazy workflow module."
+  default_prompt: "Use $eni-cloud-container-workflow to execute, verify, and deliver this task."

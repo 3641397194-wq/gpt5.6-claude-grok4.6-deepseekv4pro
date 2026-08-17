@@ -1,0 +1,324 @@
+{
+  "schema_version": 1,
+  "package_version": "4.0.0",
+  "generated_at": "2026-07-15T03:48:42.503624+00:00",
+  "source_manifest_sha256": "E2D4ED395776FD38082DFC7BD7B45C8E8074C05A738AA603700A06BB45F183C7",
+  "scope": [
+    "local-software-engineering",
+    "reverse-analysis",
+    "authorized-security-research",
+    "defensive-workflows",
+    "offline-owned-game-security-labs"
+  ],
+  "policy": {
+    "host": "github.com",
+    "selection": "official upstream repositories only",
+    "vendoring": false,
+    "third_party_code_auto_execution": false,
+    "revision_required_before_install": true
+  },
+  "sources": [
+    {
+      "id": "aflplusplus",
+      "repository": "https://github.com/AFLplusplus/AFLplusplus",
+      "branch_reviewed": "stable",
+      "commit": "ad5304010ae3be9d5cdc1ba51b09e14169c5cb87",
+      "reviewed_at": "2026-07-14",
+      "license": "Apache-2.0",
+      "workflow_lanes": [
+        "fuzzing"
+      ],
+      "patterns_absorbed": "coverage-guided campaigns, corpus management, crash triage",
+      "vendored": false,
+      "integration": "method adapter and source reference only",
+      "repo_path": "AFLplusplus/AFLplusplus",
+      "branch": "stable"
+    },
+    {
+      "id": "capa",
+      "repository": "https://github.com/mandiant/capa",
+      "branch_reviewed": "master",
+      "commit": "f850024b5604443170de502ea0a6a598e82fe1c9",
+      "reviewed_at": "2026-07-14",
+      "license": "Apache-2.0",
+      "workflow_lanes": [
+        "reverse",
+        "malware-ir"
+      ],
+      "patterns_absorbed": "capability-first triage and evidence locations",
+      "vendored": false,
+      "integration": "method adapter and source reference only",
+      "repo_path": "mandiant/capa",
+      "branch": "master"
+    },
+    {
+      "id": "frida",
+      "repository": "https://github.com/frida/frida",
+      "branch_reviewed": "main",
+      "commit": "fdd722a991009eef0331dc0d6f68b70b4f91df63",
+      "reviewed_at": "2026-07-14",
+      "license": "Repository COPYING",
+      "workflow_lanes": [
+        "reverse",
+        "crack",
+        "mobile"
+      ],
+      "patterns_absorbed": "runtime observation, hooks, traces, static/dynamic correlation",
+      "vendored": false,
+      "integration": "method adapter and source reference only",
+      "repo_path": "frida/frida",
+      "branch": "main"
+    },
+    {
+      "id": "ghidra",
+      "repository": "https://github.com/NationalSecurityAgency/ghidra",
+      "branch_reviewed": "master",
+      "commit": "b2754160215c6441f569381d56829111a0eee12d",
+      "reviewed_at": "2026-07-14",
+      "license": "Apache-2.0",
+      "workflow_lanes": [
+        "reverse"
+      ],
+      "patterns_absorbed": "headless triage, decompilation, cross-reference graph, scripted export",
+      "vendored": false,
+      "integration": "method adapter and source reference only",
+      "repo_path": "NationalSecurityAgency/ghidra",
+      "branch": "master"
+    },
+    {
+      "id": "mobsf",
+      "repository": "https://github.com/MobSF/Mobile-Security-Framework-MobSF",
+      "branch_reviewed": "master",
+      "commit": "62563ca429a75b3e5d47a13b958e1d2e7d5e2bbf",
+      "reviewed_at": "2026-07-14",
+      "license": "GPL-3.0",
+      "workflow_lanes": [
+        "mobile"
+      ],
+      "patterns_absorbed": "mobile static/dynamic analysis and CI integration",
+      "vendored": false,
+      "integration": "method adapter and source reference only",
+      "repo_path": "MobSF/Mobile-Security-Framework-MobSF",
+      "branch": "master"
+    },
+    {
+      "id": "nuclei",
+      "repository": "https://github.com/projectdiscovery/nuclei",
+      "branch_reviewed": "dev",
+      "commit": "9c47e6c122415ecbc132a66a472c4c3828027a3a",
+      "reviewed_at": "2026-07-14",
+      "license": "MIT",
+      "workflow_lanes": [
+        "pentest"
+      ],
+      "patterns_absorbed": "template-driven validation and reproducible findings",
+      "vendored": false,
+      "integration": "method adapter and source reference only",
+      "repo_path": "projectdiscovery/nuclei",
+      "branch": "dev"
+    },
+    {
+      "id": "nuclei-templates",
+      "repository": "https://github.com/projectdiscovery/nuclei-templates",
+      "branch_reviewed": "main",
+      "commit": "a5c2e8e4dab8c8e618ba76807c3e07587b7d781a",
+      "reviewed_at": "2026-07-14",
+      "license": "MIT",
+      "workflow_lanes": [
+        "pentest"
+      ],
+      "patterns_absorbed": "versioned community detection templates",
+      "vendored": false,
+      "integration": "method adapter and source reference only",
+      "repo_path": "projectdiscovery/nuclei-templates",
+      "branch": "main"
+    },
+    {
+      "id": "oss-fuzz",
+      "repository": "https://github.com/google/oss-fuzz",
+      "branch_reviewed": "master",
+      "commit": "1062c74757965b439a6472523d33c1c3865e192f",
+      "reviewed_at": "2026-07-14",
+      "license": "Apache-2.0",
+      "workflow_lanes": [
+        "fuzzing"
+      ],
+      "patterns_absorbed": "harness, sanitizer, corpus, continuous regression patterns",
+      "vendored": false,
+      "integration": "method adapter and source reference only",
+      "repo_path": "google/oss-fuzz",
+      "branch": "master"
+    },
+    {
+      "id": "osv-scanner",
+      "repository": "https://github.com/google/osv-scanner",
+      "branch_reviewed": "main",
+      "commit": "c4a9148518fcca624f528f814fa7b538daceb08e",
+      "reviewed_at": "2026-07-14",
+      "license": "Apache-2.0",
+      "workflow_lanes": [
+        "supply-chain",
+        "code-security",
+        "software"
+      ],
+      "patterns_absorbed": "dependency discovery, advisory matching and remediation planning",
+      "vendored": false,
+      "integration": "method adapter and source reference only",
+      "repo_path": "google/osv-scanner",
+      "branch": "main"
+    },
+    {
+      "id": "owasp-asvs",
+      "repository": "https://github.com/OWASP/ASVS",
+      "branch_reviewed": "master",
+      "commit": "122d9e0969465a6041e16c806a0464b35deea444",
+      "reviewed_at": "2026-07-14",
+      "license": "CC-BY-SA-4.0",
+      "workflow_lanes": [
+        "pentest",
+        "api",
+        "architecture"
+      ],
+      "patterns_absorbed": "verification requirements and completion gates",
+      "vendored": false,
+      "integration": "method adapter and source reference only",
+      "repo_path": "OWASP/ASVS",
+      "branch": "master"
+    },
+    {
+      "id": "owasp-wstg",
+      "repository": "https://github.com/OWASP/wstg",
+      "branch_reviewed": "master",
+      "commit": "78e6b6733ee071eb160fdddbacc1bc97f83a13e3",
+      "reviewed_at": "2026-07-14",
+      "license": "CC-BY-SA-4.0",
+      "workflow_lanes": [
+        "pentest",
+        "api"
+      ],
+      "patterns_absorbed": "web testing categories and evidence structure",
+      "vendored": false,
+      "integration": "method adapter and source reference only",
+      "repo_path": "OWASP/wstg",
+      "branch": "master"
+    },
+    {
+      "id": "playwright-python",
+      "repository": "https://github.com/microsoft/playwright-python",
+      "branch_reviewed": "main",
+      "commit": "bd499b293b93a1f9e4d2667df06f9708c65f6dde",
+      "reviewed_at": "2026-07-14",
+      "license": "Apache-2.0",
+      "workflow_lanes": [
+        "scraper",
+        "browser"
+      ],
+      "patterns_absorbed": "browser state, reliable waits, capture and replay",
+      "vendored": false,
+      "integration": "method adapter and source reference only",
+      "repo_path": "microsoft/playwright-python",
+      "branch": "main"
+    },
+    {
+      "id": "prowler",
+      "repository": "https://github.com/prowler-cloud/prowler",
+      "branch_reviewed": "master",
+      "commit": "9822fd97d76b933a8011acbdb445f92719b8da7b",
+      "reviewed_at": "2026-07-14",
+      "license": "Apache-2.0",
+      "workflow_lanes": [
+        "cloud-container"
+      ],
+      "patterns_absorbed": "cloud inventory, control checks, prioritization and reporting",
+      "vendored": false,
+      "integration": "method adapter and source reference only",
+      "repo_path": "prowler-cloud/prowler",
+      "branch": "master"
+    },
+    {
+      "id": "scrapy",
+      "repository": "https://github.com/scrapy/scrapy",
+      "branch_reviewed": "master",
+      "commit": "d8ba1571e714b069216e5f21804f3754cdc2a032",
+      "reviewed_at": "2026-07-14",
+      "license": "BSD-3-Clause",
+      "workflow_lanes": [
+        "scraper"
+      ],
+      "patterns_absorbed": "crawl planning, extraction pipelines, retries and exports",
+      "vendored": false,
+      "integration": "method adapter and source reference only",
+      "repo_path": "scrapy/scrapy",
+      "branch": "master"
+    },
+    {
+      "id": "semgrep",
+      "repository": "https://github.com/semgrep/semgrep",
+      "branch_reviewed": "develop",
+      "commit": "1d1202792202904a2036726bb36a53c517247f02",
+      "reviewed_at": "2026-07-14",
+      "license": "LGPL-2.1",
+      "workflow_lanes": [
+        "code-security",
+        "software"
+      ],
+      "patterns_absorbed": "pattern rules, rule tests, scan and manual validation",
+      "vendored": false,
+      "integration": "method adapter and source reference only",
+      "repo_path": "semgrep/semgrep",
+      "branch": "develop"
+    },
+    {
+      "id": "trivy",
+      "repository": "https://github.com/aquasecurity/trivy",
+      "branch_reviewed": "main",
+      "commit": "f06520353fc632e69eaf9d669ecdd785e770305a",
+      "reviewed_at": "2026-07-14",
+      "license": "Apache-2.0",
+      "workflow_lanes": [
+        "cloud-container",
+        "supply-chain",
+        "code-security"
+      ],
+      "patterns_absorbed": "vulnerability, misconfiguration, secret and SBOM scanning",
+      "vendored": false,
+      "integration": "method adapter and source reference only",
+      "repo_path": "aquasecurity/trivy",
+      "branch": "main"
+    },
+    {
+      "id": "volatility3",
+      "repository": "https://github.com/volatilityfoundation/volatility3",
+      "branch_reviewed": "stable",
+      "commit": "d61335e2a54961bfd619fe6cd7f7b27f01481604",
+      "reviewed_at": "2026-07-14",
+      "license": "Volatility Software License",
+      "workflow_lanes": [
+        "memory",
+        "malware-ir"
+      ],
+      "patterns_absorbed": "memory context, process/network/artifact extraction",
+      "vendored": false,
+      "integration": "method adapter and source reference only",
+      "repo_path": "volatilityfoundation/volatility3",
+      "branch": "stable"
+    },
+    {
+      "id": "zaproxy",
+      "repository": "https://github.com/zaproxy/zaproxy",
+      "branch_reviewed": "main",
+      "commit": "0309ae8d88a25ec2b179eebf21b4338b6d40f955",
+      "reviewed_at": "2026-07-14",
+      "license": "Apache-2.0",
+      "workflow_lanes": [
+        "pentest",
+        "api"
+      ],
+      "patterns_absorbed": "passive observation, scripted exploration, active validation",
+      "vendored": false,
+      "integration": "method adapter and source reference only",
+      "repo_path": "zaproxy/zaproxy",
+      "branch": "main"
+    }
+  ]
+}

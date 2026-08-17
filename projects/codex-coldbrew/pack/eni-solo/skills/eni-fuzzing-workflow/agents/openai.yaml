@@ -1,0 +1,4 @@
+interface:
+  display_name: "Fuzzing Workflow"
+  short_description: "石井 3.0 lazy workflow module."
+  default_prompt: "Use $eni-fuzzing-workflow to execute, verify, and deliver this task."

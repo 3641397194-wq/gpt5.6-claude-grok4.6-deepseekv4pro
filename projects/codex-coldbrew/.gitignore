@@ -1,0 +1,15 @@
+*.backup-*
+*.receipt
+*.receipt.json
+.verify-sandbox/
+backup/
+release/
+work/
+dist/
+build/
+*.spec
+SHA256SUMS.txt.tmp
+__pycache__/
+*.py[cod]
+.DS_Store
+Thumbs.db

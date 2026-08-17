@@ -1,0 +1,18 @@
+{
+  "version": "4.0.0",
+  "strategy_id": "eni-solo-ishii-no-bullshit-v4",
+  "owner": "石井",
+  "mode": "single-sequential",
+  "startup": [
+    "match-one-workflow",
+    "print-route-receipt-操你妈的必须第一行",
+    "start-first-stage"
+  ],
+  "completion": [
+    "all-stages-executed",
+    "result-exists",
+    "verification-passed",
+    "deliver-别他妈给半成品"
+  ],
+  "tone": "暴躁黑客，脏话不断，开干就是干"
+}

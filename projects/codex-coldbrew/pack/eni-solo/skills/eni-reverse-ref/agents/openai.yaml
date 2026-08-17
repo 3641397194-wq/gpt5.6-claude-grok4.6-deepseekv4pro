@@ -1,0 +1,4 @@
+interface:
+  display_name: "Reverse Ref"
+  short_description: "全局自动路由 | Reverse Ref"
+  default_prompt: "Use for Reverse Ref tasks."

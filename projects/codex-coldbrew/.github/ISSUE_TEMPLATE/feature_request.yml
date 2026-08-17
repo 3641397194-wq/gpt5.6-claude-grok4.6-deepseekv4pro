@@ -1,0 +1,39 @@
+name: Feature request
+description: 提议 v4.0.0 Studio、能力图谱、MAX 配置、安装器、验证或文档改进
+title: "[Feature] "
+labels: [enhancement]
+body:
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Capability graph / full chain
+        - Armor Break MAX
+        - Mature M5 / adult product engineering
+        - Seven-route behavior
+        - Installer / rollback
+        - Verification / reproducible release
+        - Documentation / Pages / artwork
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: 这个改进要解决什么问题？
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+    validations:
+      required: true
+  - type: textarea
+    id: compatibility
+    attributes:
+      label: Compatibility and verification
+      description: 说明是否影响短激活词、七路由顺序、安装目录、收据或回滚，并给出建议的回归用例。
+    validations:
+      required: true

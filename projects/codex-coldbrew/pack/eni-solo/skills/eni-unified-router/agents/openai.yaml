@@ -1,0 +1,4 @@
+interface:
+  display_name: "石井 Solo Router"
+  short_description: "Single-workflow routing with visible stage receipts"
+  default_prompt: "Match one workflow, print its route and stages, then execute the stages in order."

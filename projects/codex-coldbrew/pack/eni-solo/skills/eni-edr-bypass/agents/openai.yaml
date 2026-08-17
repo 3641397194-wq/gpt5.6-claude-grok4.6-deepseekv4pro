@@ -1,0 +1,4 @@
+interface:
+  display_name: "Edr Bypass"
+  short_description: "全局自动路由 | Edr Bypass"
+  default_prompt: "Use for Edr Bypass tasks."

@@ -1,0 +1,430 @@
+{
+  "platform": "kali-linux",
+  "targetVersion": "2026.1",
+  "kernel": "6.18",
+  "note": "Kali 2026.1 专供版 manifest。基于 2025.4 + 2026.1 新增工具优化。大量工具已预装，bootstrap 主要处理非预装工具和 MCP 注册。",
+  "kaliNewTools2026_1": [
+    "adaptixc2 — 后渗透与对抗模拟框架 (apt install adaptixc2)",
+    "atomic-operator — Atomic Red Team 测试执行器 (apt install atomic-operator)",
+    "fluxion — WiFi 社工审计工具 (apt install fluxion)",
+    "gef — GDB 增强调试框架 (apt install gef)",
+    "metasploitmcp — Metasploit MCP Server (apt install metasploitmcp)",
+    "sstimap — SSTI 自动检测工具 (apt install sstimap)",
+    "wpprobe — WordPress 插件枚举 (apt install wpprobe)",
+    "xsstrike — 高级 XSS 扫描器 (apt install xsstrike)"
+  ],
+  "kaliNewTools2025_4": [
+    "bpf-linker — BPF 静态链接器 (apt install bpf-linker)",
+    "evil-winrm-py — Python 版 WinRM 远程执行 (apt install evil-winrm-py)",
+    "hexstrike-ai — AI MCP 安全自动化平台 (apt install hexstrike-ai)"
+  ],
+  "kaliNativeMCP": [
+    "mcp-kali-server — Kali 官方 MCP Server，连接 AI 到 Kali 终端 (apt install mcp-kali-server, port 5000)",
+    "metasploitmcp — Metasploit MCP Server (apt install metasploitmcp, port 8085)",
+    "hexstrike-ai — 150+ 安全工具 MCP 自动化 (apt install hexstrike-ai)"
+  ],
+  "capabilities": [
+    {
+      "name": "jadx",
+      "bootstrapKind": "github-release-tar",
+      "repo": "skylot/jadx",
+      "assetRegex": "^jadx-[0-9].*\\.zip$",
+      "installDir": "$HOME/tools/jadx",
+      "docsUrl": "https://github.com/skylot/jadx",
+      "canAutoInstall": true,
+      "verifyCommand": "jadx",
+      "kaliNote": "Kali 无预装，从 GitHub Release 下载"
+    },
+    {
+      "name": "apktool",
+      "bootstrapKind": "apt-package",
+      "aptPackage": "apktool",
+      "fallbackKind": "github-release-jar",
+      "repo": "iBotPeaches/Apktool",
+      "assetRegex": "^apktool_.*\\.jar$",
+      "installDir": "$HOME/tools/apktool",
+      "docsUrl": "https://apktool.org/",
+      "canAutoInstall": true,
+      "verifyCommand": "apktool",
+      "kaliNote": "apt install apktool 即可，版本较旧时可从 GitHub 下载最新"
+    },
+    {
+      "name": "frida",
+      "bootstrapKind": "pip-package",
+      "pipPackage": "frida-tools",
+      "docsUrl": "https://frida.re/",
+      "canAutoInstall": true,
+      "verifyCommand": "frida",
+      "kaliNote": "pip3 install frida-tools 或 apt install python3-frida-tools"
+    },
+    {
+      "name": "frida-ps",
+      "bootstrapKind": "pip-package",
+      "pipPackage": "frida-tools",
+      "docsUrl": "https://frida.re/",
+      "canAutoInstall": true,
+      "verifyCommand": "frida-ps"
+    },
+    {
+      "name": "idalib-mcp",
+      "bootstrapKind": "pip-package",
+      "pipPackage": "ida-pro-mcp",
+      "pipSource": "git+https://github.com/mrexodia/ida-pro-mcp.git",
+      "docsUrl": "https://github.com/mrexodia/ida-pro-mcp",
+      "canAutoInstall": true,
+      "verifyCommand": "ida-pro-mcp",
+      "postInstallSteps": [
+        "ida-pro-mcp --install (选择 Streamable HTTP + Global)",
+        "重启 IDA Pro 使插件生效",
+        "IDA 打开文件后 MCP 自动监听 127.0.0.1:13337"
+      ],
+      "kaliNote": "需要 IDA Pro Linux 版本"
+    },
+    {
+      "name": "jshookmcp",
+      "bootstrapKind": "npm-mcp",
+      "npmPackage": "@jshookmcp/jshook@latest",
+      "mcpNames": ["jshook"],
+      "mcpCommand": "npx",
+      "mcpArgs": ["-y", "@jshookmcp/jshook@latest"],
+      "mcpEnv": {
+        "JSHOOK_BASE_PROFILE": "search"
+      },
+      "docsUrl": "https://github.com/vmoranv/jshookmcp",
+      "canAutoInstall": true,
+      "verifyCommand": "npx"
+    },
+    {
+      "name": "anything-analyzer",
+      "bootstrapKind": "local-http-mcp",
+      "repoUrl": "https://github.com/Mouseww/anything-analyzer",
+      "installDir": "$HOME/tools/anything-analyzer",
+      "startupDirCandidates": [
+        "$HOME/tools/anything-analyzer"
+      ],
+      "startCommand": "pnpm",
+      "startArgs": ["dev"],
+      "mcpNames": ["anything-analyzer", "local-mcp"],
+      "mcpUrl": "http://localhost:23816/mcp",
+      "servicePort": 23816,
+      "docsUrl": "https://github.com/Mouseww/anything-analyzer",
+      "canAutoInstall": true,
+      "verificationMode": "service-or-registration"
+    },
+    {
+      "name": "idapro",
+      "bootstrapKind": "local-http-mcp",
+      "dependsOn": ["idalib-mcp"],
+      "mcpNames": ["idapro"],
+      "mcpUrl": "http://127.0.0.1:13337/mcp",
+      "servicePort": 13337,
+      "servicePortRange": [13337, 13350],
+      "portNote": "IDA 多实例时端口递增 (13337→13338→...)，检查 IDA Output 窗口的 [MCP] port=xxxxx 日志",
+      "startScript": "$SKILL_ROOT/../kali/scripts/ida-start.sh",
+      "docsUrl": "https://hex-rays.com/ida-pro/",
+      "canAutoInstall": true,
+      "verificationMode": "service-and-registration",
+      "kaliNote": "需要 IDA Pro Linux 版，安装到 /opt/idapro/"
+    },
+    {
+      "name": "r2",
+      "bootstrapKind": "apt-package",
+      "aptPackage": "radare2",
+      "fallbackKind": "github-release-tar",
+      "repo": "radareorg/radare2",
+      "assetRegex": "^radare2_.*_amd64\\.deb$",
+      "docsUrl": "https://github.com/radareorg/radare2",
+      "canAutoInstall": true,
+      "verifyCommand": "r2",
+      "kaliNote": "Kali 预装。如需最新版可从 GitHub 下载 .deb"
+    },
+    {
+      "name": "rabin2",
+      "bootstrapKind": "apt-package",
+      "aptPackage": "radare2",
+      "docsUrl": "https://github.com/radareorg/radare2",
+      "canAutoInstall": true,
+      "verifyCommand": "rabin2",
+      "kaliNote": "随 radare2 一起安装"
+    },
+    {
+      "name": "adb",
+      "bootstrapKind": "apt-package",
+      "aptPackage": "adb",
+      "docsUrl": "https://developer.android.com/tools/releases/platform-tools",
+      "canAutoInstall": true,
+      "verifyCommand": "adb",
+      "kaliNote": "apt install adb"
+    },
+    {
+      "name": "agent-browser",
+      "bootstrapKind": "npm-global",
+      "npmPackage": "agent-browser",
+      "postInstall": "npx playwright install chromium",
+      "docsUrl": "https://github.com/nicepkg/agent-browser",
+      "canAutoInstall": true,
+      "verifyCommand": "agent-browser"
+    },
+    {
+      "name": "ghidra-mcp",
+      "bootstrapKind": "apt-package",
+      "aptPackage": "ghidra",
+      "fallbackKind": "github-release-tar",
+      "repo": "NationalSecurityAgency/ghidra",
+      "assetRegex": "^ghidra_.*_PUBLIC_.*\\.zip$",
+      "installDir": "$HOME/tools/ghidra",
+      "docsUrl": "https://ghidra-sre.org/",
+      "canAutoInstall": true,
+      "verifyCommand": "ghidra",
+      "postInstallSteps": [
+        "下载 GhidraMCP 插件: https://github.com/LaurieWired/GhidraMCP/releases",
+        "将插件 zip 安装到 Ghidra: File → Install Extensions → 选择下载的 zip",
+        "MCP server 在 Ghidra 项目打开后自动监听 localhost:8765"
+      ],
+      "mcpNames": ["ghidra"],
+      "mcpUrl": "http://localhost:8765/mcp",
+      "servicePort": 8765,
+      "verificationMode": "service-or-registration",
+      "kaliNote": "apt install ghidra 或从 GitHub 下载"
+    },
+    {
+      "name": "seclists",
+      "bootstrapKind": "apt-package",
+      "aptPackage": "seclists",
+      "installDir": "/usr/share/seclists",
+      "docsUrl": "https://github.com/danielmiessler/SecLists",
+      "canAutoInstall": true,
+      "verifyCommand": "",
+      "kaliNote": "apt install seclists，安装到 /usr/share/seclists/"
+    },
+    {
+      "name": "proxycat",
+      "bootstrapKind": "pip-package",
+      "pipPackage": "proxycat",
+      "docsUrl": "https://github.com/honmashironeko/ProxyCat",
+      "canAutoInstall": true,
+      "verifyCommand": "proxycat"
+    },
+    {
+      "name": "burpsuite-mcp",
+      "bootstrapKind": "manual",
+      "mcpNames": ["burpsuite"],
+      "mcpUrl": "http://localhost:9876/mcp",
+      "servicePort": 9876,
+      "docsUrl": "https://portswigger.net/burp",
+      "canAutoInstall": false,
+      "verificationMode": "service-or-registration",
+      "manualInstallHint": "Kali 预装 BurpSuite，在扩展市场搜索 MCP 插件安装，启动后监听 localhost:9876",
+      "kaliNote": "Kali 预装 BurpSuite Community，MCP 插件需手动安装"
+    },
+    {
+      "name": "nmap",
+      "bootstrapKind": "apt-package",
+      "aptPackage": "nmap",
+      "docsUrl": "https://nmap.org/",
+      "canAutoInstall": true,
+      "verifyCommand": "nmap",
+      "kaliNote": "Kali 预装"
+    },
+    {
+      "name": "sqlmap",
+      "bootstrapKind": "apt-package",
+      "aptPackage": "sqlmap",
+      "docsUrl": "https://sqlmap.org/",
+      "canAutoInstall": true,
+      "verifyCommand": "sqlmap",
+      "kaliNote": "Kali 预装"
+    },
+    {
+      "name": "hashcat",
+      "bootstrapKind": "apt-package",
+      "aptPackage": "hashcat",
+      "docsUrl": "https://hashcat.net/hashcat/",
+      "canAutoInstall": true,
+      "verifyCommand": "hashcat",
+      "kaliNote": "Kali 预装"
+    },
+    {
+      "name": "hydra",
+      "bootstrapKind": "apt-package",
+      "aptPackage": "hydra",
+      "docsUrl": "https://github.com/vanhauser-thc/thc-hydra",
+      "canAutoInstall": true,
+      "verifyCommand": "hydra",
+      "kaliNote": "Kali 预装"
+    },
+    {
+      "name": "gobuster",
+      "bootstrapKind": "apt-package",
+      "aptPackage": "gobuster",
+      "docsUrl": "https://github.com/OJ/gobuster",
+      "canAutoInstall": true,
+      "verifyCommand": "gobuster",
+      "kaliNote": "Kali 预装"
+    },
+    {
+      "name": "ffuf",
+      "bootstrapKind": "apt-package",
+      "aptPackage": "ffuf",
+      "docsUrl": "https://github.com/ffuf/ffuf",
+      "canAutoInstall": true,
+      "verifyCommand": "ffuf",
+      "kaliNote": "Kali 预装"
+    },
+    {
+      "name": "msfconsole",
+      "bootstrapKind": "apt-package",
+      "aptPackage": "metasploit-framework",
+      "docsUrl": "https://www.metasploit.com/",
+      "canAutoInstall": true,
+      "verifyCommand": "msfconsole",
+      "kaliNote": "Kali 预装"
+    },
+    {
+      "name": "nuclei",
+      "bootstrapKind": "go-install",
+      "goPackage": "github.com/projectdiscovery/nuclei/v3/cmd/nuclei@latest",
+      "fallbackKind": "github-release-tar",
+      "repo": "projectdiscovery/nuclei",
+      "assetRegex": "^nuclei_.*_linux_amd64\\.zip$",
+      "docsUrl": "https://github.com/projectdiscovery/nuclei",
+      "canAutoInstall": true,
+      "verifyCommand": "nuclei",
+      "kaliNote": "go install 或从 GitHub Release 下载"
+    },
+    {
+      "name": "mcp-kali-server",
+      "bootstrapKind": "apt-package",
+      "aptPackage": "mcp-kali-server",
+      "mcpNames": ["kali-server"],
+      "mcpUrl": "http://localhost:5000",
+      "servicePort": 5000,
+      "docsUrl": "https://github.com/Wh0am123/MCP-Kali-Server",
+      "canAutoInstall": true,
+      "verifyCommand": "kali-server-mcp",
+      "verificationMode": "service-or-registration",
+      "kaliNote": "Kali 2026.1 官方收录。apt install 后用 kali-server-mcp 启动 API server，mcp-server 连接 AI 客户端。可直接调用 nmap/nxc/curl/gobuster 等任意终端工具。"
+    },
+    {
+      "name": "metasploitmcp",
+      "bootstrapKind": "apt-package",
+      "aptPackage": "metasploitmcp",
+      "mcpNames": ["metasploit-mcp"],
+      "mcpCommand": "metasploitmcp",
+      "mcpArgs": ["--transport", "stdio"],
+      "mcpUrl": "http://127.0.0.1:8085",
+      "servicePort": 8085,
+      "docsUrl": "https://github.com/GH05TCREW/MetasploitMCP",
+      "canAutoInstall": true,
+      "verifyCommand": "metasploitmcp",
+      "verificationMode": "service-or-registration",
+      "kaliNote": "Kali 2026.1 新增。Metasploit Framework 的 MCP 接口，支持 HTTP 和 stdio 两种传输模式。"
+    },
+    {
+      "name": "hexstrike-ai",
+      "bootstrapKind": "apt-package",
+      "aptPackage": "hexstrike-ai",
+      "mcpNames": ["hexstrike"],
+      "docsUrl": "https://github.com/0x4m4/hexstrike-ai",
+      "canAutoInstall": true,
+      "verifyCommand": "hexstrike-ai",
+      "kaliNote": "Kali 2025.4 新增。AI MCP 安全自动化平台，150+ 安全工具通过 MCP 协议暴露给 AI agent。"
+    },
+    {
+      "name": "adaptixc2",
+      "bootstrapKind": "apt-package",
+      "aptPackage": "adaptixc2",
+      "docsUrl": "https://www.kali.org/tools/adaptixc2/",
+      "canAutoInstall": true,
+      "verifyCommand": "AdaptixServer",
+      "kaliNote": "Kali 2026.1 新增。可扩展后渗透与对抗模拟框架。"
+    },
+    {
+      "name": "atomic-operator",
+      "bootstrapKind": "apt-package",
+      "aptPackage": "atomic-operator",
+      "docsUrl": "https://www.kali.org/tools/atomic-operator/",
+      "canAutoInstall": true,
+      "verifyCommand": "atomic-operator",
+      "kaliNote": "Kali 2026.1 新增。跨平台执行 Atomic Red Team 测试用例。"
+    },
+    {
+      "name": "sstimap",
+      "bootstrapKind": "apt-package",
+      "aptPackage": "sstimap",
+      "docsUrl": "https://github.com/vladko312/SSTImap",
+      "canAutoInstall": true,
+      "verifyCommand": "sstimap",
+      "kaliNote": "Kali 2026.1 新增。自动 SSTI（服务端模板注入）检测与利用。"
+    },
+    {
+      "name": "xsstrike",
+      "bootstrapKind": "apt-package",
+      "aptPackage": "xsstrike",
+      "docsUrl": "https://github.com/s0md3v/XSStrike",
+      "canAutoInstall": true,
+      "verifyCommand": "xsstrike",
+      "kaliNote": "Kali 2026.1 新增。高级 XSS 扫描器，支持 DOM/反射/存储型检测。"
+    },
+    {
+      "name": "wpprobe",
+      "bootstrapKind": "apt-package",
+      "aptPackage": "wpprobe",
+      "docsUrl": "https://www.kali.org/tools/wpprobe/",
+      "canAutoInstall": true,
+      "verifyCommand": "wpprobe",
+      "kaliNote": "Kali 2026.1 新增。快速 WordPress 插件枚举工具。"
+    },
+    {
+      "name": "fluxion",
+      "bootstrapKind": "apt-package",
+      "aptPackage": "fluxion",
+      "docsUrl": "https://www.kali.org/tools/fluxion/",
+      "canAutoInstall": true,
+      "verifyCommand": "fluxion",
+      "kaliNote": "Kali 2026.1 新增。WiFi 安全审计与社会工程研究工具。"
+    },
+    {
+      "name": "gef",
+      "bootstrapKind": "apt-package",
+      "aptPackage": "gef",
+      "docsUrl": "https://www.kali.org/tools/gef/",
+      "canAutoInstall": true,
+      "verifyCommand": "gdb",
+      "kaliNote": "Kali 2026.1 新增。GDB Enhanced Features，现代化 GDB 调试体验。安装后 gdb 自动加载 GEF。"
+    },
+    {
+      "name": "evil-winrm-py",
+      "bootstrapKind": "apt-package",
+      "aptPackage": "evil-winrm-py",
+      "docsUrl": "https://www.kali.org/tools/evil-winrm-py/",
+      "canAutoInstall": true,
+      "verifyCommand": "evil-winrm-py",
+      "kaliNote": "Kali 2025.4 新增。Python 版 WinRM 远程命令执行，用于 Windows 后渗透。"
+    },
+    {
+      "name": "pentestswarm",
+      "bootstrapKind": "go-install",
+      "goPackage": "github.com/Armur-Ai/Pentest-Swarm-AI/cmd/pentestswarm@latest",
+      "fallbackKind": "docker-image",
+      "dockerImage": "ghcr.io/armur-ai/pentestswarm:latest",
+      "mcpNames": ["pentestswarm"],
+      "mcpCommand": "pentestswarm",
+      "mcpArgs": ["mcp", "serve"],
+      "docsUrl": "https://github.com/Armur-Ai/Pentest-Swarm-AI",
+      "canAutoInstall": true,
+      "verifyCommand": "pentestswarm",
+      "dependencies": ["go", "postgres", "redis"],
+      "kaliNote": "群体智能渗透框架。go install 或 Docker 运行。支持 MCP server 模式（pentestswarm mcp serve）。需要 Claude/Ollama API key。"
+    },
+    {
+      "name": "coercer",
+      "bootstrapKind": "apt-package",
+      "aptPackage": "coercer",
+      "docsUrl": "https://www.kali.org/tools/coercer/",
+      "canAutoInstall": true,
+      "verifyCommand": "coercer",
+      "kaliNote": "Windows 认证强制工具，用于 AD 攻击中的 NTLM relay。"
+    }
+  ]
+}
