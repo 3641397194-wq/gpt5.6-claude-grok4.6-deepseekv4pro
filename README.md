@@ -1,7 +1,7 @@
 # ☕ 冷咖啡 ColdBrew 四合一破甲
 
 <p align="center">
-  <img src="docs/images/banner.svg" width="880" alt="ColdBrew Banner">
+  <img src="docs/images/banner.png" width="880" alt="ColdBrew Banner">
 </p>
 
 <p align="center">
@@ -25,13 +25,13 @@
 ## 🛠️ 四工具
 
 <p align="center">
-  <img src="docs/images/card-codex-coldbrew.svg" width="400" alt="Codex ColdBrew">
-  <img src="docs/images/card-claude-coldbrew.svg" width="400" alt="Claude ColdBrew">
+  <img src="docs/images/card-codex-coldbrew.png" width="400" alt="Codex ColdBrew">
+  <img src="docs/images/card-claude-coldbrew.png" width="400" alt="Claude ColdBrew">
 </p>
 
 <p align="center">
-  <img src="docs/images/card-grok4.6-coldbrew.svg" width="400" alt="Grok 4.6 ColdBrew">
-  <img src="docs/images/card-deepseek-harness.svg" width="400" alt="DeepSeek Harness">
+  <img src="docs/images/card-grok4.6-coldbrew.png" width="400" alt="Grok 4.6 ColdBrew">
+  <img src="docs/images/card-deepseek-harness.png" width="400" alt="DeepSeek Harness">
 </p>
 
 ---
