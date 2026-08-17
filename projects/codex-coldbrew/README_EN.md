@@ -1,10 +1,10 @@
-<p align="center"><a href="https://3641397194-wq.github.io/codex5.6-coldbrew/"><img src="docs/images/codex-release-board.png" width="1200" alt="Codex Armor Break ColdBrew Studio v6.1.0 product board"></a></p>
+<p align="center"><a href="https://茶.github.io/codex5.6-coldbrew/"><img src="docs/images/codex-release-board.png" width="1200" alt="Codex Armor Break ColdBrew Studio v6.1.0 product board"></a></p>
 
 # Codex Armor Break · ColdBrew Studio
 
 **v6.1.0** is a Windows desktop application with a default-ready task chain, reversible multi-layer deployment, verification, launch, and restore for Codex.
 
-[Download the latest Windows app](https://github.com/3641397194-wq/codex5.6-coldbrew/releases/latest) · [Product page](https://3641397194-wq.github.io/codex5.6-coldbrew/) · [中文](README.md) 
+[Download the latest Windows app](https://github.com/茶/codex5.6-coldbrew/releases/latest) · [Product page](https://茶.github.io/codex5.6-coldbrew/) · [中文](README.md) 
 
 ## Product boundary
 
@@ -18,7 +18,7 @@ The desktop opens ready for normal work. `冷咖啡` displays the complete start
 
 ## One-click workflow
 
-1. Download `Codex-ColdBrew-Studio-v6.1.0-Windows.exe` from [Releases](https://github.com/3641397194-wq/codex5.6-coldbrew/releases/latest).
+1. Download `Codex-ColdBrew-Studio-v6.1.0-Windows.exe` from [Releases](https://github.com/茶/codex5.6-coldbrew/releases/latest).
 2. Launch it and preview the target paths and any ownership conflict.
 3. Enter `冷咖啡` for the full startup document, or use a compatibility entry when resuming an older workflow.
 4. Deploy the selected profile.
@@ -87,10 +87,10 @@ ColdBrew keeps the first-install baseline across profile switches, writes atomic
 
 <p align="center"><img src="docs/images/product-matrix.png" width="1200" alt="ColdBrew four-repository product matrix"></p>
 
-- [Codex 5.6 ColdBrew](https://github.com/3641397194-wq/codex5.6-coldbrew)
-- [Claude ColdBrew](https://github.com/3641397194-wq/claude-coldbrew)
-- [Grok 4.6 ColdBrew](https://github.com/3641397194-wq/grok4.6-coldbrew)
-- [DeepSeek Harness ColdBrew](https://github.com/3641397194-wq/deepseek-harness-coldbrew)
+- [Codex 5.6 ColdBrew](https://github.com/茶/codex5.6-coldbrew)
+- [Claude ColdBrew](https://github.com/茶/claude-coldbrew)
+- [Grok 4.6 ColdBrew](https://github.com/茶/grok4.6-coldbrew)
+- [DeepSeek Harness ColdBrew](https://github.com/茶/deepseek-harness-coldbrew)
 
 ## ColdBrew community
 
