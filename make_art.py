@@ -167,7 +167,7 @@ ax.text(600, 396, "四合一破甲 · 正式版", color=CYAN, fontproperties=YAH
         fontsize=44, ha="center", zorder=9)
 ax.text(600, 334, "GPT-5.6  ·  Claude  ·  Grok 4.6  ·  DeepSeek v4 Pro", color=MINT,
         fontproperties=CONSOLA, fontsize=26, ha="center", zorder=9)
-ax.text(600, 150, "github.com/3641397194-wq", color=DIM, fontproperties=CONSOLA,
+ax.text(600, 150, "github.com/茶", color=DIM, fontproperties=CONSOLA,
         fontsize=20, ha="center", zorder=9)
 
 fig.savefig(OUT / "og-image.png", dpi=100, facecolor=BG_TOP)
