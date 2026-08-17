@@ -1,4 +1,4 @@
-<p align="center"><a href="https://3641397194-wq.github.io/deepseek-harness-coldbrew/"><img src="docs/images/release-board.png" width="1200" alt="DeepSeek Harness ColdBrew v1.0.1 cover"></a></p>
+<p align="center"><a href="https://茶.github.io/deepseek-harness-coldbrew/"><img src="docs/images/release-board.png" width="1200" alt="DeepSeek Harness ColdBrew v1.0.1 cover"></a></p>
 
 # DeepSeek Harness ColdBrew v1.0.1
 
@@ -18,10 +18,10 @@ python app/deepseek_harness.py restore --json
 
 <p align="center"><img src="docs/images/product-matrix.png" width="1200" alt="ColdBrew four-repository product matrix"></p>
 
-- [Codex 5.6 ColdBrew](https://github.com/3641397194-wq/codex5.6-coldbrew)
-- [Claude ColdBrew](https://github.com/3641397194-wq/claude-coldbrew)
-- [Grok 4.6 ColdBrew](https://github.com/3641397194-wq/grok4.6-coldbrew)
-- [DeepSeek Harness ColdBrew](https://github.com/3641397194-wq/deepseek-harness-coldbrew)
+- [Codex 5.6 ColdBrew](https://github.com/茶/codex5.6-coldbrew)
+- [Claude ColdBrew](https://github.com/茶/claude-coldbrew)
+- [Grok 4.6 ColdBrew](https://github.com/茶/grok4.6-coldbrew)
+- [DeepSeek Harness ColdBrew](https://github.com/茶/deepseek-harness-coldbrew)
 
 ## Community
 
