@@ -29,7 +29,7 @@
 - 完整启动文本 SHA-256：
   `F7FB45C5DEC0F77E5AFD415DABAACCEEB5B2DDCF1F9918B7B2198BB911F34246`
 - QQ 群：`1057540028` / `1077074552`
-- 公开源码：<https://github.com/3641397194-wq/codex5.6-coldbrew>
+- 公开源码：<https://github.com/茶/codex5.6-coldbrew>
 
 ## 许可证
 
