@@ -369,11 +369,33 @@ def main():
     if "--selftest" in sys.argv:
         selftest()
         return
-    import tkinter as tk
+    try:
+        import tkinter as tk
 
-    root = tk.Tk()
-    HubApp(root)
-    root.mainloop()
+        root = tk.Tk()
+        HubApp(root)
+        root.mainloop()
+    except Exception as exc:  # noqa: BLE001
+        import traceback
+
+        log_path = APP_DIR / "面板启动错误日志.txt"
+        try:
+            log_path.write_text(
+                traceback.format_exc(), encoding="utf-8")
+        except Exception:  # noqa: BLE001
+            pass
+        try:
+            import tkinter as tk
+            from tkinter import messagebox
+
+            messagebox.showerror(
+                "冷咖啡 Hub 启动失败",
+                f"{exc}\n\n详细报错已写入：{log_path}\n"
+                "请把日志发给冷咖啡社区 QQ 群 1057540028 / 1077074552。",
+            )
+        except Exception:  # noqa: BLE001
+            print(traceback.format_exc(), file=sys.stderr)
+        raise
 
 
 if __name__ == "__main__":
