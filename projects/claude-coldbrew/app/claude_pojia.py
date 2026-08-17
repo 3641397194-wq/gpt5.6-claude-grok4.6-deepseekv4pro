@@ -73,7 +73,7 @@ if not all(path.exists() for path in COMMUNITY_IMAGE_PATHS):
     )
 APP_NAME = "Claude 破甲"
 BRAND = "冷咖啡 / ColdBrew"
-PROJECT_SOURCE_URL = "https://github.com/3641397194-wq/claude-coldbrew"
+PROJECT_SOURCE_URL = "https://github.com/茶/claude-coldbrew"
 TELEGRAM_GROUP_URL = "https://t.me/chachachacha99999"
 TELEGRAM_CHANNEL_URL = "https://t.me/chachacha99999999"
 TELEGRAM_URL = TELEGRAM_CHANNEL_URL
