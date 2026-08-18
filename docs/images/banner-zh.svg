@@ -1,0 +1,39 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" role="img" aria-labelledby="title desc">
+  <title id="title">冷咖啡四模型工作台</title>
+  <desc id="desc">四模型本地工作台，支持启动、部署、验证与回滚</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#09141f"/>
+      <stop offset="1" stop-color="#132b3b"/>
+    </linearGradient>
+    <linearGradient id="mint" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#8ff0d0"/>
+      <stop offset="1" stop-color="#b9e6ff"/>
+    </linearGradient>
+    <pattern id="grid" width="36" height="36" patternUnits="userSpaceOnUse">
+      <path d="M36 0H0V36" fill="none" stroke="#b9e6ff" stroke-opacity=".08"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="520" rx="28" fill="url(#bg)"/>
+  <rect width="1200" height="520" rx="28" fill="url(#grid)"/>
+  <circle cx="1040" cy="90" r="190" fill="#66d9ff" opacity=".10"/>
+  <circle cx="1110" cy="90" r="120" fill="none" stroke="#9fe9ff" stroke-opacity=".24" stroke-width="2"/>
+  <g font-family="Microsoft YaHei,Noto Sans CJK SC,Segoe UI,sans-serif">
+    <text x="74" y="78" fill="#a7f4df" font-size="20" letter-spacing="4">冷咖啡 · 本地工作台</text>
+    <text x="70" y="200" fill="#f7e8c7" font-size="112" font-weight="700">冷咖啡</text>
+    <text x="78" y="252" fill="#c9e6ee" font-size="30">四模型统一启动 · 部署 · 验证 · 回滚</text>
+    <rect x="78" y="292" width="1040" height="1" fill="#9fe9ff" opacity=".45"/>
+    <g font-size="18" font-weight="700">
+      <rect x="78" y="330" width="225" height="44" rx="22" fill="#9fd8ff" fill-opacity=".18" stroke="#9fd8ff" stroke-opacity=".7"/>
+      <text x="190" y="359" text-anchor="middle" fill="#d9f2ff">GPT-5.6 / Codex</text>
+      <rect x="319" y="330" width="195" height="44" rx="22" fill="#f4e3c8" fill-opacity=".16" stroke="#f4e3c8" stroke-opacity=".7"/>
+      <text x="416" y="359" text-anchor="middle" fill="#f8e9ca">Claude Code</text>
+      <rect x="530" y="330" width="170" height="44" rx="22" fill="#8ff0a1" fill-opacity=".16" stroke="#8ff0a1" stroke-opacity=".7"/>
+      <text x="615" y="359" text-anchor="middle" fill="#c9ffd1">Grok 4.6</text>
+      <rect x="716" y="330" width="230" height="44" rx="22" fill="#b39ddb" fill-opacity=".17" stroke="#b39ddb" stroke-opacity=".7"/>
+      <text x="831" y="359" text-anchor="middle" fill="#e1d5ff">DeepSeek v4 Pro</text>
+    </g>
+    <text x="78" y="445" fill="#b8d3dd" font-size="19">清爽主页 · 中文说明 · 不展示重复二维码</text>
+    <text x="1120" y="445" text-anchor="end" fill="url(#mint)" font-size="16" letter-spacing="2">可复现发布 / 可回滚</text>
+  </g>
+</svg>
