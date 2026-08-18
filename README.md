@@ -84,17 +84,19 @@ python coldbrew_hub.py --selftest
 
 ## 社区入口
 
-> **整洁入口：** 主页只保留文字链接，不展示重复二维码；二维码素材仍保存在仓库资源目录，方便维护者单独取用。
+> **频道和群组是两个不同入口。** `@chachachacha99999999` 是 Telegram **频道**，用于发布版本、公告和通知；`@chachachacha99999` 才是 Telegram **交流群**，用于讨论和提问。
 
 | 渠道 | 入口 | 用途 |
 | --- | --- | --- |
 | QQ · ColdBrew | **1057540028** | 综合交流 |
 | QQ · Codex / Claude | **1077074552** | 模型专项交流 |
 | 微信群 | **ColdBrew** | 微信群；入群请联系维护者 |
-| Telegram · 交流群 | [加入群组](https://t.me/chachachacha99999) | 提问与社区交流 |
-| Telegram · 公告频道 | [订阅频道](https://t.me/chachachacha99999999) | 发布与通知 |
+| Telegram 交流群 | [@chachachacha99999](https://t.me/chachachacha99999) | 讨论、提问与反馈 |
+| Telegram 频道 | [@chachachacha99999999](https://t.me/chachachacha99999999) | 版本发布、公告与通知 |
 
 Telegram 群组与频道分开维护：群组用于讨论，频道用于发布版本和公告。
+
+频道直达链接：<https://t.me/chachachacha99999999>
 
 ## 仓库结构
 
