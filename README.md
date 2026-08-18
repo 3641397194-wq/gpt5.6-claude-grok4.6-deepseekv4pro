@@ -84,19 +84,39 @@ python coldbrew_hub.py --selftest
 
 ## 社区入口
 
-> **频道和群组是两个不同入口。** `@chachachacha99999999` 是 Telegram **频道**，用于发布版本、公告和通知；`@chachachacha99999` 才是 Telegram **交流群**，用于讨论和提问。
+### 两个 QQ 群
+
+<table>
+  <tr>
+    <td align="center" width="50%">
+      <a href="docs/images/qq-group-1.jpg"><img src="docs/images/qq-group-1.jpg" width="300" alt="Codex 破甲 QQ 群二维码，群号 1057540028"></a><br>
+      <strong>Codex 破甲交流群</strong><br>
+      <code>1057540028</code>
+    </td>
+    <td align="center" width="50%">
+      <a href="docs/images/qq-group-2.jpg"><img src="docs/images/qq-group-2.jpg" width="300" alt="Codex Claude 破甲 QQ 群二维码，群号 1077074552"></a><br>
+      <strong>Codex / Claude 破甲专题群</strong><br>
+      <code>1077074552</code>
+    </td>
+  </tr>
+</table>
+
+### 微信群
+
+<p align="center">
+  <a href="docs/images/wechat-group.jpg"><img src="docs/images/wechat-group.jpg" width="260" alt="微信群：codex 破甲二维码"></a><br>
+  <strong>微信群：codex 破甲</strong><br>
+  <sub>二维码有效期以图片中的日期为准，失效后会替换新图。</sub>
+</p>
+
+### Telegram
 
 | 渠道 | 入口 | 用途 |
 | --- | --- | --- |
-| QQ · ColdBrew | **1057540028** | 综合交流 |
-| QQ · Codex / Claude | **1077074552** | 模型专项交流 |
-| 微信群 | **ColdBrew** | 微信群；入群请联系维护者 |
-| Telegram 交流群 | [@chachachacha99999](https://t.me/chachachacha99999) | 讨论、提问与反馈 |
-| Telegram 频道 | [@chachachacha99999999](https://t.me/chachachacha99999999) | 版本发布、公告与通知 |
+| Telegram 交流群 | [加入 @chachachacha99999](https://t.me/chachachacha99999) | 讨论、提问与反馈 |
+| Telegram 频道 | [订阅 @chachacha99999999](https://t.me/chachacha99999999) | 版本发布、公告与通知 |
 
-Telegram 群组与频道分开维护：群组用于讨论，频道用于发布版本和公告。
-
-频道直达链接：<https://t.me/chachachacha99999999>
+> Telegram 交流群与频道是两个独立入口：交流群为 <https://t.me/chachachacha99999>，频道为 <https://t.me/chachacha99999999>。
 
 ## 仓库结构
 
