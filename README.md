@@ -1,7 +1,7 @@
-﻿# ColdBrew 冷咖啡｜四模型工作台
+# ColdBrew 冷咖啡｜四模型工作台
 
 <p align="center">
-  <img src="docs/images/banner.png" width="900" alt="冷咖啡四模型工作台">
+  <img src="docs/images/banner-zh.svg" width="900" alt="冷咖啡四模型工作台">
 </p>
 
 <p align="center"><strong>GPT-5.6 / Codex · Claude Code · Grok 4.6 · DeepSeek v4 Pro</strong></p>
@@ -26,16 +26,12 @@
 
 ## 四个模型
 
-<table>
-  <tr>
-    <td align="center"><img src="docs/images/card-codex-coldbrew.png" width="390" alt="GPT-5.6 Codex 卡片"><br><strong>GPT-5.6 / Codex</strong></td>
-    <td align="center"><img src="docs/images/card-claude-coldbrew.png" width="390" alt="Claude Code 卡片"><br><strong>Claude Code</strong></td>
-  </tr>
-  <tr>
-    <td align="center"><img src="docs/images/card-grok4.6-coldbrew.png" width="390" alt="Grok 4.6 卡片"><br><strong>Grok 4.6</strong></td>
-    <td align="center"><img src="docs/images/card-deepseek-harness.png" width="390" alt="DeepSeek v4 Pro 卡片"><br><strong>DeepSeek v4 Pro</strong></td>
-  </tr>
-</table>
+| 模型 | 目录 | 说明 |
+| --- | --- | --- |
+| GPT-5.6 / Codex | [`projects/codex-coldbrew`](projects/codex-coldbrew) | 本地配置与工作流入口 |
+| Claude Code | [`projects/claude-coldbrew`](projects/claude-coldbrew) | Claude 工作流入口 |
+| Grok 4.6 | [`projects/grok4.6-coldbrew`](projects/grok4.6-coldbrew) | Grok 适配器与统一界面 |
+| DeepSeek v4 Pro | [`projects/deepseek-harness`](projects/deepseek-harness) | Harness 适配器与导出模板 |
 
 ## 本次升级
 
