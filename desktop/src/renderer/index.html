@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>冷咖啡 · ColdBrew Zero</title>
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <div class="window">
+    <header class="titlebar">
+      <div class="brand"><span>/</span><div><strong>冷咖啡</strong><small>COLDBREW ZERO</small></div></div>
+      <div class="titlebar-state"><i></i><span>LOCAL WORKSPACE</span><b id="clock">00:00:00</b></div>
+      <div class="window-actions"><button id="minBtn" aria-label="最小化">−</button><button id="maxBtn" aria-label="最大化">□</button><button id="closeBtn" aria-label="关闭">×</button></div>
+    </header>
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="side-label">WORKSPACE</div>
+        <nav class="nav">
+          <button class="nav-item is-on" data-jump="command"><span>01</span><b>指挥台</b><em>⌘1</em></button>
+          <button class="nav-item" data-jump="seats"><span>02</span><b>模型席位</b><em>⌘2</em></button>
+          <button class="nav-item" data-jump="execution"><span>03</span><b>执行中心</b><em>⌘3</em></button>
+          <button class="nav-item" data-jump="environment"><span>04</span><b>运行环境</b><em>⌘4</em></button>
+          <button class="nav-item" data-jump="activity"><span>05</span><b>活动流</b><em>⌘5</em></button>
+        </nav>
+        <div class="side-divider"></div>
+        <div class="side-label">QUICK ACCESS</div>
+        <button class="side-link" id="docsBtn"><span>↗</span>主页与视觉</button>
+        <button class="side-link" id="communityBtn"><span>◎</span>社群入口</button>
+        <div class="side-bottom"><div class="online-dot"></div><div><strong>EXPLICIT INPUT ONLY</strong><small>隔离模式 · v2.0.0</small></div></div>
+      </aside>
+      <main class="content">
+        <section class="hero" id="command">
+          <div class="hero-copy"><div class="eyebrow"><span></span> COMMAND CENTER / READY</div><h1>工作台<br><em>已就绪</em></h1><p id="heroDetail">输入明确目标，选择工作档位，然后开始一条可继续的工作链。</p><div class="hero-actions"><button class="primary-action" id="runMaxBtn"><span>↗</span><div><b>一键启动 MAX</b><small>BREAK//OPEN · 完整工作链</small></div></button><button class="ghost-action" id="checkBtn"><b>验收当前工作区</b><span>⌁</span></button></div></div>
+          <div class="core-orbit"><div class="orbit-line one"></div><div class="orbit-line two"></div><div class="orbit-line three"></div><div class="orbit-center"><b>MAX</b><small>CORE</small></div><label class="orbit-label top">OBJECTIVE</label><label class="orbit-label right">OUTPUT</label><label class="orbit-label bottom">CHECK</label><label class="orbit-label left">CONTEXT</label><i class="orbit-pulse"></i></div>
+        </section>
+        <section class="control-strip" id="execution"><div class="panel profile-panel"><div class="panel-head"><span>PROFILE</span><small id="profileSummary">完整、直接、可继续</small></div><div class="segments" id="profileBar"></div></div><div class="panel channel-panel"><div class="panel-head"><span><b>BREAK//OPEN</b></span><small>工作通道</small></div><div class="channel-tabs" id="channelBar"></div><p id="channelHint">自动选择 · 按当前目标组织工作链</p></div></section>
+        <section class="target-panel panel"><div class="target-title"><div><div class="eyebrow">TARGET / EXPLICIT INPUT</div><h2>你要处理什么？</h2></div><span class="isolate-chip">● 只处理当前输入</span></div><textarea id="targetInput" rows="3" placeholder="输入目标、问题或要整理的文本……"></textarea><div class="target-foot"><span><i></i>不会扫描文件、配置、剪贴板或历史</span><button id="clearTarget">清空输入</button></div></section>
+        <section class="section" id="seats"><div class="section-heading"><div><div class="eyebrow">MODEL SEATS / 04</div><h2>四个模型，统一工作台。</h2></div><span class="ready-count" id="readyCount">4 / 4 <small>READY</small></span></div><div class="seat-grid" id="seatGrid"></div></section>
+        <section class="section split-section" id="environment"><div class="section-heading"><div><div class="eyebrow">RUNTIME / ISOLATED</div><h2>运行环境状态。</h2></div><button class="inline-button" id="inspectBtn">重新检查 <span>↻</span></button></div><div class="runtime-grid" id="runtimeGrid"></div></section>
+        <section class="section result-section" id="activity"><div class="section-heading"><div><div class="eyebrow">ACTIVITY / RESULT</div><h2>活动流与结果。</h2></div><button class="inline-button" id="clearLog">清空活动流 <span>⌫</span></button></div><div class="result-layout"><div class="activity-log" id="activityLog"></div><pre class="result-output" id="resultOutput">等待你的明确输入……</pre></div></section>
+        <section class="section community-section" id="community"><div class="section-heading"><div><div class="eyebrow">COMMUNITY / KEEP IN TOUCH</div><h2>冷咖啡社群入口。</h2></div><p>品牌宣传和交流入口继续保留。</p></div><div class="community-grid" id="communityGrid"></div></section>
+        <footer><span>冷咖啡 / COLDBREW ZERO</span><span>BREAK//OPEN · ORIGINAL · LOCAL FIRST</span><span>v2.0.0</span></footer>
+      </main>
+    </div>
+  </div>
+  <div class="toast" id="toast"></div>
+  <script src="app.js"></script>
+</body>
+</html>
+

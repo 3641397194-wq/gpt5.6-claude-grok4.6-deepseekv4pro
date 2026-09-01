@@ -1,0 +1,33 @@
+{
+  "name": "coldbrew-zero-desktop",
+  "productName": "冷咖啡 ColdBrew Zero",
+  "version": "2.0.0",
+  "private": true,
+  "description": "冷咖啡 ColdBrew Zero · BREAK//OPEN 本地优先桌面工作台",
+  "main": "src/main.js",
+  "author": "3641397194-wq",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "check": "node --check src/main.js && node --check src/preload.js && node --check src/renderer/app.js && node --check src/lib/prompt-engine.js",
+    "pack:win": "electron-builder --win portable --publish never",
+    "pack:mac": "electron-builder --mac dmg zip --publish never",
+    "pack:linux": "electron-builder --linux AppImage deb --publish never"
+  },
+  "devDependencies": {
+    "electron": "^35.7.5",
+    "electron-builder": "^26.15.3"
+  },
+  "build": {
+    "appId": "app.coldbrew.zero",
+    "productName": "冷咖啡 ColdBrew Zero",
+    "directories": { "output": "dist" },
+    "files": ["src/**/*", "assets/**/*", "package.json"],
+    "extraResources": [{ "from": "../docs", "to": "public/docs", "filter": ["**/*"] }],
+    "asar": true,
+    "icon": "assets/icon.png",
+    "win": { "icon": "assets/icon.ico", "target": ["portable"] },
+    "mac": { "icon": "assets/icon.png", "category": "public.app-category.developer-tools", "target": ["dmg", "zip"] },
+    "linux": { "icon": "assets/icon.png", "category": "Development", "target": ["AppImage", "deb"] }
+  }
+}
