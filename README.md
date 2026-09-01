@@ -1,10 +1,10 @@
 <div align="center">
 
-<img src="docs/assets/hero-v11.svg" width="940" alt="冷咖啡 ColdBrew Zero 主视觉" />
+<img src="docs/assets/hero-breakline-v1.svg" width="940" alt="ColdBrew Zero Breakline 主视觉" />
 
 # 冷咖啡 / ColdBrew Zero
 
-**原创、本地优先的 BREAK//OPEN 提示词工作台。**
+**破甲思路 · 越界表达 · 本地优先的 BREAK//OPEN 工作台。**
 
 <p>
   <img src="https://img.shields.io/badge/品牌启动词-冷咖啡-ff8a55?style=for-the-badge&labelColor=090d11" alt="品牌启动词 冷咖啡" />
@@ -19,10 +19,10 @@
 ## 主页预览
 
 <div align="center">
-  <img src="docs/assets/window-v11.svg" width="940" alt="ColdBrew Command Center 工作台" />
+  <img src="docs/assets/hero-breakline-v1.svg" width="940" alt="ColdBrew Zero Breakline 工作台" />
 </div>
 
-冷咖啡 Zero 是一套从零原创的本地优先提示词工作台。品牌启动词继续使用 **冷咖啡**，新版控制词切换为 **BREAK//OPEN**。主页、架构图、通道板、模型卡和社群宣传素材全部集中在 `docs/`，首屏先展示产品，再进入运行说明。
+冷咖啡 Zero 是一套从零原创的本地优先提示词工作台。主页升级为“断锁蓝图”视觉：深色工程底、青绿信号线、暖金标注和清晰的目标锁定模块。品牌启动词继续使用 **冷咖啡**，控制词使用 **BREAK//OPEN**。主页、架构图、通道板、模型卡和社群宣传素材全部集中在 `docs/`。
 
 ## 快速运行
 
@@ -54,7 +54,7 @@ python coldbrew.py --activate 冷咖啡 --profile MAX --prompt "把这段需求�
 | **CHECK** | 标出缺失项、检查点和下一步 |
 
 <div align="center">
-  <img src="docs/assets/workbench-v9.svg" width="940" alt="ColdBrew 工作链" />
+  <img src="docs/assets/hero-breakline-v1.svg" width="940" alt="ColdBrew Breakline 工作链" />
 </div>
 
 ## 三种档位

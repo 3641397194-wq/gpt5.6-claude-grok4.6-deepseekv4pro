@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 820" role="img" aria-labelledby="title desc">
+  <title id="title">ColdBrew Zero Breakline blueprint</title>
+  <desc id="desc">A blueprint style command surface for the ColdBrew Zero prompt workbench.</desc>
+  <rect width="1600" height="820" fill="#0b1118"/>
+  <rect x="46" y="46" width="1508" height="728" fill="#111b25" stroke="#2b3d4a" stroke-width="2"/>
+  <path d="M46 144H1554M46 650H1554M390 46V774M1160 46V774" stroke="#21313d" stroke-width="1"/>
+  <path d="M74 190H360M74 212H280M74 234H320" stroke="#6ce6c0" stroke-width="3"/>
+  <text x="74" y="112" fill="#91a7b2" font-family="Arial, sans-serif" font-size="16" letter-spacing="4">COLD BREW ZERO / RELEASE 02</text>
+  <text x="74" y="350" fill="#f3f6f2" font-family="Arial, sans-serif" font-size="74" font-weight="700" letter-spacing="-1">BREAKLINE</text>
+  <text x="78" y="407" fill="#f8ba5c" font-family="Arial, sans-serif" font-size="30" font-weight="700">破甲工作台 · 越界思路</text>
+  <text x="78" y="456" fill="#9eb0b8" font-family="Arial, sans-serif" font-size="18">Local-first prompt orchestration for clear targets, sharp outputs, and repeatable runs.</text>
+  <rect x="74" y="520" width="232" height="58" fill="#6ce6c0"/>
+  <text x="190" y="557" text-anchor="middle" fill="#0b1118" font-family="Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2">OPEN THE CORE</text>
+  <rect x="322" y="520" width="212" height="58" fill="#202e39" stroke="#47606d"/>
+  <text x="428" y="557" text-anchor="middle" fill="#f3f6f2" font-family="Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2">冷咖啡</text>
+  <g transform="translate(690 182)">
+    <rect width="382" height="354" fill="#0b1118" stroke="#f8ba5c" stroke-width="2"/>
+    <text x="28" y="42" fill="#f8ba5c" font-family="Arial, sans-serif" font-size="14" letter-spacing="3">CORE / 01</text>
+    <text x="28" y="85" fill="#f3f6f2" font-family="Arial, sans-serif" font-size="24" font-weight="700">Target lock</text>
+    <rect x="28" y="112" width="326" height="62" fill="#16232d" stroke="#314956"/>
+    <text x="48" y="150" fill="#91a7b2" font-family="monospace" font-size="16">OBJECTIVE:// explicit input</text>
+    <path d="M28 214H354M28 242H286M28 270H324" stroke="#6ce6c0" stroke-width="4"/>
+    <path d="M40 310H340" stroke="#ff7666" stroke-width="6"/>
+    <text x="28" y="338" fill="#9eb0b8" font-family="Arial, sans-serif" font-size="14">no scan / no history / no hidden context</text>
+  </g>
+  <g transform="translate(1200 102)">
+    <text x="0" y="0" fill="#91a7b2" font-family="Arial, sans-serif" font-size="13" letter-spacing="3">FLOW MAP</text>
+    <rect y="28" width="272" height="46" fill="#16232d" stroke="#47606d"/>
+    <rect y="90" width="272" height="46" fill="#16232d" stroke="#47606d"/>
+    <rect y="152" width="272" height="46" fill="#16232d" stroke="#47606d"/>
+    <rect y="214" width="272" height="46" fill="#16232d" stroke="#47606d"/>
+    <text x="20" y="58" fill="#6ce6c0" font-family="monospace" font-size="14">01 / OBJECTIVE</text>
+    <text x="20" y="120" fill="#f8ba5c" font-family="monospace" font-size="14">02 / CONTEXT</text>
+    <text x="20" y="182" fill="#74c7ff" font-family="monospace" font-size="14">03 / OUTPUT</text>
+    <text x="20" y="244" fill="#ff7666" font-family="monospace" font-size="14">04 / CHECK</text>
+    <path d="M136 74V90M136 136V152M136 198V214" stroke="#91a7b2" stroke-width="2"/>
+  </g>
+  <g transform="translate(690 620)">
+    <text fill="#91a7b2" font-family="monospace" font-size="14" letter-spacing="2">SIGNAL / BRAND ACTIVATION</text>
+    <text y="44" fill="#f3f6f2" font-family="Arial, sans-serif" font-size="26" font-weight="700">冷咖啡  ->  BREAK//OPEN</text>
+  </g>
+  <text x="1508" y="744" text-anchor="end" fill="#91a7b2" font-family="monospace" font-size="13">DESIGNED FROM ZERO / 2026</text>
+</svg>

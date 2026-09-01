@@ -1,6 +1,6 @@
 # ColdBrew Zero
 
-An original, local-first prompt workbench. The brand activation word remains **冷咖啡**; the new control phrase is **BREAK//OPEN**.
+An original, local-first prompt workbench with a new Breakline blueprint identity. The brand activation word remains **冷咖啡**; the control phrase is **BREAK//OPEN**.
 
 The full desktop edition is included under `desktop/` with the original workbench shape: splash screen, four model seats, five work channels, explicit target input, activity stream, result panel, isolation status, and community links.
 
