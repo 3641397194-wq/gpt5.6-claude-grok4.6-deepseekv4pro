@@ -3,75 +3,155 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="ColdBrew Zero Breakline：破甲思路、越界表达与本地优先的提示词工作台。">
-  <title>gpt5.6-claude-grok4.6-deepseekv4pro-glm5.3破甲越狱</title>
+  <meta name="description" content="冷咖啡 / ColdBrew Zero：黑白漫画质感与绯红信号线构成的 BREAK//OPEN 工作台。">
+  <title>冷咖啡 / Tokyo Ghoul Breakline</title>
   <style>
-    :root { color-scheme: dark; --bg:#0b1118; --panel:#111b25; --panel2:#0e171f; --ink:#f3f6f2; --muted:#91a7b2; --orange:#f8ba5c; --teal:#6ce6c0; --ice:#74c7ff; --yellow:#ffcf70; --line:#2b3d4a; }
-    * { box-sizing:border-box; }
-    body { margin:0; background:var(--bg); color:var(--ink); font:16px/1.65 Inter,Segoe UI,"Microsoft YaHei",sans-serif; }
-    a { color:inherit; }
-    main { width:min(1180px,calc(100% - 44px)); margin:auto; }
-    nav { display:flex; justify-content:space-between; align-items:center; padding:24px 0; border-bottom:1px solid var(--line); }
-    .brand { color:var(--ink); font-weight:800; letter-spacing:.14em; }
-    .brand span { color:var(--orange); }
-    .status { color:var(--teal); font:12px ui-monospace,monospace; letter-spacing:.14em; }
-    .hero { display:grid; grid-template-columns:1fr 1fr; gap:42px; padding:64px 0 54px; align-items:center; }
-    .eyebrow { color:var(--orange); font:12px ui-monospace,monospace; letter-spacing:.2em; }
-    h1 { font-size:clamp(46px,7vw,92px); line-height:.98; margin:18px 0 24px; letter-spacing:0; }
-    h1 em { color:var(--orange); font-style:normal; }
-    .lead { color:var(--muted); max-width:590px; font-size:20px; }
-    .hero-art { border:1px solid var(--line); background:var(--panel2); padding:10px; }
-    .hero-art img { display:block; width:100%; height:auto; }
-    .hero-actions { display:flex; flex-wrap:wrap; gap:10px; margin-top:28px; }
-    .button { display:inline-flex; align-items:center; border:1px solid var(--line); padding:11px 16px; text-decoration:none; font:13px ui-monospace,monospace; }
-    .button.primary { background:var(--teal); border-color:var(--teal); color:#0b1118; }
-    section { border-top:1px solid var(--line); padding:62px 0; }
-    .section-head { display:flex; justify-content:space-between; align-items:end; gap:24px; margin-bottom:26px; }
-    h2 { font-size:36px; line-height:1.1; margin:10px 0 0; }
-    .section-head p { color:var(--muted); max-width:470px; margin:0; }
-    .core-layout { display:grid; grid-template-columns:1.15fr .85fr; gap:18px; align-items:stretch; }
-    .feature-image { border:1px solid var(--line); background:var(--panel2); padding:10px; }
-    .feature-image img { display:block; width:100%; height:100%; object-fit:cover; }
-    .stage-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
-    .stage { border:1px solid var(--line); background:var(--panel); padding:20px; }
-    .stage b { color:var(--teal); font:12px ui-monospace,monospace; }
-    .stage h3 { margin:13px 0 4px; font-size:20px; }
-    .stage p { color:var(--muted); margin:0; }
-    .model-grid { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:12px; }
-    .model { border:1px solid var(--line); background:var(--panel); padding:10px 10px 16px; }
-    .model img { display:block; width:100%; aspect-ratio:2/1; object-fit:contain; background:var(--panel2); border-bottom:1px solid var(--line); margin-bottom:14px; }
-    .model b { color:var(--ice); font:12px ui-monospace,monospace; }
-    .model h3 { margin:7px 0 2px; font-size:18px; }
-    .model p { margin:0; color:var(--muted); font-size:14px; }
-    .wide-art { border:1px solid var(--line); background:var(--panel2); padding:10px; }
-    .wide-art + .wide-art { margin-top:14px; }
-    .wide-art img { display:block; width:100%; height:auto; }
-    .community-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
-    .community-card { border:1px solid var(--line); background:var(--panel); padding:10px; }
-    .community-card img { display:block; width:100%; aspect-ratio:1/1; object-fit:cover; margin-bottom:13px; }
-    .community-card strong { display:block; color:var(--yellow); }
-    .community-card code { color:var(--teal); }
-    .links { display:flex; flex-wrap:wrap; gap:12px; margin-top:18px; }
-    .links a { border:1px solid var(--line); padding:12px 14px; text-decoration:none; font:13px ui-monospace,monospace; }
-    .links a:hover { border-color:var(--orange); color:var(--orange); }
-    footer { color:var(--muted); padding:28px 0 60px; font:12px ui-monospace,monospace; }
-    @media (max-width:1080px) { .model-grid { grid-template-columns:repeat(3,1fr); } }
-    @media (max-width:900px) { .hero,.core-layout { grid-template-columns:1fr; } .model-grid { grid-template-columns:1fr 1fr; } }
-    @media (max-width:600px) { main { width:min(100% - 28px,1180px); } nav { align-items:flex-start; gap:12px; flex-direction:column; } .section-head { display:block; } .section-head p { margin-top:14px; } .stage-grid,.community-grid,.model-grid { grid-template-columns:1fr; } h1 { font-size:56px; } }
+    :root {
+      color-scheme: dark;
+      --void: #090909;
+      --ink: #f4f0eb;
+      --muted: #a9a29d;
+      --ash: #191717;
+      --line: #332c2c;
+      --red: #d51f3d;
+      --red-hot: #ff4f61;
+      --bone: #e5ded6;
+      --acid: #b8e46e;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 85% 8%, rgba(213,31,61,.18), transparent 25rem),
+        linear-gradient(115deg, transparent 0 49.7%, rgba(255,255,255,.025) 49.8% 50%, transparent 50.1%),
+        var(--void);
+      font: 16px/1.65 Inter, "Segoe UI", "Microsoft YaHei", sans-serif;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .08;
+      background-image: repeating-linear-gradient(0deg, rgba(255,255,255,.18) 0 1px, transparent 1px 4px);
+      mix-blend-mode: screen;
+      z-index: 10;
+    }
+    a { color: inherit; }
+    .shell { width: min(1160px, calc(100% - 40px)); margin: auto; }
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      min-height: 74px;
+      border-bottom: 1px solid var(--line);
+    }
+    .brand { display: inline-flex; align-items: center; gap: 12px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
+    .brand img { width: 34px; height: 34px; object-fit: cover; filter: grayscale(1) contrast(1.25); border: 1px solid var(--bone); }
+    .brand-mark { color: var(--red-hot); font-size: 22px; }
+    .status { color: var(--red-hot); font: 11px ui-monospace, monospace; letter-spacing: .18em; }
+    .hero { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: 56px; align-items: center; min-height: 680px; padding: 74px 0 90px; }
+    .eyebrow { color: var(--red-hot); font: 11px ui-monospace, monospace; letter-spacing: .24em; text-transform: uppercase; }
+    h1 { max-width: 640px; margin: 18px 0 22px; font-size: clamp(54px, 8vw, 112px); line-height: .9; letter-spacing: 0; text-transform: uppercase; }
+    h1 span { display: block; color: var(--red-hot); }
+    .lead { max-width: 570px; color: var(--muted); font-size: 19px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 30px; }
+    .button { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; border: 1px solid var(--line); padding: 10px 15px; text-decoration: none; font: 12px ui-monospace, monospace; letter-spacing: .08em; }
+    .button.primary { color: #160708; background: var(--red-hot); border-color: var(--red-hot); }
+    .button:hover { border-color: var(--red-hot); color: var(--red-hot); }
+    .button.primary:hover { color: #160708; background: var(--bone); border-color: var(--bone); }
+    .hero-art { position: relative; border: 1px solid var(--line); background: #0f0d0e; padding: 14px; box-shadow: 18px 18px 0 rgba(213,31,61,.12); }
+    .hero-art::before, .hero-art::after { content: ""; position: absolute; pointer-events: none; border-color: var(--red); }
+    .hero-art::before { inset: 10px; border: 1px solid rgba(213,31,61,.5); clip-path: polygon(0 0, 35% 0, 25% 2%, 0 2%, 0 35%, 2% 25%, 2% 0); }
+    .hero-art::after { width: 46%; height: 34%; right: -1px; bottom: -1px; border-right: 2px solid var(--red-hot); border-bottom: 2px solid var(--red-hot); }
+    .hero-art img { display: block; width: 100%; height: auto; filter: grayscale(.15) contrast(1.15) saturate(.8); }
+    section { padding: 76px 0; border-top: 1px solid var(--line); }
+    .section-head { display: flex; justify-content: space-between; gap: 28px; align-items: end; margin-bottom: 28px; }
+    h2 { margin: 8px 0 0; font-size: clamp(32px, 5vw, 54px); line-height: 1; text-transform: uppercase; }
+    .section-head p { max-width: 460px; margin: 0; color: var(--muted); }
+    .chain { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+    .chain-step { position: relative; min-height: 190px; padding: 20px; border: 1px solid var(--line); background: linear-gradient(145deg, rgba(255,255,255,.04), transparent 50%), var(--ash); }
+    .chain-step::after { content: ""; position: absolute; right: 14px; bottom: 14px; width: 26px; height: 26px; border-right: 2px solid var(--red); border-bottom: 2px solid var(--red); }
+    .chain-step b { color: var(--red-hot); font: 11px ui-monospace, monospace; letter-spacing: .14em; }
+    .chain-step h3 { margin: 28px 0 6px; font-size: 22px; }
+    .chain-step p { margin: 0; color: var(--muted); font-size: 14px; }
+    .seats { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; }
+    .seat { border: 1px solid var(--line); background: var(--ash); padding: 10px 10px 15px; }
+    .seat img { display: block; width: 100%; aspect-ratio: 1.75 / 1; object-fit: contain; background: #0f0d0e; border-bottom: 1px solid var(--line); margin-bottom: 13px; filter: grayscale(.35) contrast(1.1); }
+    .seat b { color: var(--red-hot); font: 11px ui-monospace, monospace; }
+    .seat h3 { margin: 8px 0 2px; font-size: 17px; }
+    .seat p { margin: 0; color: var(--muted); font-size: 13px; }
+    .system { display: grid; grid-template-columns: 1.15fr .85fr; gap: 14px; }
+    .panel { border: 1px solid var(--line); background: #0f0d0e; padding: 12px; }
+    .panel img { display: block; width: 100%; height: 100%; object-fit: contain; }
+    .panel.tall { min-height: 330px; }
+    .panel-wide { margin-top: 14px; }
+    .community { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+    .community-card { border: 1px solid var(--line); background: var(--ash); padding: 10px; }
+    .community-card img { display: block; width: 100%; aspect-ratio: 1 / 1; object-fit: cover; margin-bottom: 12px; filter: grayscale(.55) contrast(1.18); }
+    .community-card strong { display: block; color: var(--bone); }
+    .community-card code { color: var(--red-hot); }
+    .links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
+    .links a { border-bottom: 1px solid var(--red); padding: 7px 0; text-decoration: none; font: 12px ui-monospace, monospace; }
+    .links a:hover { color: var(--red-hot); }
+    footer { padding: 30px 0 66px; color: var(--muted); font: 11px ui-monospace, monospace; letter-spacing: .08em; }
+    @media (max-width: 980px) { .hero { grid-template-columns: 1fr; min-height: 0; } .hero-art { max-width: 720px; } .seats { grid-template-columns: repeat(3, minmax(0, 1fr)); } .system { grid-template-columns: 1fr; } }
+    @media (max-width: 680px) { .shell { width: min(100% - 28px, 1160px); } .topbar { align-items: flex-start; flex-direction: column; gap: 10px; padding: 18px 0; } .hero { padding: 54px 0 64px; } h1 { font-size: 62px; } .section-head { display: block; } .section-head p { margin-top: 14px; } .chain, .seats, .community { grid-template-columns: 1fr; } .panel.tall { min-height: 220px; } }
   </style>
 </head>
 <body>
-  <main>
-    <nav><div class="brand"><span>/</span><img src="../docs/assets/product-icon.png" alt="冷咖啡软件图标" style="width:28px;height:28px;object-fit:cover;vertical-align:middle;margin-right:8px"> 冷咖啡 / GLM 5.3 BREAKLINE</div><div class="status">LOCAL · ORIGINAL · 2.1.0</div></nav>
+  <main class="shell">
+    <nav class="topbar">
+      <div class="brand"><span class="brand-mark">//</span><img src="assets/product-icon.png" alt="冷咖啡图标"><span>冷咖啡 / Breakline</span></div>
+      <div class="status">TOKYO GHOUL AESTHETIC · ORIGINAL · 2.1.0</div>
+    </nav>
+
     <header class="hero">
-      <div><div class="eyebrow">BREAKLINE · GLM 5.3 · PROMPT WORKBENCH</div><h1>把目标<br><em>打开。</em></h1><p class="lead">gpt5.6-claude-grok4.6-deepseekv4pro-glm5.3破甲越狱：把目标锁定、上下文整理、输出生成和检查回看放进同一条清晰链路。</p><div class="hero-actions"><a class="button primary" href="../README.md">进入工作链</a><a class="button" href="https://github.com/3641397194-wq/gpt5.6-claude-grok4.6-deepseekv4pro">查看 GitHub</a></div></div>
-      <div class="hero-art"><img src="../docs/assets/hero-breakline-v1.svg" alt="ColdBrew Zero Breakline 主视觉"></div>
+      <div>
+        <div class="eyebrow">ColdBrew Zero / Tokyo Ghoul mood</div>
+        <h1>Break the<br><span>surface.</span></h1>
+        <p class="lead">把冷咖啡、GLM 5.3 与五个模型席位放进一间黑白漫画质感的 BREAK//OPEN 工作台。绯红信号线负责方向，明确输入负责边界。</p>
+        <div class="hero-actions"><a class="button primary" href="../README.md">进入工作链</a><a class="button" href="https://github.com/3641397194-wq/gpt5.6-claude-grok4.6-deepseekv4pro">查看 GitHub</a></div>
+      </div>
+      <div class="hero-art"><img src="assets/hero-breakline-v1.svg" alt="ColdBrew Zero 原创断锁主视觉"></div>
     </header>
-    <section><div class="section-head"><div><div class="eyebrow">01 / BREAKLINE CORE</div><h2>一条清晰的断锁工作链。</h2></div><p>输入由你明确传入，输出按档位组织。工作台只处理当前文本，适合快速拆解、重写和交付。</p></div><div class="core-layout"><div class="feature-image"><img src="../docs/assets/hero-breakline-v1.svg" alt="ColdBrew Breakline 工作台界面"></div><div class="stage-grid"><article class="stage"><b>01 / OBJECTIVE</b><h3>锁定目标</h3><p>保留原始目标、格式和完成判据。</p></article><article class="stage"><b>02 / CONTEXT</b><h3>保持上下文</h3><p>把任务所需的上下文收进同一条链。</p></article><article class="stage"><b>03 / OUTPUT</b><h3>直接产出</h3><p>先生成可复制的提示词和执行结构。</p></article><article class="stage"><b>04 / CHECK</b><h3>回看检查</h3><p>标出缺失项、下一步和继续点。</p></article></div></div></section>
-    <section><div class="section-head"><div><div class="eyebrow">02 / MODEL SEATS · 05</div><h2>五个席位，一套视觉。</h2></div><p>GPT-5.6、Claude、Grok 4.6、DeepSeek v4 Pro 和 GLM 5.3 共用同一套色彩、排版和工作链。</p></div><div class="model-grid"><article class="model"><img src="../docs/assets/card-codex-coldbrew.png" alt="Codex ColdBrew 视觉卡"><b>SEAT 01</b><h3>GPT-5.6 / Codex</h3><p>指令层与工作流编排。</p></article><article class="model"><img src="../docs/assets/card-claude-coldbrew.png" alt="Claude ColdBrew 视觉卡"><b>SEAT 02</b><h3>Claude Code</h3><p>长会话与规则组织。</p></article><article class="model"><img src="../docs/assets/card-grok4.6-coldbrew.png" alt="Grok ColdBrew 视觉卡"><b>SEAT 03</b><h3>Grok 4.6</h3><p>实时信息流与模板。</p></article><article class="model"><img src="../docs/assets/card-deepseek-harness.png" alt="DeepSeek Harness 视觉卡"><b>SEAT 04</b><h3>DeepSeek v4 Pro</h3><p>深度推理与会话导出。</p></article><article class="model"><img src="../docs/assets/card-glm5.3-breakline.svg" alt="GLM 5.3 Breakline 视觉卡"><b>SEAT 05</b><h3>GLM 5.3</h3><p>破甲推演与越界重写。</p></article></div></section>
-    <section><div class="section-head"><div><div class="eyebrow">03 / SYSTEM MAP</div><h2>蓝图、链路和入口。</h2></div><p>架构图与通道板负责进入细节；访问者可以先看产品，再进入代码或社群。</p></div><div class="wide-art"><img src="../docs/assets/architecture-v9.svg" alt="ColdBrew 架构图"></div><div class="wide-art"><img src="../docs/assets/blades-board.svg" alt="ColdBrew 通道板"></div></section>
-    <section><div class="section-head"><div><div class="eyebrow">04 / COMMUNITY</div><h2>冷咖啡社群入口。</h2></div><p>原有 QQ、Telegram 和品牌宣传入口继续保留，视觉卡片与主页保持统一。</p></div><div class="community-grid"><article class="community-card"><img src="../docs/assets/qq-group-1-card.png" alt="QQ 交流群 1057540028"><strong>QQ 交流群</strong><code>1057540028</code></article><article class="community-card"><img src="../docs/assets/qq-group-2-card.png" alt="QQ 专题群 1077074552"><strong>QQ 专题群</strong><code>1077074552</code></article><article class="community-card"><img src="../docs/assets/community-board-v2.png" alt="冷咖啡社区宣传板"><strong>社区宣传板</strong><code>COLDBREW COMMUNITY</code></article></div><div class="links"><a href="https://t.me/chachachacha99999">Telegram 群 @chachachacha99999</a><a href="https://t.me/chachachacha99999999">Telegram 频道 @chachachacha99999999</a></div></section>
-    <footer>冷咖啡 / gpt5.6-claude-grok4.6-deepseekv4pro-glm5.3破甲越狱 · BREAK//OPEN · ORIGINAL · 2.1.0</footer>
+
+    <section>
+      <div class="section-head"><div><div class="eyebrow">01 / Breakline core</div><h2>四段，打开目标。</h2></div><p>东京喰种风只负责气质：黑、白、绯红、留白与漫画分镜感。工作链仍保持清晰，输入和输出一眼可读。</p></div>
+      <div class="chain">
+        <article class="chain-step"><b>01 / OBJECTIVE</b><h3>锁定目标</h3><p>保留原始目标、格式与完成判据。</p></article>
+        <article class="chain-step"><b>02 / CONTEXT</b><h3>收拢上下文</h3><p>把任务需要的上下文收进一条链。</p></article>
+        <article class="chain-step"><b>03 / OUTPUT</b><h3>直接产出</h3><p>生成可复制的提示词与执行结构。</p></article>
+        <article class="chain-step"><b>04 / CHECK</b><h3>回看检查</h3><p>标出缺失项、检查点与下一步。</p></article>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head"><div><div class="eyebrow">02 / Model seats · 05</div><h2>五个席位，<br>一张黑白底片。</h2></div><p>GPT-5.6、Claude、Grok 4.6、DeepSeek v4 Pro 与 GLM 5.3 共用新的黑红视觉系统。</p></div>
+      <div class="seats">
+        <article class="seat"><img src="assets/card-codex-coldbrew.png" alt="GPT-5.6 Codex视觉卡"><b>SEAT 01</b><h3>GPT-5.6 / Codex</h3><p>指令层与工作流编排。</p></article>
+        <article class="seat"><img src="assets/card-claude-coldbrew.png" alt="Claude视觉卡"><b>SEAT 02</b><h3>Claude Code</h3><p>长会话与规则组织。</p></article>
+        <article class="seat"><img src="assets/card-grok4.6-coldbrew.png" alt="Grok 4.6视觉卡"><b>SEAT 03</b><h3>Grok 4.6</h3><p>实时信息流与模板。</p></article>
+        <article class="seat"><img src="assets/card-deepseek-harness.png" alt="DeepSeek v4 Pro视觉卡"><b>SEAT 04</b><h3>DeepSeek v4 Pro</h3><p>深度推理与会话导出。</p></article>
+        <article class="seat"><img src="assets/card-glm5.3-breakline.svg" alt="GLM 5.3视觉卡"><b>SEAT 05</b><h3>GLM 5.3</h3><p>破甲推演与越界重写。</p></article>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head"><div><div class="eyebrow">03 / System map</div><h2>像分镜一样<br>进入细节。</h2></div><p>主视觉先给情绪，架构图与通道板再给路径。每张图都保留原有产品信息，改用黑红边框统一排版。</p></div>
+      <div class="system"><div class="panel tall"><img src="assets/architecture-v9.svg" alt="ColdBrew系统架构图"></div><div class="panel tall"><img src="assets/blades-board.svg" alt="ColdBrew工作通道板"></div></div>
+      <div class="panel panel-wide"><img src="assets/workbench-v9.svg" alt="ColdBrew工作台视觉图"></div>
+    </section>
+
+    <section>
+      <div class="section-head"><div><div class="eyebrow">04 / Community</div><h2>找到同频<br>入口。</h2></div><p>原有 QQ、Telegram 与品牌宣传入口全部保留，宣传卡片统一成黑白漫画滤镜与绯红标注。</p></div>
+      <div class="community"><article class="community-card"><img src="assets/qq-group-1-card.png" alt="QQ交流群 1057540028"><strong>QQ 交流群</strong><code>1057540028</code></article><article class="community-card"><img src="assets/qq-group-2-card.png" alt="QQ专题群 1077074552"><strong>QQ 专题群</strong><code>1077074552</code></article><article class="community-card"><img src="assets/community-board-v2.png" alt="冷咖啡社区宣传板"><strong>社区宣传板</strong><code>COLDBREW COMMUNITY</code></article></div>
+      <div class="links"><a href="https://t.me/chachachacha99999">Telegram 群 @chachachacha99999</a><a href="https://t.me/chachachacha99999999">Telegram 频道 @chachachacha99999999</a></div>
+    </section>
+
+    <footer>冷咖啡 / TOKYO GHOUL MOOD / BREAK//OPEN / ORIGINAL RELEASE 2.1.0</footer>
   </main>
 </body>
 </html>
