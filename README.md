@@ -26,6 +26,18 @@
 
 ## 快速运行
 
+### 完整桌面版
+
+桌面版保留原来的工作台形态：启动页、指挥台、四个模型席位、五个工作通道、目标输入、活动流、结果面板、隔离状态和社群入口。
+
+```powershell
+cd desktop
+npm install
+npm start
+```
+
+Windows 便携包：`npm run pack:win`。桌面源码和 CLI 共用同一套原创 `BREAK//OPEN` 工作链。
+
 ```powershell
 python coldbrew.py --activate 冷咖啡 --profile MAX --prompt "把这段需求拆成可执行步骤"
 ```
@@ -86,4 +98,3 @@ python coldbrew.py --activate 冷咖啡 --profile MAX --prompt "把这段需求�
 ## 原创与隔离
 
 此发布树仅包含 `coldbrew.py`、主页、文档、品牌图和许可证。代码从零编写；输入只来自显式 CLI 参数或标准输入，不读取本机旧项目资料。
-
