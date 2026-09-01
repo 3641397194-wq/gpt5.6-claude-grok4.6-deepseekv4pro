@@ -1,8 +1,20 @@
-# gpt5.6-claude-grok4.6-deepseekv4pro-glm5.3破甲越狱
+# gpt5.6-claude-grok4.6-deepseekv4pro-glm5.3 Breakline
 
-An original, local-first prompt workbench with a new Breakline blueprint identity. The brand activation word remains **冷咖啡**; the control phrase is **BREAK//OPEN**.
+**ColdBrew Zero** is a local-first prompt workbench with one clear flow: objective, context, output, and check.
 
-The full desktop edition is included under `desktop/` with the original workbench shape: splash screen, five model seats including GLM 5.3, five work channels, explicit target input, activity stream, result panel, isolation status, and community links.
+The brand activation word remains **冷咖啡**. The workbench control phrase is **BREAK//OPEN**.
+
+![ColdBrew Zero Breakline](docs/assets/hero-breakline-v1.svg)
+
+## Quick start
+
+### Python CLI
+
+```powershell
+python coldbrew.py --activate 冷咖啡 --profile MAX --prompt "Turn this request into executable steps"
+```
+
+### Electron desktop app
 
 ```powershell
 cd desktop
@@ -10,10 +22,23 @@ npm install
 npm start
 ```
 
-```powershell
-python coldbrew.py --activate 冷咖啡 --profile MAX --prompt "Turn this request into executable steps"
-```
+Build the Windows portable package with `npm run pack:win`.
 
-The program only processes text explicitly supplied through the CLI or standard input. It does not scan local files, folders, configuration, clipboard, environment variables, or chat history.
+## Work chain
 
-Community: QQ `1057540028`, QQ `1077074552`, Telegram [group](https://t.me/chachachacha99999), and [channel](https://t.me/chachachacha99999999).
+| Stage | Purpose |
+| --- | --- |
+| **OBJECTIVE** | Lock the original goal and completion criteria |
+| **CONTEXT** | Keep the context required by the task |
+| **OUTPUT** | Produce a reusable prompt and execution structure |
+| **CHECK** | Surface missing items and the next step |
+
+## Model seats
+
+GPT-5.6 / Codex, Claude Code, Grok 4.6, DeepSeek v4 Pro, and GLM 5.3 share the same visual system and work chain.
+
+## Community
+
+QQ `1057540028`, QQ `1077074552`, Telegram [group](https://t.me/chachachacha99999), and [channel](https://t.me/chachachacha99999999).
+
+The complete visual homepage, diagrams, and community artwork are in [`docs/`](docs/).

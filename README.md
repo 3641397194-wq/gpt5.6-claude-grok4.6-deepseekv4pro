@@ -1,10 +1,10 @@
 <div align="center">
 
-<img src="docs/assets/product-icon.png" width="128" alt="冷咖啡软件图标" />
+<img src="docs/assets/product-icon.png" width="112" alt="冷咖啡软件图标" />
 
 # [gpt5.6-claude-grok4.6-deepseekv4pro](https://github.com/3641397194-wq/gpt5.6-claude-grok4.6-deepseekv4pro)-glm5.3破甲越狱
 
-**冷咖啡 / ColdBrew Zero · 破甲思路 · 越界表达 · 本地优先的 BREAK//OPEN 工作台。**
+**冷咖啡 / ColdBrew Zero**  ·  **BREAK//OPEN 工作台**
 
 <p>
   <img src="https://img.shields.io/badge/品牌启动词-冷咖啡-ff8a55?style=for-the-badge&labelColor=090d11" alt="品牌启动词 冷咖啡" />
@@ -12,23 +12,29 @@
   <img src="https://img.shields.io/badge/版本-2.1.0-7aa2ff?style=for-the-badge&labelColor=090d11" alt="版本 2.1.0" />
 </p>
 
+<p>
+  <a href="docs/index.html">打开完整主页</a>  ·  <a href="#快速开始">快速开始</a>  ·  <a href="#社群入口">加入社群</a>
+</p>
+
 </div>
-
----
-
-## 主页预览
 
 <div align="center">
-  <img src="docs/assets/hero-breakline-v1.svg" width="940" alt="ColdBrew Zero Breakline 工作台" />
+  <img src="docs/assets/hero-breakline-v1.svg" width="940" alt="ColdBrew Zero Breakline 工作台主视觉" />
 </div>
 
-这是 **gpt5.6-claude-grok4.6-deepseekv4pro-glm5.3破甲越狱** 的原创发布页。冷咖啡是品牌启动词，`BREAK//OPEN` 是工作控制词；主页采用全新断锁蓝图视觉，五个模型席位共用一条清晰工作链。
+## 一句话
 
-## 快速运行
+把目标、上下文、输出和检查收进一条清晰工作链。项目提供 Python CLI 与 Electron 桌面版；输入只来自你明确传入的命令行参数或标准输入。
 
-### 完整桌面版
+## 快速开始
 
-桌面版保留工作台形态：启动页、指挥台、五个模型席位、五个工作通道、目标输入、活动流、结果面板、隔离状态和社群入口。
+### Python CLI
+
+```powershell
+python coldbrew.py --activate 冷咖啡 --profile MAX --prompt "把这段需求拆成可执行步骤"
+```
+
+### Electron 桌面版
 
 ```powershell
 cd desktop
@@ -36,58 +42,43 @@ npm install
 npm start
 ```
 
-Windows 便携包：`npm run pack:win`。桌面源码和 CLI 共用同一套原创 `BREAK//OPEN` 工作链。
-
-```powershell
-python coldbrew.py --activate 冷咖啡 --profile MAX --prompt "把这段需求拆成可执行步骤"
-```
-
-省略 `--prompt` 时从标准输入读取。程序只处理命令行或标准输入中明确传入的文本，不扫描本机文件、目录、配置、剪贴板、环境变量或聊天记录。
+Windows 便携包：`npm run pack:win`。
 
 ## BREAK//OPEN 工作链
 
-| 层 | 作用 |
+| 阶段 | 输出 |
 | --- | --- |
 | **OBJECTIVE** | 锁定原始目标、格式与完成判据 |
-| **CONTEXT** | 保持当前任务所需上下文 |
-| **OUTPUT** | 先生成可复制的提示词和执行结构 |
-| **CHECK** | 标出缺失项、检查点和下一步 |
+| **CONTEXT** | 保持当前任务需要的上下文 |
+| **OUTPUT** | 生成可复制的提示词与执行结构 |
+| **CHECK** | 标出缺失项、检查点与下一步 |
+
+档位：`MAX`（完整链路）、`FOCUS`（目标到输出）、`RESEARCH`（目标到资料与检查）。
+
+## 五个模型席位
+
+| 席位 | 模型 | 工作方向 |
+| --- | --- | --- |
+| 01 | GPT-5.6 / Codex | 指令层与工作流编排 |
+| 02 | Claude Code | 长会话与规则组织 |
+| 03 | Grok 4.6 | 实时信息流与模板 |
+| 04 | DeepSeek v4 Pro | 深度推理与会话导出 |
+| 05 | GLM 5.3 | 破甲推演与越界重写 |
+
+<details>
+<summary>查看模型视觉卡</summary>
 
 <div align="center">
-  <img src="docs/assets/hero-breakline-v1.svg" width="940" alt="ColdBrew Breakline 工作链" />
+  <img src="docs/assets/card-codex-coldbrew.png" width="170" alt="Codex ColdBrew" />
+  <img src="docs/assets/card-claude-coldbrew.png" width="170" alt="Claude ColdBrew" />
+  <img src="docs/assets/card-grok4.6-coldbrew.png" width="170" alt="Grok ColdBrew" />
+  <img src="docs/assets/card-deepseek-harness.png" width="170" alt="DeepSeek Harness" />
+  <img src="docs/assets/card-glm5.3-breakline.svg" width="170" alt="GLM 5.3 Breakline" />
 </div>
 
-## 三种档位
-
-- `MAX`：`OBJECTIVE -> CONTEXT -> OUTPUT -> CHECK`
-- `FOCUS`：`OBJECTIVE -> OUTPUT`
-- `RESEARCH`：`OBJECTIVE -> SOURCES -> CHECK`
-
-控制词与品牌词分离：**冷咖啡**负责启动品牌会话，**BREAK//OPEN**负责选择工作链。
-
-## 五个视觉席位
-
-<div align="center">
-  <img src="docs/assets/card-codex-coldbrew.png" width="210" alt="Codex ColdBrew" />
-  <img src="docs/assets/card-claude-coldbrew.png" width="210" alt="Claude ColdBrew" />
-  <img src="docs/assets/card-grok4.6-coldbrew.png" width="210" alt="Grok ColdBrew" />
-  <img src="docs/assets/card-deepseek-harness.png" width="210" alt="DeepSeek Harness" />
-  <img src="docs/assets/card-glm5.3-breakline.svg" width="210" alt="GLM 5.3 Breakline" />
-</div>
-
-## 架构与通道板
-
-<div align="center">
-  <img src="docs/assets/architecture-v9.svg" width="940" alt="ColdBrew 架构图" />
-  <img src="docs/assets/blades-board.svg" width="940" alt="ColdBrew 通道板" />
-</div>
+</details>
 
 ## 社群入口
-
-<div align="center">
-  <img src="docs/assets/qq-group-1-card.png" width="300" alt="QQ 交流群 1057540028" />
-  <img src="docs/assets/qq-group-2-card.png" width="300" alt="QQ 专题群 1077074552" />
-</div>
 
 | 平台 | 入口 |
 | --- | --- |
@@ -96,10 +87,20 @@ python coldbrew.py --activate 冷咖啡 --profile MAX --prompt "把这段需求�
 | Telegram 群 | [@chachachacha99999](https://t.me/chachachacha99999) |
 | Telegram 频道 | [@chachachacha99999999](https://t.me/chachachacha99999999) |
 
-## 软件图标
+## 完整视觉资料
 
-<p align="center"><img src="docs/assets/product-icon.png" width="180" alt="冷咖啡软件图标"></p>
+主页、架构图、通道板和社群宣传图集中在 [`docs/`](docs/)；浏览器打开 [`docs/index.html`](docs/index.html) 可查看完整排版。
 
-## 原创与隔离
+<details>
+<summary>查看架构图与通道板</summary>
 
-此发布树仅包含 `coldbrew.py`、主页、文档、品牌图和许可证。代码从零编写；输入只来自显式 CLI 参数或标准输入，不读取本机旧项目资料。
+<div align="center">
+  <img src="docs/assets/architecture-v9.svg" width="940" alt="ColdBrew 架构图" />
+  <img src="docs/assets/blades-board.svg" width="940" alt="ColdBrew 通道板" />
+</div>
+
+</details>
+
+## 版本
+
+当前版本：`2.1.0`。品牌启动词为 **冷咖啡**，工作控制词为 **BREAK//OPEN**。
