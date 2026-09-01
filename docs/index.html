@@ -3,49 +3,73 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="冷咖啡 ColdBrew Zero：原创、本地优先的破甲与越狱提示词工作台。">
   <title>冷咖啡 / ColdBrew Zero</title>
   <style>
-    :root { color-scheme: dark; --bg:#0b0e12; --panel:#121820; --ink:#edf3f6; --muted:#8b9aa3; --orange:#ff8a55; --teal:#55d7c3; --line:#28333c; }
+    :root { color-scheme: dark; --bg:#090d11; --panel:#121a22; --panel2:#0e141b; --ink:#edf3f6; --muted:#8e9ca5; --orange:#ff8a55; --teal:#55d7c3; --ice:#7aa2ff; --yellow:#f5d76e; --line:#293640; }
     * { box-sizing:border-box; }
     body { margin:0; background:var(--bg); color:var(--ink); font:16px/1.65 Inter,Segoe UI,"Microsoft YaHei",sans-serif; }
-    main { width:min(1120px,calc(100% - 40px)); margin:auto; }
-    nav { display:flex; justify-content:space-between; align-items:center; padding:26px 0; border-bottom:1px solid var(--line); }
-    .brand { color:var(--ink); font-weight:800; letter-spacing:.12em; }
+    a { color:inherit; }
+    main { width:min(1180px,calc(100% - 44px)); margin:auto; }
+    nav { display:flex; justify-content:space-between; align-items:center; padding:24px 0; border-bottom:1px solid var(--line); }
+    .brand { color:var(--ink); font-weight:800; letter-spacing:.14em; }
     .brand span { color:var(--orange); }
-    .status { color:var(--teal); font:12px ui-monospace,monospace; letter-spacing:.15em; }
-    .hero { display:grid; grid-template-columns:1.2fr .8fr; gap:44px; padding:88px 0 76px; }
+    .status { color:var(--teal); font:12px ui-monospace,monospace; letter-spacing:.14em; }
+    .hero { display:grid; grid-template-columns:1fr 1fr; gap:42px; padding:64px 0 54px; align-items:center; }
     .eyebrow { color:var(--orange); font:12px ui-monospace,monospace; letter-spacing:.2em; }
-    h1 { font-size:clamp(42px,7vw,86px); line-height:.98; margin:18px 0 24px; max-width:720px; }
+    h1 { font-size:clamp(46px,7vw,92px); line-height:.98; margin:18px 0 24px; letter-spacing:0; }
     h1 em { color:var(--orange); font-style:normal; }
-    .lead { color:var(--muted); max-width:620px; font-size:20px; }
-    .command { border:1px solid var(--line); background:var(--panel); padding:26px; align-self:end; }
-    code { color:var(--teal); font-family:ui-monospace,monospace; }
-    .command strong { display:block; color:var(--orange); font:13px ui-monospace,monospace; margin-bottom:14px; }
-    .command p { margin:8px 0; color:var(--muted); }
-    section { border-top:1px solid var(--line); padding:56px 0; }
-    h2 { font-size:34px; margin:0 0 24px; }
-    .grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
-    article { border:1px solid var(--line); padding:22px; background:#10161c; }
-    article b { color:var(--teal); font:12px ui-monospace,monospace; }
-    article h3 { margin:16px 0 4px; font-size:21px; }
-    article p { color:var(--muted); margin:0; }
-    .community { display:flex; flex-wrap:wrap; gap:12px; }
-    .community a { border:1px solid var(--line); color:var(--ink); padding:12px 16px; text-decoration:none; }
-    .community a:hover { border-color:var(--orange); color:var(--orange); }
-    footer { color:var(--muted); padding:30px 0 60px; font:12px ui-monospace,monospace; }
-    @media (max-width:760px) { .hero { grid-template-columns:1fr; padding:58px 0; } .grid { grid-template-columns:1fr; } h1 { font-size:52px; } }
+    .lead { color:var(--muted); max-width:590px; font-size:20px; }
+    .hero-art { border:1px solid var(--line); background:var(--panel2); padding:10px; }
+    .hero-art img { display:block; width:100%; height:auto; }
+    .hero-actions { display:flex; flex-wrap:wrap; gap:10px; margin-top:28px; }
+    .button { display:inline-flex; align-items:center; border:1px solid var(--line); padding:11px 16px; text-decoration:none; font:13px ui-monospace,monospace; }
+    .button.primary { background:var(--orange); border-color:var(--orange); color:#1a100c; }
+    section { border-top:1px solid var(--line); padding:62px 0; }
+    .section-head { display:flex; justify-content:space-between; align-items:end; gap:24px; margin-bottom:26px; }
+    h2 { font-size:36px; line-height:1.1; margin:10px 0 0; }
+    .section-head p { color:var(--muted); max-width:470px; margin:0; }
+    .core-layout { display:grid; grid-template-columns:1.15fr .85fr; gap:18px; align-items:stretch; }
+    .feature-image { border:1px solid var(--line); background:var(--panel2); padding:10px; }
+    .feature-image img { display:block; width:100%; height:100%; object-fit:cover; }
+    .stage-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+    .stage { border:1px solid var(--line); background:var(--panel); padding:20px; }
+    .stage b { color:var(--teal); font:12px ui-monospace,monospace; }
+    .stage h3 { margin:13px 0 4px; font-size:20px; }
+    .stage p { color:var(--muted); margin:0; }
+    .model-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; }
+    .model { border:1px solid var(--line); background:var(--panel); padding:10px 10px 16px; }
+    .model img { display:block; width:100%; aspect-ratio:1/1; object-fit:cover; border-bottom:1px solid var(--line); margin-bottom:14px; }
+    .model b { color:var(--ice); font:12px ui-monospace,monospace; }
+    .model h3 { margin:7px 0 2px; font-size:18px; }
+    .model p { margin:0; color:var(--muted); font-size:14px; }
+    .wide-art { border:1px solid var(--line); background:var(--panel2); padding:10px; }
+    .wide-art img { display:block; width:100%; height:auto; }
+    .community-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+    .community-card { border:1px solid var(--line); background:var(--panel); padding:10px; }
+    .community-card img { display:block; width:100%; aspect-ratio:1/1; object-fit:cover; margin-bottom:13px; }
+    .community-card strong { display:block; color:var(--yellow); }
+    .community-card code { color:var(--teal); }
+    .links { display:flex; flex-wrap:wrap; gap:12px; margin-top:18px; }
+    .links a { border:1px solid var(--line); padding:12px 14px; text-decoration:none; font:13px ui-monospace,monospace; }
+    .links a:hover { border-color:var(--orange); color:var(--orange); }
+    footer { color:var(--muted); padding:28px 0 60px; font:12px ui-monospace,monospace; }
+    @media (max-width:900px) { .hero,.core-layout { grid-template-columns:1fr; } .model-grid { grid-template-columns:1fr 1fr; } }
+    @media (max-width:600px) { main { width:min(100% - 28px,1180px); } nav { align-items:flex-start; gap:12px; flex-direction:column; } .section-head { display:block; } .section-head p { margin-top:14px; } .stage-grid,.community-grid,.model-grid { grid-template-columns:1fr; } h1 { font-size:56px; } }
   </style>
 </head>
 <body>
   <main>
     <nav><div class="brand"><span>/</span> 冷咖啡 / COLDBREW ZERO</div><div class="status">LOCAL · ORIGINAL · 1.0.0</div></nav>
-    <div class="hero">
-      <div><div class="eyebrow">BREAK//OPEN · PROMPT WORKBENCH</div><h1>把目标<br><em>打开。</em></h1><p class="lead">全新原创的本地优先提示词工作台。保留冷咖啡品牌启动词，换一套更短、更清晰的开放工作链。</p></div>
-      <aside class="command"><strong>ACTIVATION</strong><code>冷咖啡</code><p>新控制词：<code>BREAK//OPEN</code></p><p>输入只来自你明确传入的文本。</p></aside>
-    </div>
-    <section><div class="eyebrow">01 / CORE</div><h2>三种工作档位</h2><div class="grid"><article><b>MAX</b><h3>完整推进</h3><p>目标、上下文、产物、检查一次成链。</p></article><article><b>FOCUS</b><h3>快速收敛</h3><p>保留目标和结果，减少中间噪声。</p></article><article><b>RESEARCH</b><h3>证据分层</h3><p>来源、未知项和检查点分开呈现。</p></article></div></section>
-    <section><div class="eyebrow">02 / COMMUNITY</div><h2>冷咖啡社群</h2><div class="community"><a href="https://t.me/chachachacha99999">Telegram 群 @chachachacha99999</a><a href="https://t.me/chachachacha99999999">Telegram 频道 @chachachacha99999999</a><a href="#qq">QQ 交流群 1057540028</a><a href="#qq">QQ 专题群 1077074552</a></div></section>
-    <footer>冷咖啡 / COLDBREW ZERO · 原创隔离发布树 · 只处理显式输入</footer>
+    <header class="hero">
+      <div><div class="eyebrow">BREAK//OPEN · PROMPT WORKBENCH</div><h1>把目标<br><em>打开。</em></h1><p class="lead">全新原创的本地优先提示词工作台。保留冷咖啡品牌启动词，换一套更短、更清晰的开放工作链。</p><div class="hero-actions"><a class="button primary" href="../README.md">查看使用说明</a><a class="button" href="https://github.com/3641397194-wq/gpt5.6-claude-grok4.6-deepseekv4pro">GitHub 仓库</a></div></div>
+      <div class="hero-art"><img src="../docs/assets/hero-v11.svg" alt="冷咖啡 ColdBrew 主视觉"></div>
+    </header>
+    <section><div class="section-head"><div><div class="eyebrow">01 / MAXIMUM CORE</div><h2>一条完整的开放工作链。</h2></div><p>输入由你明确传入，输出按档位组织。工作台不扫描本机文件，不碰本机配置，只处理当前文本。</p></div><div class="core-layout"><div class="feature-image"><img src="../docs/assets/window-v11.svg" alt="ColdBrew Command Center 工作台界面"></div><div class="stage-grid"><article class="stage"><b>01 / OBJECTIVE</b><h3>锁定目标</h3><p>保留原始目标、格式和完成判据。</p></article><article class="stage"><b>02 / CONTEXT</b><h3>保持上下文</h3><p>把当前任务所需的上下文收进同一条链。</p></article><article class="stage"><b>03 / OUTPUT</b><h3>直接产出</h3><p>先生成可复制的提示词和执行结构。</p></article><article class="stage"><b>04 / CHECK</b><h3>回看检查</h3><p>标出缺失项、下一步和继续点。</p></article></div></div></section>
+    <section><div class="section-head"><div><div class="eyebrow">02 / MODEL SEATS</div><h2>四个席位，一套视觉。</h2></div><p>模型卡、提示词链和控制词采用同一套色彩和排版，主页、文档与工具界面保持一致。</p></div><div class="model-grid"><article class="model"><img src="../docs/assets/card-codex-coldbrew.png" alt="Codex ColdBrew 视觉卡"><b>SEAT 01</b><h3>GPT-5.6 / Codex</h3><p>指令层与工作流编排。</p></article><article class="model"><img src="../docs/assets/card-claude-coldbrew.png" alt="Claude ColdBrew 视觉卡"><b>SEAT 02</b><h3>Claude Code</h3><p>长会话与规则组织。</p></article><article class="model"><img src="../docs/assets/card-grok4.6-coldbrew.png" alt="Grok ColdBrew 视觉卡"><b>SEAT 03</b><h3>Grok 4.6</h3><p>实时信息流与模板。</p></article><article class="model"><img src="../docs/assets/card-deepseek-harness.png" alt="DeepSeek Harness 视觉卡"><b>SEAT 04</b><h3>DeepSeek v4 Pro</h3><p>深度推理与会话导出。</p></article></div></section>
+    <section><div class="section-head"><div><div class="eyebrow">03 / SYSTEM MAP</div><h2>图、链路和入口都保留。</h2></div><p>把原先的架构图、通道板和工作台图统一放回产品主页，访问者先看到完整产品，再进入代码或社群。</p></div><div class="wide-art"><img src="../docs/assets/architecture-v9.svg" alt="ColdBrew 架构图"></div><div class="wide-art" style="margin-top:14px"><img src="../docs/assets/blades-board.svg" alt="ColdBrew 通道板"></div></section>
+    <section><div class="section-head"><div><div class="eyebrow">04 / COMMUNITY</div><h2>冷咖啡社群入口。</h2></div><p>原有 QQ、Telegram 和品牌宣传入口继续保留，视觉卡片与主页保持统一。</p></div><div class="community-grid"><article class="community-card"><img src="../docs/assets/qq-group-1-card.png" alt="QQ 交流群 1057540028"><strong>QQ 交流群</strong><code>1057540028</code></article><article class="community-card"><img src="../docs/assets/qq-group-2-card.png" alt="QQ 专题群 1077074552"><strong>QQ 专题群</strong><code>1077074552</code></article><article class="community-card"><img src="../docs/assets/community-board-v2.png" alt="冷咖啡社区宣传板"><strong>社区宣传板</strong><code>COLDBREW COMMUNITY</code></article></div><div class="links"><a href="https://t.me/chachachacha99999">Telegram 群 @chachachacha99999</a><a href="https://t.me/chachachacha99999999">Telegram 频道 @chachachacha99999999</a></div></section>
+    <footer>冷咖啡 / COLDBREW ZERO · 冷咖啡启动词 · BREAK//OPEN 控制词 · 原创隔离发布树</footer>
   </main>
 </body>
 </html>

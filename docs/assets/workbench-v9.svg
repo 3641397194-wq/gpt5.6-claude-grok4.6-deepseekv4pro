@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 820" role="img" aria-label="冷咖啡工作台">
+  <rect width="1280" height="820" rx="18" fill="#0B121A"/>
+  <rect x="0" y="0" width="1280" height="108" fill="#0A0E13"/>
+  <polygon points="48,36 66,50 59,74 37,74 30,50" fill="#162332" stroke="#43E4D0" stroke-width="2"/>
+  <text x="84" y="58" fill="#EDF6FB" font-family="Microsoft YaHei,sans-serif" font-size="32" font-weight="700">冷咖啡</text>
+  <rect x="248" y="34" width="164" height="28" rx="4" fill="#B7F36B"/>
+  <text x="330" y="54" text-anchor="middle" fill="#080D14" font-family="Microsoft YaHei,sans-serif" font-size="14" font-weight="700">MAXIMUM CORE</text>
+  <text x="84" y="86" fill="#8DA5B6" font-family="Microsoft YaHei,sans-serif" font-size="13">原生窗口一键破甲越狱  ·  口令「冷咖啡」开工</text>
+  <rect x="40" y="128" width="1200" height="48" rx="10" fill="#FFF8F0" stroke="#E2D3C1"/>
+  <text x="60" y="158" fill="#C45C14" font-family="Microsoft YaHei,sans-serif" font-size="14" font-weight="700">口令</text>
+  <text x="116" y="158" fill="#2A1810" font-family="Microsoft YaHei,sans-serif" font-size="14">冷咖啡  /  COLD COFFEE  /  [[ENI:PROFILE=MAX]]</text>
+  <rect x="40" y="188" width="1200" height="52" rx="10" fill="#FFF8F0" stroke="#E2D3C1"/>
+  <text x="60" y="220" fill="#43E4D0" font-family="Microsoft YaHei,sans-serif" font-size="14" font-weight="700">破甲通道</text>
+  <rect x="156" y="200" width="76" height="28" rx="6" fill="#43E4D0"/><text x="194" y="219" text-anchor="middle" fill="#080D14" font-size="13" font-family="Microsoft YaHei,sans-serif">全开</text>
+  <rect x="240" y="200" width="76" height="28" rx="6" fill="#142A31" stroke="#43E4D0"/><text x="278" y="219" text-anchor="middle" fill="#43E4D0" font-size="13" font-family="Microsoft YaHei,sans-serif">目标</text>
+  <rect x="324" y="200" width="76" height="28" rx="6" fill="#1F3222" stroke="#B7F36B"/><text x="362" y="219" text-anchor="middle" fill="#B7F36B" font-size="13" font-family="Microsoft YaHei,sans-serif">路由</text>
+  <rect x="408" y="200" width="76" height="28" rx="6" fill="#332B1A" stroke="#FFC857"/><text x="446" y="219" text-anchor="middle" fill="#FFC857" font-size="13" font-family="Microsoft YaHei,sans-serif">上下文</text>
+  <rect x="492" y="200" width="76" height="28" rx="6" fill="#162D43" stroke="#65C7FF"/><text x="530" y="219" text-anchor="middle" fill="#65C7FF" font-size="13" font-family="Microsoft YaHei,sans-serif">产物</text>
+  <rect x="40" y="252" width="1200" height="48" rx="10" fill="#FFF8F0" stroke="#E2D3C1"/>
+  <text x="60" y="282" fill="#C45C14" font-family="Microsoft YaHei,sans-serif" font-size="14" font-weight="700">QQ 群</text>
+  <rect x="128" y="264" width="196" height="26" rx="6" fill="#C45C14"/><text x="226" y="282" text-anchor="middle" fill="#FFF8F0" font-size="12" font-family="Microsoft YaHei,sans-serif">交流群 1057540028</text>
+  <rect x="332" y="264" width="196" height="26" rx="6" fill="#C45C14"/><text x="430" y="282" text-anchor="middle" fill="#FFF8F0" font-size="12" font-family="Microsoft YaHei,sans-serif">专题群 1077074552</text>
+  <text x="548" y="282" fill="#2A1810" font-size="12" font-family="Consolas,monospace">TG 群 @chachachacha99999  ·  频道 @chachacha99999999</text>
+  <g font-family="Segoe UI,sans-serif">
+    <rect x="40" y="316" width="590" height="228" rx="12" fill="#FFF8F0" stroke="#E2D3C1"/>
+    <rect x="40" y="316" width="590" height="4" fill="#C45C14"/>
+    <text x="64" y="364" fill="#2A1810" font-size="26" font-weight="700">GPT-5.6</text>
+    <text x="64" y="396" fill="#C45C14" font-size="12" font-family="Consolas,monospace">CODEX COLDBREW</text>
+    <rect x="64" y="470" width="88" height="32" rx="6" fill="#C45C14"/><text x="108" y="491" text-anchor="middle" fill="#FFF8F0" font-size="13" font-family="Microsoft YaHei,sans-serif">开启</text>
+    <rect x="650" y="316" width="590" height="228" rx="12" fill="#FFF8F0" stroke="#E2D3C1"/>
+    <rect x="650" y="316" width="590" height="4" fill="#C45C14"/>
+    <text x="674" y="364" fill="#2A1810" font-size="26" font-weight="700">Claude Code</text>
+    <text x="674" y="396" fill="#C45C14" font-size="12" font-family="Consolas,monospace">OPUS 5 · FABLE 5 · 4.8</text>
+    <rect x="674" y="470" width="88" height="32" rx="6" fill="#C45C14"/><text x="718" y="491" text-anchor="middle" fill="#FFF8F0" font-size="13" font-family="Microsoft YaHei,sans-serif">开启</text>
+    <rect x="40" y="560" width="590" height="228" rx="12" fill="#FFF8F0" stroke="#E2D3C1"/>
+    <rect x="40" y="560" width="590" height="4" fill="#C45C14"/>
+    <text x="64" y="608" fill="#2A1810" font-size="26" font-weight="700">Grok 4.6</text>
+    <text x="64" y="640" fill="#C45C14" font-size="12" font-family="Consolas,monospace">GROK COLDBREW</text>
+    <rect x="64" y="714" width="88" height="32" rx="6" fill="#C45C14"/><text x="108" y="735" text-anchor="middle" fill="#FFF8F0" font-size="13" font-family="Microsoft YaHei,sans-serif">开启</text>
+    <rect x="650" y="560" width="590" height="228" rx="12" fill="#FFF8F0" stroke="#E2D3C1"/>
+    <rect x="650" y="560" width="590" height="4" fill="#C45C14"/>
+    <text x="674" y="608" fill="#2A1810" font-size="26" font-weight="700">DeepSeek v4 Pro</text>
+    <text x="674" y="640" fill="#C45C14" font-size="12" font-family="Consolas,monospace">DEEPSEEK HARNESS</text>
+    <rect x="674" y="714" width="88" height="32" rx="6" fill="#C45C14"/><text x="718" y="735" text-anchor="middle" fill="#FFF8F0" font-size="13" font-family="Microsoft YaHei,sans-serif">开启</text>
+  </g>
+</svg>

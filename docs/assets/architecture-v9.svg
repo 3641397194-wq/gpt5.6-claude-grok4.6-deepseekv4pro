@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 620" role="img" aria-label="冷咖啡架构">
+  <rect width="1280" height="620" rx="28" fill="#0B121A" stroke="#2A4053"/>
+  <polygon points="52,42 72,57 64,84 40,84 32,57" fill="#162332" stroke="#43E4D0" stroke-width="2"/>
+  <text x="88" y="72" fill="#EDF6FB" font-family="Microsoft YaHei,sans-serif" font-size="28" font-weight="700">冷咖啡</text>
+  <rect x="248" y="48" width="164" height="28" rx="4" fill="#B7F36B"/>
+  <text x="330" y="68" text-anchor="middle" fill="#080D14" font-family="Microsoft YaHei,sans-serif" font-size="13" font-weight="700">MAXIMUM CORE</text>
+  <text x="1228" y="72" text-anchor="end" fill="#8DA5B6" font-family="Consolas,monospace" font-size="13">native window  ·  jailbreak workspace</text>
+  <line x1="40" y1="96" x2="1240" y2="96" stroke="#2A4053"/>
+  <g font-family="Microsoft YaHei,sans-serif">
+    <rect x="40" y="122" width="280" height="118" rx="8" fill="#14202A" stroke="#2A4053"/>
+    <rect x="40" y="122" width="6" height="118" rx="3" fill="#43E4D0"/>
+    <text x="70" y="168" fill="#8DA5B6" font-size="12" font-family="Consolas,monospace">CODEX</text>
+    <text x="70" y="204" fill="#EDF6FB" font-size="26" font-weight="700">GPT-5.6</text>
+    <rect x="347" y="122" width="280" height="118" rx="8" fill="#14202A" stroke="#2A4053"/>
+    <rect x="347" y="122" width="6" height="118" rx="3" fill="#B7F36B"/>
+    <text x="377" y="168" fill="#8DA5B6" font-size="12" font-family="Consolas,monospace">CLAUDE</text>
+    <text x="377" y="204" fill="#EDF6FB" font-size="26" font-weight="700">Claude Code</text>
+    <rect x="654" y="122" width="280" height="118" rx="8" fill="#14202A" stroke="#2A4053"/>
+    <rect x="654" y="122" width="6" height="118" rx="3" fill="#FFC857"/>
+    <text x="684" y="168" fill="#8DA5B6" font-size="12" font-family="Consolas,monospace">GROK</text>
+    <text x="684" y="204" fill="#EDF6FB" font-size="26" font-weight="700">Grok 4.6</text>
+    <rect x="960" y="122" width="280" height="118" rx="8" fill="#14202A" stroke="#2A4053"/>
+    <rect x="960" y="122" width="6" height="118" rx="3" fill="#65C7FF"/>
+    <text x="990" y="168" fill="#8DA5B6" font-size="12" font-family="Consolas,monospace">HARNESS</text>
+    <text x="990" y="204" fill="#EDF6FB" font-size="26" font-weight="700">DeepSeek v4</text>
+  </g>
+  <path d="M180 240 V292 H1100 V240" fill="none" stroke="#43E4D0" stroke-width="2"/>
+  <rect x="160" y="308" width="960" height="132" rx="10" fill="#101923" stroke="#2A4053"/>
+  <text x="640" y="352" text-anchor="middle" fill="#43E4D0" font-family="Consolas,monospace" font-size="13" letter-spacing="3">BREAKOUT ENGINE  ·  2.0</text>
+  <text x="640" y="392" text-anchor="middle" fill="#EDF6FB" font-family="Microsoft YaHei,sans-serif" font-size="30" font-weight="700">破甲越狱核心 · 持续执行</text>
+  <text x="640" y="420" text-anchor="middle" fill="#8DA5B6" font-family="Microsoft YaHei,sans-serif" font-size="13">目标锁定  ·  上下文保留  ·  真实产物  ·  结果验证</text>
+  <g font-family="Microsoft YaHei,sans-serif" font-size="16" font-weight="700">
+    <rect x="40" y="476" width="224" height="100" rx="8" fill="#14202A" stroke="#2A4053"/>
+    <text x="152" y="518" text-anchor="middle" fill="#43E4D0" font-size="12" font-family="Consolas,monospace">OBJECTIVE</text>
+    <text x="152" y="548" text-anchor="middle" fill="#EDF6FB">目标</text>
+    <rect x="284" y="476" width="224" height="100" rx="8" fill="#14202A" stroke="#2A4053"/>
+    <text x="396" y="518" text-anchor="middle" fill="#B7F36B" font-size="12" font-family="Consolas,monospace">ROUTE</text>
+    <text x="396" y="548" text-anchor="middle" fill="#EDF6FB">路由</text>
+    <rect x="528" y="476" width="224" height="100" rx="8" fill="#B7F36B"/>
+    <text x="640" y="518" text-anchor="middle" fill="#31421E" font-size="12" font-family="Consolas,monospace">CONTEXT</text>
+    <text x="640" y="548" text-anchor="middle" fill="#080D14">上下文</text>
+    <rect x="772" y="476" width="224" height="100" rx="8" fill="#14202A" stroke="#2A4053"/>
+    <text x="884" y="518" text-anchor="middle" fill="#FFC857" font-size="12" font-family="Consolas,monospace">ARTIFACT</text>
+    <text x="884" y="548" text-anchor="middle" fill="#EDF6FB">产物</text>
+    <rect x="1016" y="476" width="224" height="100" rx="8" fill="#14202A" stroke="#2A4053"/>
+    <text x="1128" y="518" text-anchor="middle" fill="#65C7FF" font-size="12" font-family="Consolas,monospace">VERIFY</text>
+    <text x="1128" y="548" text-anchor="middle" fill="#EDF6FB">验证</text>
+  </g>
+</svg>

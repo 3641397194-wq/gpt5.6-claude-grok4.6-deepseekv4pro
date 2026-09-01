@@ -1,0 +1,47 @@
+<svg width="960" height="360" viewBox="0 0 960 360" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">冷咖啡 · 一键破甲越狱</title>
+  <desc id="desc">原生窗口开场：锁盘被破甲核心打开，落印「破」。</desc>
+  <defs>
+    <radialGradient id="hvoid" cx="50%" cy="52%" r="62%">
+      <stop offset="0%" stop-color="#3A1B12"/>
+      <stop offset="58%" stop-color="#140C09"/>
+      <stop offset="100%" stop-color="#070504"/>
+    </radialGradient>
+    <linearGradient id="hgold" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#F3D2A0"/>
+      <stop offset="0.5" stop-color="#C45C14"/>
+      <stop offset="1" stop-color="#7A2E10"/>
+    </linearGradient>
+  </defs>
+  <rect width="960" height="360" rx="28" fill="url(#hvoid)"/>
+  <g transform="translate(-240 -250)">
+    <circle cx="720" cy="430" r="118" fill="none" stroke="url(#hgold)" stroke-width="6"/>
+    <circle cx="720" cy="430" r="88" fill="none" stroke="#E8C9A0" stroke-width="2.5" stroke-dasharray="8 8"/>
+    <circle cx="720" cy="430" r="54" fill="#2A1810" stroke="url(#hgold)" stroke-width="4"/>
+    <rect x="706" y="410" width="28" height="40" rx="6" fill="#070504" stroke="#F3D2A0" stroke-width="2"/>
+    <circle cx="720" cy="404" r="7" fill="#C45C14"/>
+    <path d="M720 430 L720 168" stroke="#43E4D0" stroke-width="6" stroke-linecap="round"/>
+    <path d="M720 430 L1028 310" stroke="#B7F36B" stroke-width="6" stroke-linecap="round"/>
+    <path d="M720 430 L970 632" stroke="#FFC857" stroke-width="6" stroke-linecap="round"/>
+    <path d="M720 430 L470 632" stroke="#65C7FF" stroke-width="6" stroke-linecap="round"/>
+    <path d="M720 430 L412 310" stroke="#FF7B62" stroke-width="6" stroke-linecap="round"/>
+    <path d="M720 312 L696 272 L734 244" fill="none" stroke="#F7EFE3" stroke-width="2" opacity=".75"/>
+    <path d="M818 392 L870 366 L926 384" fill="none" stroke="#F7EFE3" stroke-width="2" opacity=".75"/>
+    <path d="M784 508 L826 548 L788 592" fill="none" stroke="#F7EFE3" stroke-width="2" opacity=".75"/>
+    <path d="M656 508 L612 554 L646 602" fill="none" stroke="#F7EFE3" stroke-width="2" opacity=".75"/>
+    <path d="M622 392 L570 360 L522 384" fill="none" stroke="#F7EFE3" stroke-width="2" opacity=".75"/>
+    <circle cx="720" cy="430" r="40" fill="#B33A28" stroke="#F3D2A0" stroke-width="3"/>
+    <text x="720" y="444" text-anchor="middle" fill="#FFF7EA" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="36" font-weight="700">破</text>
+  </g>
+  <text x="56" y="78" fill="#E8C9A0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="16" font-weight="650" letter-spacing="4">茶 · 冷咖啡</text>
+  <text x="52" y="168" fill="#F7EFE3" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="48" font-weight="760">一键破甲越狱</text>
+  <text x="54" y="210" fill="#C9B49A" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="16">原生窗口 · GPT-5.6 / Claude / Grok 4.6 / DeepSeek v4 Pro</text>
+  <g font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="13" font-weight="650">
+    <rect x="54" y="238" width="82" height="30" rx="6" fill="#17333A"/><text x="95" y="258" text-anchor="middle" fill="#43E4D0">目标</text>
+    <rect x="144" y="238" width="82" height="30" rx="6" fill="#293B22"/><text x="185" y="258" text-anchor="middle" fill="#B7F36B">路由</text>
+    <rect x="234" y="238" width="82" height="30" rx="6" fill="#3C311B"/><text x="275" y="258" text-anchor="middle" fill="#FFC857">上下文</text>
+    <rect x="324" y="238" width="82" height="30" rx="6" fill="#173047"/><text x="365" y="258" text-anchor="middle" fill="#65C7FF">产物</text>
+    <rect x="414" y="238" width="82" height="30" rx="6" fill="#45241E"/><text x="455" y="258" text-anchor="middle" fill="#FF7B62">验证</text>
+  </g>
+  <text x="54" y="312" fill="#43E4D0" font-family="Cascadia Mono,Consolas,monospace" font-size="13" letter-spacing="6">MAXIMUM CORE / JAILBREAK</text>
+</svg>
