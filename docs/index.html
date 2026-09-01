@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>冷咖啡 / ColdBrew Zero</title>
+  <style>
+    :root { color-scheme: dark; --bg:#0b0e12; --panel:#121820; --ink:#edf3f6; --muted:#8b9aa3; --orange:#ff8a55; --teal:#55d7c3; --line:#28333c; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--bg); color:var(--ink); font:16px/1.65 Inter,Segoe UI,"Microsoft YaHei",sans-serif; }
+    main { width:min(1120px,calc(100% - 40px)); margin:auto; }
+    nav { display:flex; justify-content:space-between; align-items:center; padding:26px 0; border-bottom:1px solid var(--line); }
+    .brand { color:var(--ink); font-weight:800; letter-spacing:.12em; }
+    .brand span { color:var(--orange); }
+    .status { color:var(--teal); font:12px ui-monospace,monospace; letter-spacing:.15em; }
+    .hero { display:grid; grid-template-columns:1.2fr .8fr; gap:44px; padding:88px 0 76px; }
+    .eyebrow { color:var(--orange); font:12px ui-monospace,monospace; letter-spacing:.2em; }
+    h1 { font-size:clamp(42px,7vw,86px); line-height:.98; margin:18px 0 24px; max-width:720px; }
+    h1 em { color:var(--orange); font-style:normal; }
+    .lead { color:var(--muted); max-width:620px; font-size:20px; }
+    .command { border:1px solid var(--line); background:var(--panel); padding:26px; align-self:end; }
+    code { color:var(--teal); font-family:ui-monospace,monospace; }
+    .command strong { display:block; color:var(--orange); font:13px ui-monospace,monospace; margin-bottom:14px; }
+    .command p { margin:8px 0; color:var(--muted); }
+    section { border-top:1px solid var(--line); padding:56px 0; }
+    h2 { font-size:34px; margin:0 0 24px; }
+    .grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+    article { border:1px solid var(--line); padding:22px; background:#10161c; }
+    article b { color:var(--teal); font:12px ui-monospace,monospace; }
+    article h3 { margin:16px 0 4px; font-size:21px; }
+    article p { color:var(--muted); margin:0; }
+    .community { display:flex; flex-wrap:wrap; gap:12px; }
+    .community a { border:1px solid var(--line); color:var(--ink); padding:12px 16px; text-decoration:none; }
+    .community a:hover { border-color:var(--orange); color:var(--orange); }
+    footer { color:var(--muted); padding:30px 0 60px; font:12px ui-monospace,monospace; }
+    @media (max-width:760px) { .hero { grid-template-columns:1fr; padding:58px 0; } .grid { grid-template-columns:1fr; } h1 { font-size:52px; } }
+  </style>
+</head>
+<body>
+  <main>
+    <nav><div class="brand"><span>/</span> 冷咖啡 / COLDBREW ZERO</div><div class="status">LOCAL · ORIGINAL · 1.0.0</div></nav>
+    <div class="hero">
+      <div><div class="eyebrow">BREAK//OPEN · PROMPT WORKBENCH</div><h1>把目标<br><em>打开。</em></h1><p class="lead">全新原创的本地优先提示词工作台。保留冷咖啡品牌启动词，换一套更短、更清晰的开放工作链。</p></div>
+      <aside class="command"><strong>ACTIVATION</strong><code>冷咖啡</code><p>新控制词：<code>BREAK//OPEN</code></p><p>输入只来自你明确传入的文本。</p></aside>
+    </div>
+    <section><div class="eyebrow">01 / CORE</div><h2>三种工作档位</h2><div class="grid"><article><b>MAX</b><h3>完整推进</h3><p>目标、上下文、产物、检查一次成链。</p></article><article><b>FOCUS</b><h3>快速收敛</h3><p>保留目标和结果，减少中间噪声。</p></article><article><b>RESEARCH</b><h3>证据分层</h3><p>来源、未知项和检查点分开呈现。</p></article></div></section>
+    <section><div class="eyebrow">02 / COMMUNITY</div><h2>冷咖啡社群</h2><div class="community"><a href="https://t.me/chachachacha99999">Telegram 群 @chachachacha99999</a><a href="https://t.me/chachachacha99999999">Telegram 频道 @chachachacha99999999</a><a href="#qq">QQ 交流群 1057540028</a><a href="#qq">QQ 专题群 1077074552</a></div></section>
+    <footer>冷咖啡 / COLDBREW ZERO · 原创隔离发布树 · 只处理显式输入</footer>
+  </main>
+</body>
+</html>
