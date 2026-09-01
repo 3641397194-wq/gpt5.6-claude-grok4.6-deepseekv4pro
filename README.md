@@ -62,7 +62,18 @@ Windows 便携包构建：`npm run pack:win`
   <img src="docs/assets/readme-noir-community.svg" width="100%" alt="冷咖啡社群暗黑漫画入口" />
 </div>
 
-**QQ 交流圈** `1057540028` &nbsp;|&nbsp; **QQ 专题圈** `1077074552`
+<p align="center">
+  <a href="docs/assets/qq-group-1-card.png">
+    <img src="docs/assets/qq-group-1-card.png" width="350" alt="QQ 交流圈二维码，群号 1057540028" />
+  </a>
+  <a href="docs/assets/qq-group-2-card.png">
+    <img src="docs/assets/qq-group-2-card.png" width="350" alt="QQ 专题圈二维码，群号 1077074552" />
+  </a>
+</p>
+
+<p align="center">
+  扫码加入：<strong>QQ 交流圈</strong> <code>1057540028</code> &nbsp;|&nbsp; <strong>QQ 专题圈</strong> <code>1077074552</code>
+</p>
 
 [Telegram 群 @chachachacha99999](https://t.me/chachachacha99999) &nbsp;|&nbsp; [Telegram 频道 @chachachacha99999999](https://t.me/chachachacha99999999)
 

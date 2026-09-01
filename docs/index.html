@@ -43,6 +43,12 @@
     .art { margin:0; border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
     .red .art { border-color:#e97176; }
     .art img { display:block; width:100%; height:auto; }
+    .qr-pair { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; margin-top:30px; }
+    .qr-card { display:block; padding:11px; border:1px solid #e97176; background:#180607; box-shadow:8px 8px 0 rgba(29,5,6,.34); text-decoration:none; }
+    .qr-card img { display:block; width:100%; height:auto; }
+    .qr-card span { display:block; margin:12px 4px 2px; color:#ffdfe0; font:11px ui-monospace,Consolas,monospace; letter-spacing:.14em; }
+    .qr-card strong { display:block; margin:0 4px; color:var(--paper); font:700 18px ui-monospace,Consolas,monospace; }
+    .qr-card:hover { border-color:var(--paper); transform:translate(-2px,-2px); box-shadow:10px 10px 0 rgba(29,5,6,.45); }
     .model-copy { display:grid; grid-template-columns:1fr 1fr; gap:36px; margin:30px 0 0; }
     .model-copy p { margin:0; color:var(--soft); }
     .model-copy strong { color:var(--paper); }
@@ -53,8 +59,8 @@
     .signal a,.signal code { display:block; margin-top:20px; color:var(--paper); font-weight:700; overflow-wrap:anywhere; }
     .signal a:hover { color:#1a0708; }
     footer { padding:34px 0 60px; color:var(--soft); font:11px ui-monospace,Consolas,monospace; letter-spacing:.1em; }
-    @media (max-width:820px) { .frame { width:min(100% - 28px,1180px); } .masthead { min-height:72px; } .edition { display:none; } .hero { padding:28px 0 64px; } h1 { font-size:60px; } h2 { font-size:42px; } .poster-caption,.heading,.model-copy { display:block; } .poster-caption p,.heading p,.model-copy p + p { margin-top:18px; } .actions { margin-top:22px; } .band { padding:62px 0; } .signal-list { grid-template-columns:1fr 1fr; } .signal:nth-child(2) { border-right:0; } .signal:nth-child(-n+2) { border-bottom:1px solid #e97176; } }
-    @media (max-width:480px) { h1 { font-size:48px; } h2 { font-size:36px; } .brand { font-size:11px; letter-spacing:.12em; } .brand::before { height:30px; } .brand img { width:30px; height:30px; } .signal-list { grid-template-columns:1fr; } .signal { border-right:0; border-bottom:1px solid #e97176; } .signal:last-child { border-bottom:0; } }
+    @media (max-width:820px) { .frame { width:min(100% - 28px,1180px); } .masthead { min-height:72px; } .edition { display:none; } .hero { padding:28px 0 64px; } h1 { font-size:60px; } h2 { font-size:42px; } .poster-caption,.heading,.model-copy { display:block; } .poster-caption p,.heading p,.model-copy p + p { margin-top:18px; } .actions { margin-top:22px; } .band { padding:62px 0; } .qr-pair,.signal-list { grid-template-columns:1fr; } .qr-card { width:min(100%,400px); margin:0 auto; } .signal:nth-child(2) { border-right:0; } .signal:nth-child(-n+2) { border-bottom:1px solid #e97176; } }
+    @media (max-width:480px) { h1 { font-size:48px; } h2 { font-size:36px; } .brand { font-size:11px; letter-spacing:.12em; } .brand::before { height:30px; } .brand img { width:30px; height:30px; } .signal { border-right:0; border-bottom:1px solid #e97176; } .signal:last-child { border-bottom:0; } }
   </style>
 </head>
 <body>
@@ -91,6 +97,10 @@
       <div class="frame">
         <div class="heading"><div><div class="label">03 / COMMUNITY SIGNAL</div><h2>门，一直开着。</h2></div><p>QQ 与 Telegram 的宣传入口完整保留，统一放进红黑社群海报和可直接点击的联系栏。</p></div>
         <figure class="art"><img src="assets/readme-noir-community.svg" alt="冷咖啡社群暗黑漫画入口"></figure>
+        <div class="qr-pair" aria-label="QQ 社群二维码">
+          <a class="qr-card" href="assets/qq-group-1-card.png" target="_blank" rel="noopener"><img src="assets/qq-group-1-card.png" alt="QQ 交流圈二维码，群号 1057540028"><span>QQ / GROUP</span><strong>1057540028</strong></a>
+          <a class="qr-card" href="assets/qq-group-2-card.png" target="_blank" rel="noopener"><img src="assets/qq-group-2-card.png" alt="QQ 专题圈二维码，群号 1077074552"><span>QQ / TOPIC</span><strong>1077074552</strong></a>
+        </div>
         <div class="signal-list">
           <div class="signal"><b>QQ / GROUP</b><code>1057540028</code></div>
           <div class="signal"><b>QQ / TOPIC</b><code>1077074552</code></div>

@@ -54,7 +54,18 @@ Build the Windows portable package with `npm run pack:win`.
   <img src="docs/assets/readme-noir-community.svg" width="100%" alt="Community channels" />
 </div>
 
-**QQ discussion** `1057540028` &nbsp;|&nbsp; **QQ topic** `1077074552`
+<p align="center">
+  <a href="docs/assets/qq-group-1-card.png">
+    <img src="docs/assets/qq-group-1-card.png" width="350" alt="QQ discussion QR code, group 1057540028" />
+  </a>
+  <a href="docs/assets/qq-group-2-card.png">
+    <img src="docs/assets/qq-group-2-card.png" width="350" alt="QQ topic QR code, group 1077074552" />
+  </a>
+</p>
+
+<p align="center">
+  Scan to join: <strong>QQ discussion</strong> <code>1057540028</code> &nbsp;|&nbsp; <strong>QQ topic</strong> <code>1077074552</code>
+</p>
 
 [Telegram group @chachachacha99999](https://t.me/chachachacha99999) &nbsp;|&nbsp; [Telegram channel @chachachacha99999999](https://t.me/chachachacha99999999)
 
