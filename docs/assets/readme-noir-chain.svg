@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 460" role="img" aria-labelledby="title desc">
+  <title id="title">ColdBrew Zero manga sequence</title>
+  <desc id="desc">Four original comic panels in black, bone-white, and crimson representing the project flow.</desc>
+  <defs><pattern id="screen" width="7" height="7" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".9" fill="#f4ede4"/></pattern></defs>
+  <rect width="1600" height="460" fill="#090808"/>
+  <g fill="#171313" stroke="#b9aaa0" stroke-width="1">
+    <path d="M28 28h350v404H28z"/><path d="M406 28h350v404H406z"/><path d="M784 28h350v404H784z"/><path d="M1162 28h410v404h-410z"/>
+  </g>
+  <g fill="#f4ede4" font-family="Arial, Helvetica, sans-serif">
+    <text x="53" y="69" font-size="14" letter-spacing="4">FRAME / 01</text><text x="431" y="69" font-size="14" letter-spacing="4">FRAME / 02</text><text x="809" y="69" font-size="14" letter-spacing="4">FRAME / 03</text><text x="1187" y="69" font-size="14" letter-spacing="4">FRAME / 04</text>
+    <text x="53" y="368" font-size="42" font-weight="700">OBJECTIVE</text><text x="431" y="368" font-size="42" font-weight="700">CONTEXT</text><text x="809" y="368" font-size="42" font-weight="700">OUTPUT</text><text x="1187" y="368" font-size="42" font-weight="700">CHECK</text>
+  </g>
+  <g fill="none" stroke="#e3353d" stroke-width="5">
+    <path d="M68 171h227M68 201h168M68 231h198"/><path d="M451 183l111-79 110 79-110 79z"/><path d="M829 101v194M802 198h193"/><path d="M1208 145c68-77 204-77 273 0-69 77-205 77-273 0Z"/>
+  </g>
+  <g fill="#f4ede4"><path d="M230 117c66 0 98 48 98 106s-32 106-98 106-98-48-98-106 32-106 98-106Z"/><path d="M469 199l95-66 94 66-94 66z"/><path d="M1198 145c70-58 184-58 254 0-70 58-184 58-254 0Z"/></g>
+  <g fill="#090808"><circle cx="230" cy="223" r="38"/><circle cx="1325" cy="145" r="34"/></g>
+  <g fill="#e3353d"><circle cx="230" cy="223" r="15"/><circle cx="1325" cy="145" r="13"/></g>
+  <path d="M811 107h188v182H811z" fill="url(#screen)" opacity=".18"/>
+  <g font-family="Arial, Helvetica, sans-serif" font-size="14" letter-spacing="2"><text x="53" y="405" fill="#ad9e94">NAME THE LINE</text><text x="431" y="405" fill="#ad9e94">KEEP THE THREAD</text><text x="809" y="405" fill="#ad9e94">MAKE THE CUT</text><text x="1187" y="405" fill="#ad9e94">READ THE RESULT</text></g>
+</svg>

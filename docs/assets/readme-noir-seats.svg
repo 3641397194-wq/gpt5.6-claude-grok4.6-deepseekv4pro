@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 390" role="img" aria-labelledby="title desc">
+  <title id="title">ColdBrew Zero model poster</title>
+  <desc id="desc">An original black and red manga-poster display of the five model seats.</desc>
+  <rect width="1600" height="390" fill="#0a0909"/>
+  <path d="M0 0h1600v390H0z" fill="#f3ebe1" opacity=".035"/>
+  <g stroke="#72514d" stroke-width="1">
+    <path d="M28 40h1544M28 350h1544"/><path d="M320 40v310M625 40v310M930 40v310M1235 40v310"/>
+  </g>
+  <g font-family="Arial, Helvetica, sans-serif">
+    <text x="54" y="88" fill="#e3353d" font-size="15" letter-spacing="5">FIVE VOICES / ONE NIGHT</text>
+    <text x="54" y="143" fill="#f3ebe1" font-size="35" font-weight="700">GPT-5.6</text><text x="54" y="174" fill="#b8aaa0" font-size="15" letter-spacing="2">CODEX / SEAT 01</text>
+    <text x="347" y="143" fill="#f3ebe1" font-size="35" font-weight="700">CLAUDE</text><text x="347" y="174" fill="#b8aaa0" font-size="15" letter-spacing="2">CODE / SEAT 02</text>
+    <text x="652" y="143" fill="#f3ebe1" font-size="35" font-weight="700">GROK 4.6</text><text x="652" y="174" fill="#b8aaa0" font-size="15" letter-spacing="2">LIVE / SEAT 03</text>
+    <text x="957" y="143" fill="#f3ebe1" font-size="35" font-weight="700">DEEPSEEK</text><text x="957" y="174" fill="#b8aaa0" font-size="15" letter-spacing="2">V4 PRO / SEAT 04</text>
+    <text x="1262" y="143" fill="#e3353d" font-size="35" font-weight="700">GLM 5.3</text><text x="1262" y="174" fill="#f1b3b5" font-size="15" letter-spacing="2">CHA / SEAT 05</text>
+  </g>
+  <g fill="none" stroke="#e3353d" stroke-width="5"><path d="M54 218h205M347 218h205M652 218h205M957 218h205M1262 218h255"/></g>
+  <g fill="#f3ebe1" opacity=".82"><circle cx="96" cy="276" r="18"/><circle cx="389" cy="276" r="18"/><circle cx="694" cy="276" r="18"/><circle cx="999" cy="276" r="18"/></g>
+  <circle cx="1304" cy="276" r="28" fill="#e3353d"/><circle cx="1304" cy="276" r="10" fill="#f3ebe1"/>
+  <g fill="#8d7f76" font-family="Arial, Helvetica, sans-serif" font-size="13" letter-spacing="2"><text x="54" y="325">DIRECT</text><text x="347" y="325">STRUCTURE</text><text x="652" y="325">PULSE</text><text x="957" y="325">DEPTH</text><text x="1262" y="325">REWRITE</text></g>
+</svg>

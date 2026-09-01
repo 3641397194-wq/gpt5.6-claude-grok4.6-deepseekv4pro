@@ -21,7 +21,7 @@ function createSplash() {
     frame: false,
     resizable: false,
     show: false,
-    backgroundColor: "#080b0f",
+    backgroundColor: "#090707",
     title: APP_TITLE,
     webPreferences: { contextIsolation: true, sandbox: true },
   });
@@ -37,7 +37,7 @@ function createMain() {
     minHeight: 700,
     frame: false,
     show: false,
-    backgroundColor: "#0b0f14",
+    backgroundColor: "#080707",
     title: APP_TITLE,
     autoHideMenuBar: true,
     webPreferences: {

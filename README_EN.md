@@ -1,20 +1,36 @@
-# gpt5.6-claude-grok4.6-deepseekv4pro-glm5.3 Breakline
+<div align="center">
 
-**ColdBrew Zero** is a local-first prompt workbench with one clear flow: objective, context, output, and check.
+<img src="docs/assets/readme-noir-hero.svg" width="100%" alt="ColdBrew Zero dark manga hero" />
 
-The brand activation word remains **冷咖啡**. The workbench control phrase is **BREAK//OPEN**.
+<br />
 
-![ColdBrew Zero Breakline](docs/assets/hero-breakline-v1.svg)
+<img src="docs/assets/product-icon.png" width="96" alt="ColdBrew Zero product icon" />
 
-## Quick start
+# ColdBrew Zero / CHA
 
-### Python CLI
+### gpt5.6-claude-grok4.6-deepseekv4pro-glm5.3
+
+**BREAK//OPEN** &nbsp;|&nbsp; **NOIR MANGA RELEASE 2.1.0**
+
+<sub>An original dark-manga visual system built from black ink, bone paper, a single crimson eye, and torn comic panels.</sub>
+
+</div>
+
+---
+
+## 01 / Night Sequence
+
+ColdBrew Zero arranges objective, context, output, and review as four panels. The repository, desktop app, and community channels now share one black, bone-white, and crimson system.
+
+<div align="center">
+  <img src="docs/assets/readme-noir-chain.svg" width="100%" alt="Four-panel work sequence" />
+</div>
+
+## Quick Start
 
 ```powershell
 python coldbrew.py --activate 冷咖啡 --profile MAX --prompt "Turn this request into executable steps"
 ```
-
-### Electron desktop app
 
 ```powershell
 cd desktop
@@ -24,21 +40,28 @@ npm start
 
 Build the Windows portable package with `npm run pack:win`.
 
-## Work chain
+## 02 / Five Seats
 
-| Stage | Purpose |
-| --- | --- |
-| **OBJECTIVE** | Lock the original goal and completion criteria |
-| **CONTEXT** | Keep the context required by the task |
-| **OUTPUT** | Produce a reusable prompt and execution structure |
-| **CHECK** | Surface missing items and the next step |
+`GPT-5.6 / Codex`, `Claude Code`, `Grok 4.6`, `DeepSeek v4 Pro`, and `GLM 5.3` share the same night desk.
 
-## Model seats
+<div align="center">
+  <img src="docs/assets/readme-noir-seats.svg" width="100%" alt="Five model seats" />
+</div>
 
-GPT-5.6 / Codex, Claude Code, Grok 4.6, DeepSeek v4 Pro, and GLM 5.3 share the same visual system and work chain.
+## 03 / Community Signal
 
-## Community
+<div align="center">
+  <img src="docs/assets/readme-noir-community.svg" width="100%" alt="Community channels" />
+</div>
 
-QQ `1057540028`, QQ `1077074552`, Telegram [group](https://t.me/chachachacha99999), and [channel](https://t.me/chachachacha99999999).
+**QQ discussion** `1057540028` &nbsp;|&nbsp; **QQ topic** `1077074552`
 
-The complete visual homepage, diagrams, and community artwork are in [`docs/`](docs/).
+[Telegram group @chachachacha99999](https://t.me/chachachacha99999) &nbsp;|&nbsp; [Telegram channel @chachachacha99999999](https://t.me/chachachacha99999999)
+
+---
+
+<div align="center">
+
+`CHA / COLD BREW ZERO / BREAK//OPEN / GLM 5.3 / 2.1.0`
+
+</div>

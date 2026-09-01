@@ -3,11 +3,15 @@
 body { margin:0; min-height:100vh; overflow:hidden; display:grid; place-items:center; background:var(--bg); color:var(--ink); font-family:Inter,"Segoe UI","Microsoft YaHei",sans-serif; }
 .signal { position:fixed; inset:0; opacity:.44; background:linear-gradient(90deg,transparent 49.8%,rgb(212 43 49 / 36%) 50%,transparent 50.2%),linear-gradient(0deg,transparent 49.8%,#2c2523 50%,transparent 50.2%); background-size:64px 64px; mask-image:radial-gradient(circle at center,#000,transparent 72%); }
 .grain { position:fixed; inset:0; opacity:.15; background-image:radial-gradient(rgb(255 255 255 / 50%) .45px,transparent .75px); background-size:5px 5px; pointer-events:none; }
-main { position:relative; width:min(680px,calc(100% - 80px)); }
+.splash-art { position:fixed; right:-40px; bottom:-90px; width:480px; height:580px; overflow:hidden; border-left:1px solid rgb(242 238 232 / 12%); opacity:.35; transform:skewX(-9deg); }
+.splash-art::after { position:absolute; inset:0; background:linear-gradient(90deg,transparent 20%,rgb(212 43 49 / 48%)); content:""; mix-blend-mode:screen; }
+.splash-art img { width:100%; height:100%; object-fit:cover; object-position:61% 45%; filter:grayscale(1) contrast(1.6) brightness(.9); }
+main { position:relative; z-index:1; width:min(680px,calc(100% - 80px)); }
 .mark { display:flex; align-items:center; gap:10px; color:var(--ink); font:700 20px ui-monospace,monospace; letter-spacing:.18em; }
 .mark span { display:grid; width:25px; height:25px; place-items:center; border:1px solid var(--red); color:var(--red-bright); transform:skewY(-12deg); }
+.mark img { width:25px; height:25px; object-fit:cover; filter:grayscale(1) contrast(1.5); border:1px solid rgb(242 238 232 / 75%); }
 .eyebrow { margin:34px 0 18px; color:var(--muted); font:11px ui-monospace,monospace; letter-spacing:.24em; }
-h1 { margin:0; font-size:clamp(70px,12vw,132px); line-height:.88; letter-spacing:.04em; }
+h1 { margin:0; font-size:124px; line-height:.88; letter-spacing:.04em; }
 h2 { margin:20px 0 10px; color:var(--red-bright); font:700 32px ui-monospace,monospace; letter-spacing:.12em; } h2 small { color:var(--muted); font-size:12px; letter-spacing:.16em; vertical-align:middle; }
 h2 span { color:var(--ink); }
 .sub { color:var(--muted); font-size:17px; }

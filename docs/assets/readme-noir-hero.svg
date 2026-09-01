@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 760" role="img" aria-labelledby="title desc">
+  <title id="title">ColdBrew Zero dark manga cover</title>
+  <desc id="desc">An original black, bone-white, and crimson manga cover with a masked figure, a single red eye, torn panels, and city-night texture.</desc>
+  <defs>
+    <pattern id="dots" width="8" height="8" patternUnits="userSpaceOnUse"><circle cx="1.5" cy="1.5" r="1" fill="#f5efe7"/></pattern>
+    <pattern id="lines" width="16" height="16" patternUnits="userSpaceOnUse" patternTransform="rotate(-24)"><path d="M0 1h18" stroke="#f5efe7" stroke-width="1"/></pattern>
+    <linearGradient id="redFade" x1="0" x2="1"><stop stop-color="#e3353d"/><stop offset="1" stop-color="#660b11"/></linearGradient>
+  </defs>
+  <rect width="1600" height="760" fill="#080707"/>
+  <path d="M0 0h1600v760H0z" fill="url(#dots)" opacity=".055"/>
+  <path d="M0 0h1010v760H0z" fill="#11100f"/>
+  <path d="M1010 0h590v760h-284z" fill="#d92e37"/>
+  <path d="M1326 0h274v760h-430z" fill="#6d0e15" opacity=".92"/>
+  <g opacity=".52" fill="none" stroke="#4b3937" stroke-width="2">
+    <path d="M35 75h954M35 703h924M68 122h606M68 650h620"/>
+    <path d="M1065 42l440 498M1125 0l475 514M1010 550l276 210"/>
+  </g>
+  <g fill="#f5efe7" font-family="Arial, Helvetica, sans-serif">
+    <text x="64" y="72" font-size="15" font-weight="700" letter-spacing="8">CHA / COLD BREW ZERO / 02</text>
+    <text x="64" y="215" font-size="106" font-weight="700" letter-spacing="4">NIGHT</text>
+    <text x="64" y="320" font-size="106" font-weight="700" letter-spacing="4">SIGNAL</text>
+    <text x="70" y="372" fill="#c9bdb3" font-size="20" letter-spacing="3">AN ORIGINAL DARK-MANGA COMMAND DESK</text>
+  </g>
+  <rect x="64" y="421" width="430" height="4" fill="#e3353d"/>
+  <g font-family="Arial, Helvetica, sans-serif" font-size="15" letter-spacing="2">
+    <text x="64" y="470" fill="#e3353d">01 / LOCK THE LINE</text>
+    <text x="64" y="510" fill="#f5efe7">BLACK INK / BONE PAPER / CRIMSON EYE</text>
+    <text x="64" y="546" fill="#9f9289">GPT 5.6 · CLAUDE · GROK 4.6 · DEEPSEEK V4 PRO · GLM 5.3</text>
+  </g>
+  <g transform="translate(803 20)">
+    <path d="M252 36c142 8 260 79 326 197l-44 455H60L8 543C27 281 101 77 252 36Z" fill="#0a0909"/>
+    <path d="M238 48C135 64 69 151 48 297c-13 89 2 214 30 346h423c13-144 1-314-44-426C414 110 339 54 238 48Z" fill="#f5efe7"/>
+    <path d="M60 207C83 101 152 43 250 39c83 0 163 38 218 118-110-54-257-47-408 50Z" fill="#0a0909"/>
+    <path d="M72 259C129 195 194 166 270 161c-21 55-30 130-28 225-52 13-104 1-170-39Z" fill="#090808"/>
+    <path d="M378 166c69 25 120 78 153 158-71-30-125-28-167 6-25-54-20-109 14-164Z" fill="#090808"/>
+    <path d="M278 177c47-1 87 13 120 44-51 18-82 41-93 69-45-28-67-61-27-113Z" fill="#24201f"/>
+    <path d="M190 206c-20 75-19 158 4 249 39 39 113 57 188 22 27-71 40-151 22-242-41-28-151-43-214-29Z" fill="#e8e0d6"/>
+    <path d="M203 234c33-24 76-25 112-5-31 17-69 21-112 5Z" fill="#13100f"/>
+    <path d="M344 234c29-21 62-20 91 2-26 20-57 21-91-2Z" fill="#13100f"/>
+    <ellipse cx="257" cy="237" rx="17" ry="14" fill="#e3353d"/>
+    <ellipse cx="257" cy="237" rx="5" ry="5" fill="#f5efe7"/>
+    <path d="M384 242c11 5 23 5 36 0" fill="none" stroke="#0a0909" stroke-width="5" stroke-linecap="round"/>
+    <path d="M189 382c55 41 145 47 211 1 16 43 10 107-13 160H204c-27-55-35-110-15-161Z" fill="#0a0909"/>
+    <path d="M211 421l165-5M214 455l158-5M220 489l147-5" stroke="#e3353d" stroke-width="4"/>
+    <path d="M156 545l-72 118M204 552l-65 114M415 548l60 115M456 541l71 116" fill="none" stroke="#e3353d" stroke-width="8" stroke-linecap="round"/>
+    <path d="M40 56h61M22 73h93M457 58h86" stroke="#e3353d" stroke-width="4"/>
+    <path d="M47 591h455" stroke="#e3353d" stroke-width="2" opacity=".76"/>
+  </g>
+  <g transform="translate(64 634)">
+    <rect width="227" height="41" fill="#e3353d"/>
+    <text x="17" y="27" fill="#fff7f3" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" letter-spacing="3">CHA / ACTIVE</text>
+    <text x="254" y="27" fill="#c9bdb3" font-family="Arial, Helvetica, sans-serif" font-size="15" letter-spacing="3">BREAK//OPEN / 2.1.0</text>
+  </g>
+  <path d="M0 710h1600" stroke="#f5efe7" stroke-width="1" opacity=".25"/>
+</svg>

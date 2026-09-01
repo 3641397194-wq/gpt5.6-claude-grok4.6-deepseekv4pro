@@ -40,7 +40,7 @@ function renderProfiles() {
 
 function renderChannels() {
   ui.channelBar.replaceChildren();
-  const all = { id: "ALL", label: "全开", hint: "自动选择 · 按当前目标组织工作链", color: "#55d7c3" };
+  const all = { id: "ALL", label: "全开", hint: "自动选择 · 按当前目标组织工作链", color: "#d42b31" };
   [all, ...meta.channels].forEach((item) => {
     const button = document.createElement("button");
     button.className = `channel-tab${item.id === channel ? " is-on" : ""}`;
@@ -123,4 +123,3 @@ document.querySelectorAll(".nav-item").forEach((button) => button.addEventListen
 document.addEventListener("keydown", (event) => { if (!(event.ctrlKey || event.metaKey)) return; const index = Number(event.key); if (index >= 1 && index <= 5) { event.preventDefault(); document.querySelector(`.nav-item:nth-child(${index})`)?.click(); } });
 setInterval(() => { ui.clock.textContent = now(); }, 1000);
 boot();
-
