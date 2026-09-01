@@ -1,8 +1,8 @@
-# ColdBrew Zero
+# gpt5.6-claude-grok4.6-deepseekv4pro-glm5.3破甲越狱
 
 An original, local-first prompt workbench with a new Breakline blueprint identity. The brand activation word remains **冷咖啡**; the control phrase is **BREAK//OPEN**.
 
-The full desktop edition is included under `desktop/` with the original workbench shape: splash screen, four model seats, five work channels, explicit target input, activity stream, result panel, isolation status, and community links.
+The full desktop edition is included under `desktop/` with the original workbench shape: splash screen, five model seats including GLM 5.3, five work channels, explicit target input, activity stream, result panel, isolation status, and community links.
 
 ```powershell
 cd desktop

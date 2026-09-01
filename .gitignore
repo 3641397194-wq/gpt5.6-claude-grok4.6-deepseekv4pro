@@ -4,3 +4,4 @@ __pycache__/
 .venv/
 desktop/node_modules/
 desktop/dist/
+desktop/assets/icon-source.jpg

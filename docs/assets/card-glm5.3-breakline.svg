@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 420" role="img" aria-labelledby="title desc">
+  <title id="title">GLM 5.3 ColdBrew Breakline seat</title>
+  <desc id="desc">An original GLM 5.3 model seat card for the ColdBrew Zero workbench.</desc>
+  <rect width="760" height="420" fill="#101820"/>
+  <rect x="24" y="24" width="712" height="372" fill="#14242d" stroke="#3c5964" stroke-width="2"/>
+  <path d="M24 112H736M24 332H736M476 24V396" stroke="#29404a"/>
+  <text x="52" y="78" fill="#8eaab3" font-family="Arial,sans-serif" font-size="16" letter-spacing="4">SEAT 05 / GLM 5.3</text>
+  <text x="52" y="190" fill="#f3f6f2" font-family="Arial,sans-serif" font-size="54" font-weight="700">GLM 5.3</text>
+  <text x="54" y="234" fill="#6ce6c0" font-family="Arial,sans-serif" font-size="22" font-weight="700">破甲越狱 · 越界重写</text>
+  <text x="54" y="278" fill="#9bb0b8" font-family="Arial,sans-serif" font-size="17">A fresh seat for structured reasoning and fast reframing.</text>
+  <rect x="54" y="320" width="150" height="34" fill="#6ce6c0"/>
+  <text x="129" y="343" text-anchor="middle" fill="#101820" font-family="monospace" font-size="14" font-weight="700">READY / 05</text>
+  <g transform="translate(552 94)">
+    <circle cx="74" cy="74" r="70" fill="#0b1118" stroke="#f8ba5c" stroke-width="2"/>
+    <circle cx="74" cy="74" r="44" fill="none" stroke="#6ce6c0" stroke-width="3" stroke-dasharray="6 8"/>
+    <path d="M74 8V140M8 74H140" stroke="#ff7666" stroke-width="2"/>
+    <text x="74" y="82" text-anchor="middle" fill="#f8ba5c" font-family="monospace" font-size="22" font-weight="700">GLM</text>
+  </g>
+</svg>

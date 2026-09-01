@@ -11,6 +11,8 @@ from dataclasses import dataclass
 
 ACTIVATION_WORD = "冷咖啡"
 CONTROL_WORD = "BREAK//OPEN"
+APP_TITLE = "gpt5.6-claude-grok4.6-deepseekv4pro-glm5.3破甲越狱"
+MODELS = ("GPT-5.6", "Claude", "Grok 4.6", "DeepSeek v4 Pro", "GLM 5.3")
 
 
 @dataclass(frozen=True)
@@ -65,8 +67,10 @@ def main(argv: list[str] | None = None) -> int:
         return 2
     payload = {
         "ok": True,
+        "title": APP_TITLE,
         "activation": ACTIVATION_WORD,
         "control": CONTROL_WORD,
+        "models": list(MODELS),
         "profile": profile.name,
         "stages": list(profile.stages),
         "prompt": output,
@@ -77,4 +81,3 @@ def main(argv: list[str] | None = None) -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-

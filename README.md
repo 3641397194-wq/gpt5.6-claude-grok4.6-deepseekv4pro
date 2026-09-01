@@ -1,15 +1,15 @@
 <div align="center">
 
-<img src="docs/assets/hero-breakline-v1.svg" width="940" alt="ColdBrew Zero Breakline 主视觉" />
+<img src="docs/assets/product-icon.png" width="128" alt="冷咖啡软件图标" />
 
-# 冷咖啡 / ColdBrew Zero
+# [gpt5.6-claude-grok4.6-deepseekv4pro](https://github.com/3641397194-wq/gpt5.6-claude-grok4.6-deepseekv4pro)-glm5.3破甲越狱
 
-**破甲思路 · 越界表达 · 本地优先的 BREAK//OPEN 工作台。**
+**冷咖啡 / ColdBrew Zero · 破甲思路 · 越界表达 · 本地优先的 BREAK//OPEN 工作台。**
 
 <p>
   <img src="https://img.shields.io/badge/品牌启动词-冷咖啡-ff8a55?style=for-the-badge&labelColor=090d11" alt="品牌启动词 冷咖啡" />
   <img src="https://img.shields.io/badge/控制词-BREAK%2F%2FOPEN-55d7c3?style=for-the-badge&labelColor=090d11" alt="控制词 BREAK OPEN" />
-  <img src="https://img.shields.io/badge/版本-1.0.0-7aa2ff?style=for-the-badge&labelColor=090d11" alt="版本 1.0.0" />
+  <img src="https://img.shields.io/badge/版本-2.1.0-7aa2ff?style=for-the-badge&labelColor=090d11" alt="版本 2.1.0" />
 </p>
 
 </div>
@@ -22,13 +22,13 @@
   <img src="docs/assets/hero-breakline-v1.svg" width="940" alt="ColdBrew Zero Breakline 工作台" />
 </div>
 
-冷咖啡 Zero 是一套从零原创的本地优先提示词工作台。主页升级为“断锁蓝图”视觉：深色工程底、青绿信号线、暖金标注和清晰的目标锁定模块。品牌启动词继续使用 **冷咖啡**，控制词使用 **BREAK//OPEN**。主页、架构图、通道板、模型卡和社群宣传素材全部集中在 `docs/`。
+这是 **gpt5.6-claude-grok4.6-deepseekv4pro-glm5.3破甲越狱** 的原创发布页。冷咖啡是品牌启动词，`BREAK//OPEN` 是工作控制词；主页采用全新断锁蓝图视觉，五个模型席位共用一条清晰工作链。
 
 ## 快速运行
 
 ### 完整桌面版
 
-桌面版保留原来的工作台形态：启动页、指挥台、四个模型席位、五个工作通道、目标输入、活动流、结果面板、隔离状态和社群入口。
+桌面版保留工作台形态：启动页、指挥台、五个模型席位、五个工作通道、目标输入、活动流、结果面板、隔离状态和社群入口。
 
 ```powershell
 cd desktop
@@ -65,13 +65,14 @@ python coldbrew.py --activate 冷咖啡 --profile MAX --prompt "把这段需求�
 
 控制词与品牌词分离：**冷咖啡**负责启动品牌会话，**BREAK//OPEN**负责选择工作链。
 
-## 四个视觉席位
+## 五个视觉席位
 
 <div align="center">
   <img src="docs/assets/card-codex-coldbrew.png" width="210" alt="Codex ColdBrew" />
   <img src="docs/assets/card-claude-coldbrew.png" width="210" alt="Claude ColdBrew" />
   <img src="docs/assets/card-grok4.6-coldbrew.png" width="210" alt="Grok ColdBrew" />
   <img src="docs/assets/card-deepseek-harness.png" width="210" alt="DeepSeek Harness" />
+  <img src="docs/assets/card-glm5.3-breakline.svg" width="210" alt="GLM 5.3 Breakline" />
 </div>
 
 ## 架构与通道板
@@ -94,6 +95,10 @@ python coldbrew.py --activate 冷咖啡 --profile MAX --prompt "把这段需求�
 | QQ 专题群 | `1077074552` |
 | Telegram 群 | [@chachachacha99999](https://t.me/chachachacha99999) |
 | Telegram 频道 | [@chachachacha99999999](https://t.me/chachachacha99999999) |
+
+## 软件图标
+
+<p align="center"><img src="docs/assets/product-icon.png" width="180" alt="冷咖啡软件图标"></p>
 
 ## 原创与隔离
 

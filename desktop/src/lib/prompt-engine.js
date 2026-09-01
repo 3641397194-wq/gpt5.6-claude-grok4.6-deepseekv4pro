@@ -1,5 +1,6 @@
 const ACTIVATION_WORD = "冷咖啡";
 const CONTROL_WORD = "BREAK//OPEN";
+const APP_TITLE = "gpt5.6-claude-grok4.6-deepseekv4pro-glm5.3破甲越狱";
 
 const PROFILES = [
   { id: "max", label: "MAX / 全开", tone: "完整、直接、可继续", stages: ["OBJECTIVE", "CONTEXT", "OUTPUT", "CHECK"] },
@@ -14,6 +15,7 @@ const SEATS = [
   { id: "claude", tag: "Claude Code", name: "Claude", accent: "#ff9e7a", short: "长会话与规则组织", mark: "02" },
   { id: "grok", tag: "Grok 4.6", name: "Grok", accent: "#5ee7ff", short: "实时信息流与模板", mark: "03" },
   { id: "deepseek", tag: "DeepSeek v4 Pro", name: "DeepSeek", accent: "#7aa2ff", short: "深度推理与会话导出", mark: "04" },
+  { id: "glm53", tag: "GLM 5.3", name: "GLM", accent: "#b69cff", short: "破甲越狱与越界重写", mark: "05" },
 ];
 
 const CHANNELS = [
@@ -50,5 +52,4 @@ function activate({ word, profile, channel, prompt }) {
   return compose({ profile, channel, prompt });
 }
 
-module.exports = { ACTIVATION_WORD, CONTROL_WORD, PROFILES, SEATS, CHANNELS, compose, activate };
-
+module.exports = { ACTIVATION_WORD, CONTROL_WORD, APP_TITLE, PROFILES, SEATS, CHANNELS, compose, activate };

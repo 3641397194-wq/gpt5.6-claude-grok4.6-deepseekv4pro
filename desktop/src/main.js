@@ -1,7 +1,7 @@
 const { app, BrowserWindow, ipcMain, shell } = require("electron");
 const path = require("node:path");
 const fs = require("node:fs");
-const { ACTIVATION_WORD, CONTROL_WORD, PROFILES, SEATS, CHANNELS, activate } = require("./lib/prompt-engine");
+const { ACTIVATION_WORD, CONTROL_WORD, APP_TITLE, PROFILES, SEATS, CHANNELS, activate } = require("./lib/prompt-engine");
 
 const COMMUNITY = {
   qq: [{ name: "交流群", value: "1057540028" }, { name: "专题群", value: "1077074552" }],
@@ -22,6 +22,7 @@ function createSplash() {
     resizable: false,
     show: false,
     backgroundColor: "#080b0f",
+    title: APP_TITLE,
     webPreferences: { contextIsolation: true, sandbox: true },
   });
   splashWindow.loadFile(path.join(__dirname, "splash", "index.html"));
@@ -37,6 +38,7 @@ function createMain() {
     frame: false,
     show: false,
     backgroundColor: "#0b0f14",
+    title: APP_TITLE,
     autoHideMenuBar: true,
     webPreferences: {
       preload: path.join(__dirname, "preload.js"),
@@ -51,11 +53,12 @@ function createMain() {
 ipcMain.handle("coldbrew:meta", () => ({
   activation: ACTIVATION_WORD,
   control: CONTROL_WORD,
+  title: APP_TITLE,
   profiles: PROFILES,
   seats: SEATS,
   channels: CHANNELS,
   community: COMMUNITY,
-  version: "2.0.0",
+  version: "2.1.0",
 }));
 
 ipcMain.handle("coldbrew:activate", (_event, payload = {}) => activate({

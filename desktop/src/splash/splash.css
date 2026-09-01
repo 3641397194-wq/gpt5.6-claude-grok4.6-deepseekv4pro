@@ -7,7 +7,7 @@ main { position:relative; width:min(680px,calc(100% - 80px)); }
 .mark span { color:var(--teal); }
 .eyebrow { margin:34px 0 18px; color:var(--muted); font:11px ui-monospace,monospace; letter-spacing:.24em; }
 h1 { margin:0; font-size:clamp(70px,12vw,132px); line-height:.88; letter-spacing:.04em; }
-h2 { margin:20px 0 10px; color:var(--orange); font:700 32px ui-monospace,monospace; letter-spacing:.12em; }
+h2 { margin:20px 0 10px; color:var(--orange); font:700 32px ui-monospace,monospace; letter-spacing:.12em; } h2 small { color:var(--teal); font-size:12px; letter-spacing:.16em; vertical-align:middle; }
 h2 span { color:var(--teal); }
 .sub { color:var(--muted); font-size:17px; }
 .loading { display:flex; gap:8px; margin-top:72px; }
@@ -15,4 +15,3 @@ h2 span { color:var(--teal); }
 .loading i:nth-child(2) { animation-delay:.12s; }.loading i:nth-child(3) { animation-delay:.24s; }.loading i:nth-child(4) { animation-delay:.36s; }.loading i:nth-child(5) { animation-delay:.48s; }
 .caption { margin-top:16px; color:var(--muted); font:10px ui-monospace,monospace; letter-spacing:.18em; }
 @keyframes pulse { 0%,100% { background:var(--line); } 50% { background:var(--orange); } }
-
