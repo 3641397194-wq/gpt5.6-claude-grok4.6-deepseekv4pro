@@ -311,7 +311,7 @@ button { cursor: pointer; }
 .section-heading > p { max-width: 360px; margin: 0; color: var(--muted); font-size: 12px; }
 .ready-count { color: var(--red-bright); font: 700 25px ui-monospace, monospace; }
 .ready-count small { display: block; color: var(--dim); font-size: 9px; text-align: right; letter-spacing: .14em; }
-.seat-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; }
+.seat-grid { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; }
 .seat-card {
   position: relative;
   min-width: 0;
@@ -363,6 +363,10 @@ button { cursor: pointer; }
 footer { display: flex; justify-content: space-between; gap: 12px; border-top: 1px solid var(--line); padding: 19px 0 0; color: var(--dim); font: 9px ui-monospace, monospace; letter-spacing: .09em; }
 .toast { position: fixed; right: 24px; bottom: 22px; transform: translateY(15px); opacity: 0; padding: 10px 15px; border: 1px solid var(--red); background: #241112; color: #ffd8d9; font-size: 12px; pointer-events: none; transition: .2s ease; }
 .toast.show { transform: translateY(0); opacity: 1; }
+
+@media (max-width: 1280px) {
+  .seat-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
 
 @media (max-width: 1050px) {
   .content { padding: 0 22px 35px; }

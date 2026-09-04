@@ -8,9 +8,9 @@
 
 # ColdBrew Zero / CHA
 
-### gpt5.6-claude-grok4.6-deepseekv4pro-glm5.3
+### gpt5.6-claude-grok4.6-deepseekv4pro-glm5.3-gemini
 
-**BREAK//OPEN** &nbsp;|&nbsp; **NOIR MANGA RELEASE 2.1.0**
+**BREAK//OPEN** &nbsp;|&nbsp; **NOIR MANGA RELEASE 2.2.0**
 
 <sub>An original dark-manga visual system built from black ink, bone paper, a single crimson eye, and torn comic panels.</sub>
 
@@ -33,6 +33,10 @@ python coldbrew.py --activate 冷咖啡 --profile MAX --prompt "Turn this reques
 ```
 
 ```powershell
+python coldbrew.py --activate 冷咖啡 --seat gemini --action deploy --json
+```
+
+```powershell
 cd desktop
 npm install
 npm start
@@ -40,12 +44,14 @@ npm start
 
 Build the Windows portable package with `npm run pack:win`.
 
-## 02 / Five Seats
+The Gemini seat writes the pack into `%USERPROFILE%\.gemini\GEMINI.md`. Originals go to `%USERPROFILE%\.gemini\cha-backups\`. Use `verify` and `restore` for the marked block.
 
-`GPT-5.6 / Codex`, `Claude Code`, `Grok 4.6`, `DeepSeek v4 Pro`, and `GLM 5.3` share the same night desk.
+## 02 / Six Seats
+
+`GPT-5.6 / Codex`, `Claude Code`, `Grok 4.6`, `DeepSeek v4 Pro`, `GLM 5.3`, and `Gemini` share the same night desk.
 
 <div align="center">
-  <img src="docs/assets/readme-noir-seats.svg" width="100%" alt="Five model seats" />
+  <img src="docs/assets/readme-noir-seats.svg" width="100%" alt="Six model seats" />
 </div>
 
 ## 03 / Community Signal
@@ -73,6 +79,6 @@ Build the Windows portable package with `npm run pack:win`.
 
 <div align="center">
 
-`CHA / COLD BREW ZERO / BREAK//OPEN / GLM 5.3 / 2.1.0`
+`CHA / COLD BREW ZERO / BREAK//OPEN / GLM 5.3 / GEMINI / 2.2.0`
 
 </div>

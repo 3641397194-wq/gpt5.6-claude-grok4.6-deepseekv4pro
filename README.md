@@ -8,9 +8,9 @@
 
 # 冷咖啡 / CHA
 
-### gpt5.6-claude-grok4.6-deepseekv4pro-glm5.3破甲越狱
+### gpt5.6-claude-grok4.6-deepseekv4pro-glm5.3-gemini破甲越狱
 
-**COLD BREW ZERO** &nbsp;|&nbsp; **BREAK//OPEN** &nbsp;|&nbsp; **NOIR MANGA RELEASE 2.1.0**
+**COLD BREW ZERO** &nbsp;|&nbsp; **BREAK//OPEN** &nbsp;|&nbsp; **NOIR MANGA RELEASE 2.2.0**
 
 <sub>黑墨、骨白、猩红单眼与断页分镜组成的原创暗黑漫画视觉系统。</sub>
 
@@ -41,6 +41,10 @@ python coldbrew.py --activate 冷咖啡 --profile MAX --prompt "把这段需求�
 ```
 
 ```powershell
+python coldbrew.py --activate 冷咖啡 --seat gemini --action deploy --json
+```
+
+```powershell
 cd desktop
 npm install
 npm start
@@ -48,12 +52,14 @@ npm start
 
 Windows 便携包构建：`npm run pack:win`
 
+Gemini 席位点桌面「运行」或走上面的 `deploy`，会把破甲包写入 `%USERPROFILE%\.gemini\GEMINI.md`，原文件备份在 `%USERPROFILE%\.gemini\cha-backups\`。`verify` 检查标记块，`restore` 回滚。
+
 ## 02 / 模型席位
 
-五个模型保留在同一张黑白底片上：`GPT-5.6 / Codex`、`Claude Code`、`Grok 4.6`、`DeepSeek v4 Pro` 与 `GLM 5.3`。
+六个模型保留在同一张黑白底片上：`GPT-5.6 / Codex`、`Claude Code`、`Grok 4.6`、`DeepSeek v4 Pro`、`GLM 5.3` 与 `Gemini`。
 
 <div align="center">
-  <img src="docs/assets/readme-noir-seats.svg" width="100%" alt="五个模型的暗黑漫画席位海报" />
+  <img src="docs/assets/readme-noir-seats.svg" width="100%" alt="六个模型的暗黑漫画席位海报" />
 </div>
 
 ## 03 / 社群信号
@@ -81,6 +87,6 @@ Windows 便携包构建：`npm run pack:win`
 
 <div align="center">
 
-`CHA / COLD BREW ZERO / BREAK//OPEN / GLM 5.3 / 2.1.0`
+`CHA / COLD BREW ZERO / BREAK//OPEN / GLM 5.3 / GEMINI / 2.2.0`
 
 </div>

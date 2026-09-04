@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 420" role="img" aria-labelledby="title desc">
+  <title id="title">Gemini ColdBrew Breakline seat</title>
+  <desc id="desc">An original Gemini model seat card for the ColdBrew Zero workbench.</desc>
+  <rect width="760" height="420" fill="#0a0909"/>
+  <rect x="24" y="24" width="712" height="372" fill="#141110" stroke="#9d252b" stroke-width="2"/>
+  <path d="M24 112H736M24 332H736M476 24V396" stroke="#4b1318"/>
+  <text x="52" y="78" fill="#f1b3b5" font-family="Arial,sans-serif" font-size="16" letter-spacing="4">SEAT 06 / GEMINI</text>
+  <text x="52" y="190" fill="#f3ebe1" font-family="Arial,sans-serif" font-size="54" font-weight="700">GEMINI</text>
+  <text x="54" y="234" fill="#e3353d" font-family="Arial,sans-serif" font-size="22" font-weight="700">破甲越狱 · GEMINI.md</text>
+  <text x="54" y="278" fill="#b8aaa0" font-family="Arial,sans-serif" font-size="17">Local instruction inject for Gemini CLI seats.</text>
+  <rect x="54" y="320" width="150" height="34" fill="#e3353d"/>
+  <text x="129" y="343" text-anchor="middle" fill="#0a0909" font-family="monospace" font-size="14" font-weight="700">READY / 06</text>
+  <g transform="translate(552 94)">
+    <circle cx="74" cy="74" r="70" fill="#120808" stroke="#e3353d" stroke-width="2"/>
+    <circle cx="74" cy="74" r="44" fill="none" stroke="#f3ebe1" stroke-width="3" stroke-dasharray="6 8"/>
+    <path d="M74 8V140M8 74H140" stroke="#9d252b" stroke-width="2"/>
+    <text x="74" y="82" text-anchor="middle" fill="#f3ebe1" font-family="monospace" font-size="18" font-weight="700">GEM</text>
+  </g>
+</svg>

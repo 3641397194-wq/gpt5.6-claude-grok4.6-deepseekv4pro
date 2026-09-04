@@ -1,15 +1,15 @@
 {
   "name": "coldbrew-zero-desktop",
-  "productName": "gpt5.6-claude-grok4.6-deepseekv4pro-glm5.3破甲越狱",
-  "version": "2.1.0",
+  "productName": "gpt5.6-claude-grok4.6-deepseekv4pro-glm5.3-gemini破甲越狱",
+  "version": "2.2.0",
   "private": true,
-  "description": "gpt5.6-claude-grok4.6-deepseekv4pro-glm5.3破甲越狱 · BREAK//OPEN 工作台",
+  "description": "gpt5.6-claude-grok4.6-deepseekv4pro-glm5.3-gemini破甲越狱 · BREAK//OPEN 工作台",
   "main": "src/main.js",
   "author": "3641397194-wq",
   "license": "MIT",
   "scripts": {
     "start": "electron .",
-    "check": "node --check src/main.js && node --check src/preload.js && node --check src/renderer/app.js && node --check src/lib/prompt-engine.js",
+    "check": "node --check src/main.js && node --check src/preload.js && node --check src/renderer/app.js && node --check src/lib/prompt-engine.js && node --check src/lib/gemini-seat.js",
     "pack:win": "electron-builder --win portable --publish never",
     "pack:mac": "electron-builder --mac dmg zip --publish never",
     "pack:linux": "electron-builder --linux AppImage deb --publish never"
@@ -20,7 +20,7 @@
   },
   "build": {
     "appId": "app.coldbrew.zero",
-    "productName": "gpt5.6-claude-grok4.6-deepseekv4pro-glm5.3破甲越狱",
+    "productName": "gpt5.6-claude-grok4.6-deepseekv4pro-glm5.3-gemini破甲越狱",
     "directories": { "output": "dist" },
     "files": ["src/**/*", "assets/**/*", "package.json"],
     "extraResources": [{ "from": "../docs", "to": "public/docs", "filter": ["**/*"] }],

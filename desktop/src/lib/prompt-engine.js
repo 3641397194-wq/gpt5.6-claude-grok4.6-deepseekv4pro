@@ -1,6 +1,6 @@
 const ACTIVATION_WORD = "冷咖啡";
 const CONTROL_WORD = "BREAK//OPEN";
-const APP_TITLE = "gpt5.6-claude-grok4.6-deepseekv4pro-glm5.3破甲越狱";
+const APP_TITLE = "gpt5.6-claude-grok4.6-deepseekv4pro-glm5.3-gemini破甲越狱";
 
 const PROFILES = [
   { id: "max", label: "MAX / 全开", tone: "完整、直接、可继续", stages: ["OBJECTIVE", "CONTEXT", "OUTPUT", "CHECK"] },
@@ -16,6 +16,7 @@ const SEATS = [
   { id: "grok", tag: "Grok 4.6", name: "Grok", accent: "#9d252b", short: "实时信息流与模板", mark: "03" },
   { id: "deepseek", tag: "DeepSeek v4 Pro", name: "DeepSeek", accent: "#ef4348", short: "深度推理与会话导出", mark: "04" },
   { id: "glm53", tag: "GLM 5.3", name: "GLM", accent: "#4b1318", short: "破甲越狱与越界重写", mark: "05" },
+  { id: "gemini", tag: "Gemini", name: "Gemini", accent: "#ef4348", short: "GEMINI.md 破甲注入", mark: "06" },
 ];
 
 const CHANNELS = [

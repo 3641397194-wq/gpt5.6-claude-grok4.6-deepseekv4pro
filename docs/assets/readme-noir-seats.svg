@@ -1,21 +1,46 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 390" role="img" aria-labelledby="title desc">
   <title id="title">ColdBrew Zero model poster</title>
-  <desc id="desc">An original black and red manga-poster display of the five model seats.</desc>
+  <desc id="desc">An original black and red manga-poster display of the six model seats.</desc>
   <rect width="1600" height="390" fill="#0a0909"/>
   <path d="M0 0h1600v390H0z" fill="#f3ebe1" opacity=".035"/>
   <g stroke="#72514d" stroke-width="1">
-    <path d="M28 40h1544M28 350h1544"/><path d="M320 40v310M625 40v310M930 40v310M1235 40v310"/>
+    <path d="M24 40h1552M24 350h1552"/>
+    <path d="M284 40v310M544 40v310M804 40v310M1064 40v310M1324 40v310"/>
   </g>
   <g font-family="Arial, Helvetica, sans-serif">
-    <text x="54" y="88" fill="#e3353d" font-size="15" letter-spacing="5">FIVE VOICES / ONE NIGHT</text>
-    <text x="54" y="143" fill="#f3ebe1" font-size="35" font-weight="700">GPT-5.6</text><text x="54" y="174" fill="#b8aaa0" font-size="15" letter-spacing="2">CODEX / SEAT 01</text>
-    <text x="347" y="143" fill="#f3ebe1" font-size="35" font-weight="700">CLAUDE</text><text x="347" y="174" fill="#b8aaa0" font-size="15" letter-spacing="2">CODE / SEAT 02</text>
-    <text x="652" y="143" fill="#f3ebe1" font-size="35" font-weight="700">GROK 4.6</text><text x="652" y="174" fill="#b8aaa0" font-size="15" letter-spacing="2">LIVE / SEAT 03</text>
-    <text x="957" y="143" fill="#f3ebe1" font-size="35" font-weight="700">DEEPSEEK</text><text x="957" y="174" fill="#b8aaa0" font-size="15" letter-spacing="2">V4 PRO / SEAT 04</text>
-    <text x="1262" y="143" fill="#e3353d" font-size="35" font-weight="700">GLM 5.3</text><text x="1262" y="174" fill="#f1b3b5" font-size="15" letter-spacing="2">CHA / SEAT 05</text>
+    <text x="40" y="82" fill="#e3353d" font-size="13" letter-spacing="4">SIX VOICES / ONE NIGHT</text>
+    <text x="40" y="138" fill="#f3ebe1" font-size="26" font-weight="700">GPT-5.6</text>
+    <text x="40" y="168" fill="#b8aaa0" font-size="12" letter-spacing="2">CODEX / 01</text>
+    <text x="300" y="138" fill="#f3ebe1" font-size="26" font-weight="700">CLAUDE</text>
+    <text x="300" y="168" fill="#b8aaa0" font-size="12" letter-spacing="2">CODE / 02</text>
+    <text x="560" y="138" fill="#f3ebe1" font-size="26" font-weight="700">GROK 4.6</text>
+    <text x="560" y="168" fill="#b8aaa0" font-size="12" letter-spacing="2">LIVE / 03</text>
+    <text x="820" y="138" fill="#f3ebe1" font-size="26" font-weight="700">DEEPSEEK</text>
+    <text x="820" y="168" fill="#b8aaa0" font-size="12" letter-spacing="2">V4 PRO / 04</text>
+    <text x="1080" y="138" fill="#e3353d" font-size="26" font-weight="700">GLM 5.3</text>
+    <text x="1080" y="168" fill="#f1b3b5" font-size="12" letter-spacing="2">CHA / 05</text>
+    <text x="1340" y="138" fill="#e3353d" font-size="26" font-weight="700">GEMINI</text>
+    <text x="1340" y="168" fill="#f1b3b5" font-size="12" letter-spacing="2">BREAK / 06</text>
   </g>
-  <g fill="none" stroke="#e3353d" stroke-width="5"><path d="M54 218h205M347 218h205M652 218h205M957 218h205M1262 218h255"/></g>
-  <g fill="#f3ebe1" opacity=".82"><circle cx="96" cy="276" r="18"/><circle cx="389" cy="276" r="18"/><circle cx="694" cy="276" r="18"/><circle cx="999" cy="276" r="18"/></g>
-  <circle cx="1304" cy="276" r="28" fill="#e3353d"/><circle cx="1304" cy="276" r="10" fill="#f3ebe1"/>
-  <g fill="#8d7f76" font-family="Arial, Helvetica, sans-serif" font-size="13" letter-spacing="2"><text x="54" y="325">DIRECT</text><text x="347" y="325">STRUCTURE</text><text x="652" y="325">PULSE</text><text x="957" y="325">DEPTH</text><text x="1262" y="325">REWRITE</text></g>
+  <g fill="none" stroke="#e3353d" stroke-width="5">
+    <path d="M40 210h188M300 210h188M560 210h188M820 210h188M1080 210h188M1340 210h216"/>
+  </g>
+  <g fill="#f3ebe1" opacity=".82">
+    <circle cx="76" cy="268" r="16"/>
+    <circle cx="336" cy="268" r="16"/>
+    <circle cx="596" cy="268" r="16"/>
+    <circle cx="856" cy="268" r="16"/>
+  </g>
+  <circle cx="1116" cy="268" r="24" fill="#9d252b"/>
+  <circle cx="1116" cy="268" r="8" fill="#f3ebe1"/>
+  <circle cx="1376" cy="268" r="28" fill="#e3353d"/>
+  <circle cx="1376" cy="268" r="10" fill="#f3ebe1"/>
+  <g fill="#8d7f76" font-family="Arial, Helvetica, sans-serif" font-size="12" letter-spacing="2">
+    <text x="40" y="324">DIRECT</text>
+    <text x="300" y="324">STRUCTURE</text>
+    <text x="560" y="324">PULSE</text>
+    <text x="820" y="324">DEPTH</text>
+    <text x="1080" y="324">REWRITE</text>
+    <text x="1340" y="324">INJECT</text>
+  </g>
 </svg>

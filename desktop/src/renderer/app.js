@@ -79,6 +79,17 @@ function renderCommunity() {
 }
 
 async function runSeat(seat, verb) {
+  if (seat.id === "gemini") {
+    log(`${seat.tag} / ${verb.toUpperCase()} 开始`);
+    const result = await window.coldbrew.gemini(verb);
+    ui.output.textContent = JSON.stringify(result, null, 2);
+    if (result?.text) ui.output.textContent = result.text;
+    const ok = result?.ok !== false;
+    log(`${seat.tag} / ${verb.toUpperCase()} ${ok ? "完成" : "未完成"}`, ok ? "ok" : "error");
+    toast(ok ? `Gemini ${verb} 完成` : "Gemini 席位需要检查");
+    if (verb === "run" || verb === "check" || verb === "restore") await inspect();
+    return;
+  }
   const prompt = ui.target.value.trim();
   if (!prompt) { ui.target.focus(); toast("请先输入明确目标"); log(`${seat.tag} ${verb} 等待目标输入`, "warn"); return; }
   log(`${seat.tag} / ${verb.toUpperCase()} 开始`);
