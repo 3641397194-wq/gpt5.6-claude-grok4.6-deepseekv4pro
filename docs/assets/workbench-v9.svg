@@ -24,7 +24,7 @@
   <g font-family="Segoe UI,sans-serif">
     <rect x="40" y="316" width="590" height="228" rx="12" fill="#FFF8F0" stroke="#E2D3C1"/>
     <rect x="40" y="316" width="590" height="4" fill="#C45C14"/>
-    <text x="64" y="364" fill="#2A1810" font-size="26" font-weight="700">GPT-5.6</text>
+    <text x="64" y="364" fill="#2A1810" font-size="26" font-weight="700">GPT-6 Astra</text>
     <text x="64" y="396" fill="#C45C14" font-size="12" font-family="Consolas,monospace">CODEX COLDBREW</text>
     <rect x="64" y="470" width="88" height="32" rx="6" fill="#C45C14"/><text x="108" y="491" text-anchor="middle" fill="#FFF8F0" font-size="13" font-family="Microsoft YaHei,sans-serif">开启</text>
     <rect x="650" y="316" width="590" height="228" rx="12" fill="#FFF8F0" stroke="#E2D3C1"/>

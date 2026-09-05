@@ -1,4 +1,4 @@
-# [gpt5.6-claude-grok4.6-deepseekv4pro](https://github.com/3641397194-wq/gpt5.6-claude-grok4.6-deepseekv4pro)-glm5.3-gemini破甲越狱 Desktop
+# [gpt6 Astra-claude-grok4.6-deepseekv4pro-glm5.3-gemini破甲越狱](https://github.com/3641397194-wq/gpt5.6-claude-grok4.6-deepseekv4pro) Desktop
 
 完整桌面工作台：启动页、指挥台、五档工作档位、五个 BREAK//OPEN 通道、六个模型席位（含 GLM 5.3 与 Gemini）、明确目标输入、活动流、结果面板、隔离状态与社群入口。
 

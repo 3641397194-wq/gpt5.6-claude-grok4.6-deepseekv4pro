@@ -8,7 +8,7 @@
 
 # 冷咖啡 / CHA
 
-### gpt5.6-claude-grok4.6-deepseekv4pro-glm5.3-gemini破甲越狱
+### gpt6 Astra-claude-grok4.6-deepseekv4pro-glm5.3-gemini破甲越狱
 
 **COLD BREW ZERO** &nbsp;|&nbsp; **BREAK//OPEN** &nbsp;|&nbsp; **NOIR MANGA RELEASE 2.2.0**
 
@@ -56,7 +56,7 @@ Gemini 席位点桌面「运行」或走上面的 `deploy`，会把破甲包写�
 
 ## 02 / 模型席位
 
-六个模型保留在同一张黑白底片上：`GPT-5.6 / Codex`、`Claude Code`、`Grok 4.6`、`DeepSeek v4 Pro`、`GLM 5.3` 与 `Gemini`。
+六个模型保留在同一张黑白底片上：`GPT-6 Astra / Codex`、`Claude Code`、`Grok 4.6`、`DeepSeek v4 Pro`、`GLM 5.3` 与 `Gemini`。
 
 <div align="center">
   <img src="docs/assets/readme-noir-seats.svg" width="100%" alt="六个模型的暗黑漫画席位海报" />
@@ -87,6 +87,6 @@ Gemini 席位点桌面「运行」或走上面的 `deploy`，会把破甲包写�
 
 <div align="center">
 
-`CHA / COLD BREW ZERO / BREAK//OPEN / GLM 5.3 / GEMINI / 2.2.0`
+`CHA / COLD BREW ZERO / BREAK//OPEN / GPT-6 ASTRA / GLM 5.3 / GEMINI / 2.2.0`
 
 </div>

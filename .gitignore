@@ -6,5 +6,7 @@ desktop/node_modules/
 desktop/dist/
 desktop/assets/icon-source.jpg
 _rollback_pre_gemini_20260904/
+_rollback_pre_astra_20260905/
 _gemini_test_home/
 _gemini_js_home/
+_render_title_astra.py

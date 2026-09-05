@@ -15,7 +15,11 @@ from gemini_seat import APP_TITLE as GEMINI_APP_TITLE
 ACTIVATION_WORD = "冷咖啡"
 CONTROL_WORD = "BREAK//OPEN"
 APP_TITLE = GEMINI_APP_TITLE
-MODELS = ("GPT-5.6", "Claude", "Grok 4.6", "DeepSeek v4 Pro", "GLM 5.3", "Gemini")
+MODELS = ("GPT-6 Astra", "Claude", "Grok 4.6", "DeepSeek v4 Pro", "GLM 5.3", "Gemini")
+
+
+def seat_slug(name: str) -> str:
+    return name.lower().replace(" ", "-")
 
 
 @dataclass(frozen=True)
@@ -53,7 +57,7 @@ def parse_args(argv: list[str]) -> argparse.Namespace:
     parser.add_argument("--profile", default="MAX", choices=sorted(PROFILES))
     parser.add_argument("--prompt", help="显式输入文本；省略时从标准输入读取")
     parser.add_argument("--json", action="store_true", help="输出结构化结果")
-    parser.add_argument("--seat", choices=tuple(item.lower() for item in MODELS), help="指定模型席位")
+    parser.add_argument("--seat", choices=tuple(seat_slug(item) for item in MODELS), help="指定模型席位")
     parser.add_argument("--action", default="compose", choices=("compose", "preview", "deploy", "verify", "restore"))
     parser.add_argument("--home", help="席位部署目录；Gemini 默认为 ~/.gemini")
     return parser.parse_args(argv)

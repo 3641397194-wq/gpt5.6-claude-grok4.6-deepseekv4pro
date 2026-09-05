@@ -16,7 +16,7 @@ MARKER_BEGIN = "<!-- CHA-GEMINI-POJIA:BEGIN -->"
 MARKER_END = "<!-- CHA-GEMINI-POJIA:END -->"
 ACTIVATION_WORD = "冷咖啡"
 CONTROL_WORD = "BREAK//OPEN"
-APP_TITLE = "gpt5.6-claude-grok4.6-deepseekv4pro-glm5.3-gemini破甲越狱"
+APP_TITLE = "gpt6 Astra-claude-grok4.6-deepseekv4pro-glm5.3-gemini破甲越狱"
 
 
 def resolve_home(home: str | os.PathLike[str] | None = None) -> Path:

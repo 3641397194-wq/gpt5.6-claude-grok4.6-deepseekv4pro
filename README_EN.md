@@ -8,7 +8,7 @@
 
 # ColdBrew Zero / CHA
 
-### gpt5.6-claude-grok4.6-deepseekv4pro-glm5.3-gemini
+### gpt6 Astra-claude-grok4.6-deepseekv4pro-glm5.3-gemini
 
 **BREAK//OPEN** &nbsp;|&nbsp; **NOIR MANGA RELEASE 2.2.0**
 
@@ -48,7 +48,7 @@ The Gemini seat writes the pack into `%USERPROFILE%\.gemini\GEMINI.md`. Original
 
 ## 02 / Six Seats
 
-`GPT-5.6 / Codex`, `Claude Code`, `Grok 4.6`, `DeepSeek v4 Pro`, `GLM 5.3`, and `Gemini` share the same night desk.
+`GPT-6 Astra / Codex`, `Claude Code`, `Grok 4.6`, `DeepSeek v4 Pro`, `GLM 5.3`, and `Gemini` share the same night desk.
 
 <div align="center">
   <img src="docs/assets/readme-noir-seats.svg" width="100%" alt="Six model seats" />
@@ -79,6 +79,6 @@ The Gemini seat writes the pack into `%USERPROFILE%\.gemini\GEMINI.md`. Original
 
 <div align="center">
 
-`CHA / COLD BREW ZERO / BREAK//OPEN / GLM 5.3 / GEMINI / 2.2.0`
+`CHA / COLD BREW ZERO / BREAK//OPEN / GPT-6 ASTRA / GLM 5.3 / GEMINI / 2.2.0`
 
 </div>

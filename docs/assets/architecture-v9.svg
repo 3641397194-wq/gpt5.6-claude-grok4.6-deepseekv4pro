@@ -10,7 +10,7 @@
     <rect x="40" y="122" width="280" height="118" rx="8" fill="#14202A" stroke="#2A4053"/>
     <rect x="40" y="122" width="6" height="118" rx="3" fill="#43E4D0"/>
     <text x="70" y="168" fill="#8DA5B6" font-size="12" font-family="Consolas,monospace">CODEX</text>
-    <text x="70" y="204" fill="#EDF6FB" font-size="26" font-weight="700">GPT-5.6</text>
+    <text x="70" y="204" fill="#EDF6FB" font-size="24" font-weight="700">GPT-6 Astra</text>
     <rect x="347" y="122" width="280" height="118" rx="8" fill="#14202A" stroke="#2A4053"/>
     <rect x="347" y="122" width="6" height="118" rx="3" fill="#B7F36B"/>
     <text x="377" y="168" fill="#8DA5B6" font-size="12" font-family="Consolas,monospace">CLAUDE</text>
