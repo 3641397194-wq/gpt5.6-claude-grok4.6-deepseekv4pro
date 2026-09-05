@@ -93,8 +93,8 @@ ipcMain.handle("coldbrew:open-docs", async () => {
     await shell.openPath(target);
     return target;
   }
-  await shell.openExternal("https://github.com/3641397194-wq/gpt5.6-claude-grok4.6-deepseekv4pro");
-  return "https://github.com/3641397194-wq/gpt5.6-claude-grok4.6-deepseekv4pro";
+  await shell.openExternal("https://github.com/3641397194-wq/gpt6-Astra-claude-grok4.6-deepseekv4pro");
+  return "https://github.com/3641397194-wq/gpt6-Astra-claude-grok4.6-deepseekv4pro";
 });
 
 ipcMain.handle("coldbrew:open-external", async (_event, value) => {
